@@ -1,6 +1,6 @@
-export * from './BaseContainer'
 export * from './Component'
 export * from './IContainer'
+export * from './BaseContainer'
 export * from './Container'
 export * from './IComponent'
 export * from './Sprite'
