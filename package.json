@@ -2,6 +2,7 @@
   "name": "hxg",
   "private": false,
   "version": "0.0.3",
+  "repository": "https://github.com/hxg2050/hxg.git",
   "type": "module",
   "scripts": {
     "dev": "vite",
