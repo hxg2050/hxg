@@ -1,10 +1,9 @@
-import Component from "../core/src/Component";
-import BaseContainer from "../core/src/components/BaseContainer";
+import { Component, BaseContainer } from "../core/component";
 // import Container from "../core/src/components/Container";
 // import IContainer from "../core/src/components/IContainer";
 // import Layout from "../core/src/components/Layout";
 // import Sprite from "../core/src/components/Sprite";
-import Transform, { Constructor } from "../core/src/Transform";
+import {Transform, Constructor } from "../core/transform";
 // import Vector2 from "../core/src/Vector2";
 
 interface ISceneConfig {

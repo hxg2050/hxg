@@ -1,11 +1,12 @@
-import Application from "./core/Application";
-import Renderer from "./core/render/Renderer";
-import Resource from "./core/resource/Resource";
-import Sprite from "./core/src/components/Sprite";
-import Transform from "./core/src/Transform";
-import Vector2 from "./core/src/Vector2";
-import Ticker from "./core/ticker/Ticker";
-
+// import Application from "./core/Application";
+// import Renderer from "./core/render/Renderer";
+// import Resource from "./core/resource/Resource";
+// import Sprite from "./core/src/components/Sprite";
+// import Transform from "./core/src/Transform";
+// import Vector2 from "./core/src/Vector2";
+// import Ticker from "./core/ticker/Ticker";
+import { Renderer, Resource, Sprite, Ticker, Transform, Vector2 } from '../src';
+import { Application } from '../src';
 /**
  * 创建应用
  */

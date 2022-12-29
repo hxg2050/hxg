@@ -1,6 +1,6 @@
-import Sprite from "../src/components/Sprite";
-import Matrix from "../src/Matrix";
-import Transform from "../src/Transform";
+import { Sprite } from "../component";
+import { Matrix } from "../math/Matrix";
+import { Transform } from "../transform";
 
 // export function imageGL(gl: WebGLRenderingContext, node: Transform<Sprite>) {
     

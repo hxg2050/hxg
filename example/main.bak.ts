@@ -1,12 +1,4 @@
-import Application from './core/Application';
-import Sprite from './core/src/components/Sprite';
-import Transform from './core/src/Transform';
-import './style.scss'
-// import hero from '../assets/images/hero_1_2.png'
-import Vector2 from './core/src/Vector2';
-import Layout from './core/src/components/Layout';
-// import IndexScene from './scripts/IndexScene';
-import Container from './core/src/components/Container';
+import { Application, Container, Layout, Sprite, Transform, Vector2 } from "../src";
 
 const app = Application.run({
   width: 1280,

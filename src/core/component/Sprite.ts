@@ -1,8 +1,8 @@
-import Transform from "../Transform";
-import BaseContainer from "./BaseContainer";
-import Vector2 from "../Vector2";
+import { Transform } from "../transform";
+import { BaseContainer } from "./BaseContainer";
+import { Vector2 } from "../math/Vector2";
 
-export default class Sprite extends BaseContainer {
+export class Sprite extends BaseContainer {
 
     constructor(transform: Transform) {
         super(transform);

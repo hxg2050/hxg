@@ -1,4 +1,4 @@
-import Ticker from "./core/ticker/Ticker";
+import { Ticker } from "../src";
 
 const ticker = new Ticker();
 // ticker.FPS = 7;

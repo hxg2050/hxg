@@ -1,13 +1,13 @@
-import Component from "../Component";
-import Transform from "../Transform";
-import Vector2 from "../Vector2";
+import { Component } from "../Component";
+import { Transform } from "../transform";
+import { Vector2 } from "../math/Vector2";
 
 /**
  * 控制布局
  * 当添加了控制布局组件后，原本的position、size和scale会被自动管控手动设置将不会生效
  * 当同时设置左右布局时，scale = {x: 1, y: 1}, 动态设置宽高
  */
-export default class Layout extends Component {
+export class Layout extends Component {
     oldPosition: Vector2 = new Vector2();
     oldSize: Vector2 = new Vector2();
     oldScale: Vector2 = new Vector2();

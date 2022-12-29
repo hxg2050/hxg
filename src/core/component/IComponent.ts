@@ -1,4 +1,4 @@
-export default interface IComponent {
+export interface IComponent {
     start(): void;
     update(): void;
     destroy(): void;

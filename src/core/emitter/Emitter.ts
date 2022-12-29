@@ -7,7 +7,7 @@ type EmitterKeyValue = {
 /**
  * 状态管理 发布-订阅器
  */
- class Emitter<T extends string = string> {
+export class Emitter<T extends string = string> {
 
     protected _on: EmitterKeyValue = {};
     protected _data: {
@@ -125,5 +125,3 @@ type EmitterKeyValue = {
         return typeof this._data[name] != 'undefined';
     }
 }
-
-export default Emitter;

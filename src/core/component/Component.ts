@@ -1,10 +1,10 @@
-import Emitter from "./Emitter";
-import IComponent from "./IComponent";
-import Transform, { Constructor } from "./Transform";
+import { Emitter } from '../emitter/Emitter'
+import { IComponent } from "./IComponent";
+import { Transform, Constructor } from "../transform";
 
 let idIndex = 0;
 
-export default class Component implements IComponent
+export class Component implements IComponent
  {
     id: number;
 

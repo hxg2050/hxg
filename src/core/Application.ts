@@ -1,12 +1,12 @@
-import Transform from './src/Transform';
-import Vector2 from './src/Vector2';
+import { Transform } from './transform';
+import { Vector2 } from './math/Vector2';
 
 export type Options = {
     width: number;
     height: number;
 }
 
-export default class Application {
+export class Application {
 
     config: Options = {
         width: 400,

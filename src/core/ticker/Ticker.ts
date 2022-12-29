@@ -1,9 +1,9 @@
-import Emitter from "../src/Emitter";
+import { Emitter } from "../emitter";
 
 /**
  * 刷新器
  */
-export default class Ticker extends Emitter {
+export class Ticker extends Emitter {
 
     /**
      * 每秒帧数

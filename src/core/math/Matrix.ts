@@ -1,5 +1,5 @@
-import Transform from "./Transform";
-import Vector2 from "./Vector2";
+import { Transform } from "../transform";
+import { Vector2 } from "./Vector2";
 //判断是否为 never 的类型工具
 type IsNever<T> = [T] extends [never] ? true : false
 // 用于判断两个泛型是否相同，只要一个泛型传入 Len, 零一个泛型传入 number，就能判断 Len 是否为 number 本身
@@ -22,7 +22,7 @@ type MatrixData = FixedArray<number, 6>;
  *  scale y, posi x, posi y
  *  0,       0,      1]
  */
-export default class Matrix {
+export class Matrix {
     value: MatrixData = [
         1, 0, 0,
         1, 0, 0

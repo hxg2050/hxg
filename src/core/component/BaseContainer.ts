@@ -1,8 +1,8 @@
-import Component from "../Component";
-import Transform from "../Transform";
-import IContainer from "./IContainer";
+import { Component } from "../Component";
+import { Transform } from "../transform";
+import { IContainer } from "./IContainer";
 
-export default abstract class BaseContainer extends Component implements IContainer {
+export abstract class BaseContainer extends Component implements IContainer {
     constructor(transform: Transform) {
         super(transform);
         this.node.container = this;

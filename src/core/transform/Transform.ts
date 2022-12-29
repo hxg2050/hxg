@@ -1,15 +1,14 @@
-import Ticker from "../ticker/Ticker";
-import Component from "./Component";
-import Container from "./components/Container";
-import Emitter from "./Emitter";
-import Vector2 from "./Vector2";
+import { Ticker } from "../ticker";
+import { Component, Container } from "../component";
+import { Emitter } from "../emitter";
+import { Vector2 } from "../math";
 
 export type Constructor<T = unknown> = new (...args: any[]) => T;
 
 const ticker = new Ticker();
 ticker.start();
 
-export default class Transform<T extends Container = Container> {
+export class Transform<T extends Container = Container> {
 
     name: string = 'node';
     emitter = new Emitter();

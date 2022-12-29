@@ -1,8 +1,7 @@
-import Application from "../Application";
-import Container from "../src/components/Container";
-import Sprite from "../src/components/Sprite";
-import Matrix from "../src/Matrix";
-import Transform, { Constructor } from "../src/Transform";
+import { Application } from "../Application";
+import { Container, Sprite } from "../component";
+import { Matrix } from "../math/Matrix";
+import { Transform, Constructor } from "../transform";
 import spriteRender from "./spriteRender";
 
 type RenderFunction<T extends Container> = (context: CanvasRenderingContext2D, matrix: Matrix, transform: Transform<T>, constructor: Constructor<T>) => void
@@ -12,10 +11,10 @@ type RenderAction<T extends Container = any> = [
     Constructor<T>, // 要渲染的类型
     RenderFunction<T> // 渲染的逻辑
 ];
-export default class Renderer {
+export class Renderer {
 
     renderActions: RenderAction[] = [
-        [ Sprite, spriteRender ]
+        [Sprite, spriteRender]
     ];
 
     constructor(public context: CanvasRenderingContext2D, public app: Application) {
@@ -32,7 +31,7 @@ export default class Renderer {
         if (parentMatrix) {
             matrix.prepend(parentMatrix);
         }
-        for (let j = 0; j < this.renderActions.length; j ++) {
+        for (let j = 0; j < this.renderActions.length; j++) {
             if (this._renderElement(transform, this.renderActions[j][0], matrix, this.renderActions[j][1])) {
                 break;
             }
@@ -40,7 +39,7 @@ export default class Renderer {
         if (transform.children.length == 0) {
             return;
         }
-        for (let i = 0; i < transform.children.length; i ++) {
+        for (let i = 0; i < transform.children.length; i++) {
             const child = transform.children[i];
             this._render(child, matrix);
         }

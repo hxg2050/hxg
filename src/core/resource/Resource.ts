@@ -1,7 +1,7 @@
 /**
  * 资源管理和加载
  */
-export default class Resource {
+export class Resource {
 
     static cache: { [props: string]: HTMLImageElement } = {};
 
