@@ -1,9 +1,10 @@
 {
   "name": "hxg",
   "private": false,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "repository": "https://github.com/hxg2050/hxg.git",
   "type": "module",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
