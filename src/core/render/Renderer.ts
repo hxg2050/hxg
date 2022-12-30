@@ -1,8 +1,10 @@
 import { Application } from "../Application";
 import { Container, Sprite } from "../component";
+import { Text } from "../component/Text";
 import { Matrix } from "../math/Matrix";
 import { Transform, Constructor } from "../transform";
 import spriteRender from "./spriteRender";
+import textRender from "./textRender";
 
 type RenderFunction<T extends Container> = (context: CanvasRenderingContext2D, matrix: Matrix, transform: Transform<T>, constructor: Constructor<T>) => void
 
@@ -14,7 +16,8 @@ type RenderAction<T extends Container = any> = [
 export class Renderer {
 
     renderActions: RenderAction[] = [
-        [Sprite, spriteRender]
+        [Sprite, spriteRender],
+        [Text, textRender],
     ];
 
     constructor(public context: CanvasRenderingContext2D, public app: Application) {

@@ -5,6 +5,8 @@ export * from './render';
 export * from './resource';
 export * from './ticker';
 export * from './transform';
+export * from './event';
+export * from './system';
 
 
 export * from './Application'

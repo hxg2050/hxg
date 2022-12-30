@@ -70,7 +70,7 @@ export class Matrix {
     setTransform(transform: Transform) {
         this.translate.set(transform.position);
         this.scale.set(transform.scale);
-        this.angle = transform.rotation;
+        this.angle = transform.rotation * Math.PI / 180;
         this.size.set(transform.size);
         this.offset.set(this.size).mul(transform.anchor);
 

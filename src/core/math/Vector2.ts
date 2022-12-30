@@ -8,9 +8,16 @@ export class Vector2 {
     public x: number = 0;
     public y: number = 0;
 
-    public set(vector2: Vector2) {
-        this.x = vector2.x;
-        this.y = vector2.y;
+    public set(x: number, y: number): Vector2;
+    public set(vector2: Vector2): Vector2;
+    public set(vector2: Vector2|number, y?: number) {
+        if (typeof vector2 == 'number') {
+            this.x = vector2;
+            this.y = y!;
+        } else {
+            this.x = vector2.x;
+            this.y = vector2.y;
+        }
         return this;
     }
 
@@ -29,6 +36,7 @@ export class Vector2 {
     public add(vector2: Vector2) {
         this.x += vector2.x;
         this.y += vector2.y;
+        return this;
     }
 
     /**

@@ -1,12 +1,7 @@
-// import Application from "./core/Application";
-// import Renderer from "./core/render/Renderer";
-// import Resource from "./core/resource/Resource";
-// import Sprite from "./core/src/components/Sprite";
-// import Transform from "./core/src/Transform";
-// import Vector2 from "./core/src/Vector2";
-// import Ticker from "./core/ticker/Ticker";
-import { Renderer, Resource, Sprite, Ticker, Transform, Vector2 } from '../src';
+import './style.scss';
+import { Renderer, Resource, Sprite, Ticker, TouchEvent, Transform, Vector2 } from '../src';
 import { Application } from '../src';
+import { Text } from '../src/core/component/Text';
 /**
  * 创建应用
  */
@@ -36,27 +31,61 @@ const ticker = new Ticker();
 ticker.start();
 ticker.on('update', renderer.render, renderer);
 
-
+const bgImg = new Transform(Sprite);
+const bg = bgImg.getComponent(Sprite)!;
 const source = '../assets/images/img.png';
+app.stage.addChild(bgImg);
+// bgImg.rotation = 45;
+bgImg.position.x = 200;
+bgImg.position.y = 200;
+// bgImg.scale = new Vector2(2, 2);
+bgImg.anchor = new Vector2(0.5, 0.5);
+
+const textNode = new Transform(Text);
+const text = textNode.getComponent(Text)!;
+text.value = '你好啊啊啊啊';
+bgImg.addChild(textNode);
+textNode.position.x = 0;
+textNode.position.y = 0;
+textNode.size.set(100, 100);
+text.autoWarp = true;
+text.fontSize = 33;
+// text.italic = true;
+// text.bold = true;
+text.color = '#FF0000';
+// textNode.rotation = 45;
+// textNode.anchor = new Vector2(0.5, 0.5);
+ticker.on('update', () => {
+	// bgImg.rotation += 1;
+});
+
+// 计算canvas缩放之后的鼠标或点击的缩放
+// 这个和屏幕适配有关系
+const stageWidth = app.config.width;
+const canvasRealWidth = canvas.clientWidth;
+const canvasScale = stageWidth / canvasRealWidth;
+canvas.addEventListener('click', (evt: MouseEvent) => {
+	app.eventSystem.emit(TouchEvent.TOUCH_TAP, {
+		x: evt.offsetX * canvasScale,
+		y: evt.offsetX * canvasScale,
+	});
+	console.log('click', evt);
+});
+
+bgImg.touch = true;
+bgImg.emitter.on(TouchEvent.TOUCH_TAP, () => {
+	console.log('触摸点击事件_bgImg');
+});
+textNode.touch = true;
+textNode.deliver = false;
+textNode.emitter.on(TouchEvent.TOUCH_TAP, () => {
+	console.log('触摸点击事件_textNode');
+});
+bgImg.name = 'bgImg';
 
 Resource.load(source).then((img) => {
-	const node = new Transform(Sprite);
-	const sprite = node.getComponent(Sprite)!;
-	sprite.source = img;
-	node.position = new Vector2(300, 300);
-	node.anchor = new Vector2(0.5, 0.5);
-	node.size = new Vector2(200, 200);
+	bg.source = img;
 
-	app.stage.children.push(node);
-
-	const node2 = new Transform(Sprite);
-	const sprite2 = node2.getComponent(Sprite)!;
-	sprite2.source = img;
-	node2.position = new Vector2(200, 200);
-	node2.size = new Vector2(100, 100);
-	node.addChild(node2);
-	ticker.on('update', () => {
-		node.rotation += 2 * Math.PI / 180;
-		node2.rotation += 1 * Math.PI / 180;
-	});
+console.log(bgImg.getWordPoisition());
+console.log(textNode.getWordPoisition());
 });

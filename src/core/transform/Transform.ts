@@ -2,6 +2,7 @@ import { Ticker } from "../ticker";
 import { Component, Container } from "../component";
 import { Emitter } from "../emitter";
 import { Vector2 } from "../math";
+import { IRectangle } from "./IRectangle";
 
 export type Constructor<T = unknown> = new (...args: any[]) => T;
 
@@ -81,6 +82,11 @@ export class Transform<T extends Container = Container> {
 
     // 父
     parent?: Transform;
+
+    // 触摸事件，默认关闭
+    touch = false;
+    // 是否继续传递事件
+    deliver = true;
     addComponent<T extends Component>(classConstructor: Constructor<T>): T {
         const component = new classConstructor(this);
         // return <T>this.components.find(value => value instanceof classConstructor);
@@ -237,17 +243,19 @@ export class Transform<T extends Container = Container> {
         return node;
     }
 
+    getOffset(): Vector2 {
+        return this.size.clone().mul(this.anchor).mul(this.scale);
+    }
+
     /**
-     * 获取世界坐标
+     * 获取世界坐标，要计算缩放和锚点
      */
-    getWordPoisition() {
+    getWordPoisition(): Vector2 {
         const position = this.position.clone();
         let parent = this.parent;
-        while (parent) {
-            position.add(parent.position);
-            parent = parent.parent;
+        if (!!parent) {
+            return position.add(parent.getWordPoisition().add(parent.getOffset().mul(-1)));
         }
-
         return position;
     }
 
@@ -280,7 +288,7 @@ export class Transform<T extends Container = Container> {
     }
 
     /**
-     * 获取尺寸，计算宽高，缩放之后的尺寸实际显示尺寸
+     * 获取尺寸，计算宽高，缩放之后的尺寸实尺寸
      */
     getRectangle() {
         const rect = this.scale.clone();

@@ -5,7 +5,7 @@
     "module": "ESNext",
     "lib": ["ESNext", "DOM"],
     "moduleResolution": "Node",
-    "strict": false,
+    "strict": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
@@ -16,5 +16,5 @@
     "skipLibCheck": true,
     "alwaysStrict": false
   },
-  "include": ["src", "example/main.bak.ts"]
+  "include": ["src", "example/main.bak.ts", "example/vite-env.d.ts", "example/vite-env.d.ts"]
 }
