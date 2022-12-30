@@ -91,15 +91,16 @@ export class Layout extends Component {
     }
 
     start() {
-        this.node.emitter.on(Transform.Event.INIT_SIZE, this.saveNewSize, this);
-        this.node.emitter.on(Transform.Event.RESIZE, () => {
-            this.node.children.forEach(val => {
-                const layout = val.getComponent(Layout);
-                if (layout) {
-                    layout.resize();
-                }
-            });
-        }, this);
+        // this.node.emitter.on(Transform.Event.INIT_SIZE, this.saveNewSize, this);
+        // this.node.emitter.on(Transform.Event.RESIZE, () => {
+        //     this.node.children.forEach(val => {
+        //         const layout = val.getComponent(Layout);
+        //         if (layout) {
+        //             layout.resize();
+        //         }
+        //     });
+        // }, this);
+        this.saveNewSize();
     }
 
     saveNewSize() {
@@ -139,9 +140,11 @@ export class Layout extends Component {
             const parent = this.node.parent!;
             if (this.left != undefined) {
                 size.x = parent.size.x - this.left - this.right;
+                // size.x += this.node.getOffset().x;
             } else {
                 size.x = this.oldSize.x;
                 position.x = parent.size.x - this.right - size.x;
+                position.x += this.node.getOffset().x;
             }
         }
 
@@ -152,7 +155,14 @@ export class Layout extends Component {
             } else {
                 size.y = this.oldSize.y;
                 position.y = parent.size.y - this.bottom - size.y;
+                position.y += this.node.getOffset().y;
             }
+        }
+        if (this.left != undefined) {
+            position.x += this.node.getOffset().x;
+        }
+        if (this.top != undefined) {
+            position.y += this.node.getOffset().y;
         }
         this.node.position = position;
         this.node.size = size;

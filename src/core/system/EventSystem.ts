@@ -26,7 +26,6 @@ export class EventSystem extends Emitter {
      * 点击事件处理
      */
     onTap(event: Vector2) {
-        console.log(event);
         this.point.set(event.x, event.y);
         this.tapEmit(this.transform);
     }
@@ -49,6 +48,6 @@ export class EventSystem extends Emitter {
             // 判断是否继续传递事件
             return transform.deliver;
         }
-        return false;
+        return true;
     }
 }
