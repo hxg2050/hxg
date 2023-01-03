@@ -3,11 +3,12 @@ type EmitterKeyValue = {
 }
 
 // type EventName = '';
+export type EventValue<T> = T extends { [p: string]: infer V } ? V extends string ? V : never : never;
 
 /**
  * 状态管理 发布-订阅器
  */
-export class Emitter<T extends string = string> {
+export class Emitter<T = string, U extends string = T extends string ? T : EventValue<T>> {
 
     protected _on: EmitterKeyValue = {};
     protected _data: {
@@ -19,7 +20,7 @@ export class Emitter<T extends string = string> {
     /**
      * 监听一次
      */
-    once(name: string, callback: Function, _this: any) {
+    once(name: U, callback: Function, _this: any) {
         let _self = this;
         let func = function (value: any) {
             callback.call(_this, value);
@@ -28,14 +29,14 @@ export class Emitter<T extends string = string> {
         this.listen(name, func, _this);
     }
 
-    on(name: T, callback: Function, target?: any) {
+    on(name: U, callback: Function, target?: any) {
         this.listen(name, callback, target);
     }
 
     /**
      * 监听数据
      */
-    listen(name: string, callback: Function, _this: any) {
+    listen(name: U, callback: Function, _this: any) {
         if (!this._on[name]) {
             this._on[name] = [];
         }
@@ -45,7 +46,7 @@ export class Emitter<T extends string = string> {
     /**
      * 监听数据变动（第一次有数据）
      */
-    change(name: string, callback: Function, _this: any) {
+    change(name: U, callback: Function, _this: any) {
         this.listen(name, callback, _this);
         let data = this.data(name);
         // console.log(this);
@@ -57,7 +58,7 @@ export class Emitter<T extends string = string> {
     /**
      * 获取/设置数据
      */
-    data<T>(name: string, value?: any): T|undefined {
+    data(name: U, value?: any): T|undefined {
         if (typeof value === 'undefined') {
             return this._data[name];
         }
@@ -76,11 +77,11 @@ export class Emitter<T extends string = string> {
         return undefined;
     }
 
-    emit(name: string, value: any = '') {
+    emit(name: U, value: any = '') {
         this.data(name, value);
     }
 
-    off(name: string, callback: Function, __this: any) {
+    off(name: U, callback: Function, __this: any) {
         this.remove(name, callback, __this);
     }
 
@@ -94,7 +95,7 @@ export class Emitter<T extends string = string> {
     /**
      * 移除监听
      */
-    remove(name: string, callback: Function, __this: any) {
+    remove(name: U, callback: Function, __this: any) {
         const remove_list = [];
 
         const eventList = this._on[name];
@@ -121,7 +122,7 @@ export class Emitter<T extends string = string> {
     /**
      * 检查是否定义
      */
-    public has(name: string) {
+    public has(name: U) {
         return typeof this._data[name] != 'undefined';
     }
 }

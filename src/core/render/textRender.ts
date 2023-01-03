@@ -1,4 +1,4 @@
-import { Text } from "../component/Text";
+import { Text, TextAlgin } from "../component/Text";
 import { Matrix } from "../math/Matrix";
 import { Transform } from "../transform";
 
@@ -10,6 +10,7 @@ interface ISizeText {
 
 /**
  * 计算文字换行
+ * 可做缓存，仅当可能发生变化时重新计算
  * @param text 文本
  */
  const autoWrapText = (ctx: CanvasRenderingContext2D, text: Text, transform: Transform) => {
@@ -72,6 +73,11 @@ interface ISizeText {
 		widthCache += letterPacing;
 	}
 	
+	let maxWidth = 0;
+	// 实际显示有偏差，测试和文字大小有关系
+	const padding = text.lineSpace / 2;
+	const topOffset = text.fontSize / 7 + padding;
+
 	for (let i = 0; i < textLine.length; i ++) {
 		let offsetX = 0;
 		let lineWidth = 0;
@@ -81,16 +87,20 @@ interface ISizeText {
 		for (let j = 0; j < textLine[i].length; j ++) {
 			const label = textLine[i][j];
 			let left = 0;
-			if (align == 'center') {
+			if (align == TextAlgin.CENTER) {
 				left = (transform.size.x - lineWidth) / 2;
-			} else if (align == 'right') {
+			} else if (align == TextAlgin.RIGHT) {
 				left = transform.size.x - lineWidth;
 			}
-			ctx.fillText(label.value, left + offsetX, lineHeight + i * lineHeight);
+			ctx.fillText(label.value, left + offsetX, lineHeight - topOffset + i * lineHeight);
 			offsetX += label.width + letterPacing;
 		}
+		if (lineWidth > maxWidth) {
+			maxWidth = lineWidth;
+		}
 	}
-
+	text.width = maxWidth;
+	text.height = textLine.length * lineHeight;
 }
 
 /**

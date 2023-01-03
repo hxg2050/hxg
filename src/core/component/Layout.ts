@@ -1,10 +1,12 @@
 import { Component } from "../Component";
-import { Transform } from "../transform";
 import { Vector2 } from "../math/Vector2";
 
 /**
  * 控制布局
  * 当添加了控制布局组件后，原本的position、size和scale会被自动管控手动设置将不会生效
+ * anchor 将被重置，angle将被重置，任何外部对布局尺寸的修改将被忽视
+ * 布局控制，只控制坐标和宽高
+ * 当同时设置
  * 当同时设置左右布局时，scale = {x: 1, y: 1}, 动态设置宽高
  */
 export class Layout extends Component {
@@ -63,10 +65,7 @@ export class Layout extends Component {
         if (val === undefined) {
             return;
         }
-        const parent = this.node.parent!;
-        const position = this.node.position;
-        position.x = parent.size.x / 2 + val;
-        this.node.position = position;
+        this.resize();
     }
     get vertical() {
         return this._vertical;
@@ -81,10 +80,8 @@ export class Layout extends Component {
         if (val === undefined) {
             return;
         }
-        const parent = this.node.parent!;
-        const position = this.node.position;
-        position.y = parent.size.y / 2 + val;
-        this.node.position = position;
+        this.resize();
+
     }
     get horizontal() {
         return this._horizontal;
@@ -104,7 +101,6 @@ export class Layout extends Component {
     }
 
     saveNewSize() {
-        console.log(this.node.size);
         this.oldPosition.set(this.node.position);
         this.oldSize.set(this.node.size);
         this.oldScale.set(this.node.scale);
@@ -112,6 +108,12 @@ export class Layout extends Component {
         this.resize();
     }
 
+    /**
+     * 获取本地偏移
+     */
+    getOffsetLocation() {
+        return this.node.size.clone().mul(this.node.anchor);
+    }
 
     update(): void {
         this._markResize && this._resize();
@@ -126,43 +128,61 @@ export class Layout extends Component {
      * 矫正布局
      */
     _resize() {
-        console.log('resize');
+        // console.log('resize');
         this._markResize = false;
         const { size, position } = this.node;
-        if (this.left != undefined) {
-            position.x = this.left;
-        }
-        if (this.top != undefined) {
-            position.y = this.top;
-        }
-
-        if (this.right != undefined) {
+        if (this.vertical != undefined) {
             const parent = this.node.parent!;
+            const position = this.node.position;
+            position.x = parent.size.x / 2 + this.vertical;
+            this.node.position = position;
+        } else {
+
             if (this.left != undefined) {
-                size.x = parent.size.x - this.left - this.right;
-                // size.x += this.node.getOffset().x;
-            } else {
-                size.x = this.oldSize.x;
-                position.x = parent.size.x - this.right - size.x;
-                position.x += this.node.getOffset().x;
+                position.x = this.left;
+            }
+
+            if (this.right != undefined) {
+                const parent = this.node.parent!;
+                if (this.left != undefined) {
+                    size.x = parent.size.x - this.left - this.right;
+                    // size.x += this.node.getOffset().x;
+                } else {
+                    size.x = this.oldSize.x;
+                    position.x = parent.size.x - this.right - size.x;
+                    position.x += this.getOffsetLocation().x;
+                }
+            }
+
+        }
+
+        if (this.horizontal != undefined) {
+            const parent = this.node.parent!;
+            const position = this.node.position;
+            position.y = parent.size.y / 2 + this.horizontal;
+            this.node.position = position;
+        } else {
+            if (this.top != undefined) {
+                position.y = this.top;
+            }
+    
+            if (this.bottom != undefined) {
+                const parent = this.node.parent!;
+                if (this.top != undefined) {
+                    size.y = parent.size.y - this.top - this.bottom;
+                } else {
+                    size.y = this.oldSize.y;
+                    position.y = parent.size.y - this.bottom - size.y;
+                    position.y += this.getOffsetLocation().y;
+                }
             }
         }
 
-        if (this.bottom != undefined) {
-            const parent = this.node.parent!;
-            if (this.top != undefined) {
-                size.y = parent.size.y - this.top - this.bottom;
-            } else {
-                size.y = this.oldSize.y;
-                position.y = parent.size.y - this.bottom - size.y;
-                position.y += this.node.getOffset().y;
-            }
-        }
         if (this.left != undefined) {
-            position.x += this.node.getOffset().x;
+            position.x += this.getOffsetLocation().x;
         }
         if (this.top != undefined) {
-            position.y += this.node.getOffset().y;
+            position.y += this.getOffsetLocation().y;
         }
         this.node.position = position;
         this.node.size = size;

@@ -1,35 +1,30 @@
 import { Transform } from "../transform";
 import { BaseContainer } from "./BaseContainer";
 import { Vector2 } from "../math/Vector2";
+import { ImageTexture } from "../texture";
 
 export class Sprite extends BaseContainer {
 
     constructor(transform: Transform) {
         super(transform);
     }
-
+    
     /**
-     * 图片源
+     * 储存图片的相关信息
      */
-    private _source?: HTMLImageElement;
-
-    get source() {
-        return this._source;
-    }
-
-    set source(val: HTMLImageElement | undefined) {
-        this._source = val;
-        if (val) {
-            this.node.size = new Vector2(val.width, val.height);
-        }
-    }
-
+    public texture?: ImageTexture;
 
     start(): void {
         super.start();
     }
 
-    update(): void {
-        // console.log(this.value.width, this.value.height);
+    /**
+     * 重置尺寸信息，根据当前图片纹理
+     */
+    resize() {
+        if (!this.texture) {
+            return;
+        }
+        this.node.size.set(this.texture.width, this.texture.height);
     }
 }

@@ -29,6 +29,9 @@ export class Renderer {
     }
 
     private _render(transform: Transform, parentMatrix?: Matrix) {
+        // 当前节点帧开始
+        transform.emitter.emit(Transform.Event.TICKER_BEFORE);
+        transform.update();
         const matrix = new Matrix();
         matrix.setTransform(transform);
         if (parentMatrix) {
@@ -39,6 +42,8 @@ export class Renderer {
                 break;
             }
         }
+        // 当前节点帧结束
+        transform.emitter.emit(Transform.Event.TICKER_AFTER);
         if (transform.children.length == 0) {
             return;
         }

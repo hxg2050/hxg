@@ -1,29 +1,24 @@
 import { Ticker } from "../ticker";
 import { Component, Container } from "../component";
-import { Emitter } from "../emitter";
+import { Emitter, EventValue } from "../emitter";
 import { Vector2 } from "../math";
-import { IRectangle } from "./IRectangle";
 
 export type Constructor<T = unknown> = new (...args: any[]) => T;
-
-const ticker = new Ticker();
-ticker.start();
 
 export class Transform<T extends Container = Container> {
 
     name: string = 'node';
-    emitter = new Emitter();
+    emitter = new Emitter<string>();
     static Event = {
-        ADDED: 'ADDED',
-        CHILD_ADDED: 'CHILD_ADDED',
-        INIT_SIZE: 'INIT_SIZE',
-        RESIZE: 'RESIZE'
-    };
-
+        ADDED: 'ADDED', // 当添加到显示舞台时
+        CHILD_ADDED: 'CHILD_ADDED', // 当添加新的字节点时
+        RESIZE: 'RESIZE', // 尺寸发生变化时
+        TICKER_BEFORE: 'TICKER_BEFORE', // 帧刷新前
+        TICKER_AFTER: 'TICKER_AFTER' // 帧刷新后
+    } as const;
 
     constructor(classConstructor?: Constructor<T>) {
         this.addComponent(classConstructor || Container);
-        ticker.on('update', this.update, this);
     }
 
     private _position: Vector2 = new Vector2();
@@ -223,7 +218,6 @@ export class Transform<T extends Container = Container> {
      */
     destroy() {
         this.removeAllComponent();
-        ticker.off('update', this.update, this);
     }
 
     /**

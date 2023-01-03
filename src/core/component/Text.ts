@@ -1,5 +1,11 @@
 import { Container } from "./Container";
 
+export enum TextAlgin {
+	LEFT = 'left',
+	CENTER = 'center',
+	RIGHT = 'right'
+}
+
 /**
  * 文字显示组件
  */
@@ -9,7 +15,7 @@ export class Text extends Container {
 	// 行间距
 	lineSpace: number = 0;
 	// 水平对齐方式
-	algin: string = 'left';
+	algin: TextAlgin = TextAlgin.LEFT;
 	// 文字内容
 	value: string = '';
 	// 字体
@@ -28,6 +34,10 @@ export class Text extends Container {
     // 文字颜色
     color: string = '#000000';
 
+	// 记录文本实际宽度,需要动态计算
+	width: number = 0;
+	// 记录文本实际高度,需要动态计算
+	height: number = 0;
     /**
      * 测量文字
      */

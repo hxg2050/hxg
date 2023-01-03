@@ -10,3 +10,5 @@ export * from './system';
 
 
 export * from './Application'
+
+export * from './canvas2d'

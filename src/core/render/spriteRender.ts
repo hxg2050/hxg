@@ -27,7 +27,8 @@ import { Transform } from "../transform";
  */
 export default function spriteRender<T extends Sprite = Sprite>(ctx: CanvasRenderingContext2D, matrix: Matrix, node: Transform<T>, sprite?: T) {
     sprite = sprite ?? node.getComponent(Sprite)! as T;
-    if (!sprite.source) {
+    const texture = sprite.texture;
+    if (!texture) {
         return;
     }
     // const matrix = new Matrix();
@@ -36,6 +37,6 @@ export default function spriteRender<T extends Sprite = Sprite>(ctx: CanvasRende
     // console.log(node.size);
     ctx.save();
     ctx.transform(...matrix.get());
-	ctx.drawImage(sprite.source, 0, 0, sprite.source.width, sprite.source.height, 0, 0, node.size.x, node.size.y);
+	ctx.drawImage(texture.source, texture.x, texture.y, texture.width, texture.height, 0, 0, node.size.x, node.size.y);
     ctx.restore();
 }

@@ -27,6 +27,7 @@ export class EventSystem extends Emitter {
      */
     onTap(event: Vector2) {
         this.point.set(event.x, event.y);
+        console.log(this.point);
         this.tapEmit(this.transform);
     }
 
