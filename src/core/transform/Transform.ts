@@ -80,8 +80,10 @@ export class Transform<T extends Container = Container> {
 
     // 触摸事件，默认关闭
     touch = false;
-    // 是否继续传递事件
+    // 是否继续向父元素传递事件（冒泡）
     deliver = true;
+    // 是否穿透，可触发非父元素外的其它元素事件
+    pierce = false;
     addComponent<T extends Component>(classConstructor: Constructor<T>): T {
         const component = new classConstructor(this);
         // return <T>this.components.find(value => value instanceof classConstructor);

@@ -70,10 +70,6 @@ export function hidpi(context: CanvasRenderingContext2D): CanvasRenderingContext
 
     // transform(a: number, b: number, c: number, d: number, e: number, f: number): void;
     context.transform = (a: number, b: number, c: number, d: number, e: number, f: number) => {
-        // a *= dpi;
-        // b *= dpi;
-        // c *= dpi;
-        // d *= dpi;
         e *= dpi;
         f *= dpi;
         transform.bind(context)(a, b, c, d, e, f);

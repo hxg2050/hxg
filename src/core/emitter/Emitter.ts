@@ -8,7 +8,7 @@ export type EventValue<T> = T extends { [p: string]: infer V } ? V extends strin
 /**
  * 状态管理 发布-订阅器
  */
-export class Emitter<T = string, U extends string = T extends string ? T : EventValue<T>> {
+export class Emitter<U extends string = string> {
 
     protected _on: EmitterKeyValue = {};
     protected _data: {
@@ -58,7 +58,7 @@ export class Emitter<T = string, U extends string = T extends string ? T : Event
     /**
      * 获取/设置数据
      */
-    data(name: U, value?: any): T|undefined {
+    data(name: U, value?: any): any|undefined {
         if (typeof value === 'undefined') {
             return this._data[name];
         }

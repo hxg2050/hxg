@@ -1,25 +1,138 @@
+import { GroupLoader, LoadResListConfig } from "./GroupLoader";
+import { AudioLoader } from "./loader/AudioLoader";
+import { ILoader } from "./loader/ILoader";
+import { ImageLoader } from "./loader/ImageLoader";
+import { JsonLoader } from "./loader/JsonLoader";
+
+interface IRes {
+    data: any; // 资源
+    type: string; // 类型
+    url: string; // 网络路径
+}
+
+type LoaderType = {
+    [props: string]: { loader: ILoader }
+}
+
+type LoadOptions = {
+    type: string,
+    loader?: ILoader
+}
+
 /**
  * 资源管理和加载
  */
 export class Resource {
 
-    static cache: { [props: string]: HTMLImageElement } = {};
+    // 保存加载器
+    static loader: LoaderType = {}
+
+    // 缓存资源
+    static cache: { [props: string]: IRes } = {};
+    // 别名缓存
+    static nameCache: { [props: string]: string } = {};
+
+    /**
+     * 添加/修改一个loader加载器
+     */
+    static setLoader(type: string, loader: ILoader) {
+        this.loader[type] = { loader }
+    }
 
     /**
      * 加载资源
-     * 1、图片资源
      */
-    static load(source: string): Promise<HTMLImageElement> {
+    static async load(source: string, options?: LoadOptions): Promise<IRes> {
         if (!!this.cache[source]) {
             return Promise.resolve(this.cache[source]);
         }
-        const image = new Image();
-        image.src = source;
-        return new Promise((resolve) => {
-            image.addEventListener('load', () => {
-                this.cache[source] = image;
-                resolve(image);
+
+        if (!options) {
+            // 获取拓展名
+            const type = source.split('.').pop()!;
+            return this.load(source, {
+                type
             });
-        });
+        }
+        
+        const loader = options.loader || this.getLoader(options.type);
+        
+        if (!loader) {
+            return Promise.reject(`类型[${options.type}]：未定义该资源类型的加载器，请调用“Resource.setLoader”配置一个此类型的加载器`);
+        }
+        // 加载资源
+        const res = await loader.load(source);
+        // 缓存资源
+        this.cache[source] = {
+            data: res,
+            type: options.type,
+            url: source
+        }
+        return this.load(source);
     }
+
+    /**
+     * 根据配置的名称获取资源
+     * @param name 
+     */
+    static get(name: string) {
+        const url = this.nameCache[name];
+        if (!url) {
+            return;
+        }
+        return this.cache[url];
+    }
+
+    /**
+     * 配置资源别名
+     * @param name 别名
+     * @param url 资源url
+     */
+    static set(name: string, url: string) {
+        const res = this.cache[url];
+        if (!res) {
+            return false;
+        }
+        this.nameCache[name] = url;
+        return true;
+    }
+
+    listGroup: string[]|[string, string] = [];
+    /**
+     * 加载一组资源
+     * @param worker 最大同时加载数量，最小为1
+     */
+    static loadGroup(list: LoadResListConfig, worker: number = 1) {
+        const loader = new GroupLoader();
+        loader.add(list);
+        loader.workerCount = worker;
+        loader.start();
+        return loader.emitter;
+    }
+
+    /**
+     * 获取加载器
+     */
+    static getLoader(type: string) {
+        const loader = this.loader[type];
+        return loader && loader.loader;
+    }
+}
+
+const defaultLoader: LoaderType = {
+    'png|jpg': {
+        loader: new ImageLoader()
+    },
+    'json': {
+        loader: new JsonLoader()
+    },
+    'mp3': {
+        loader: new AudioLoader()
+    }
+}
+
+// 定义默认提供的加载器
+for (let key in defaultLoader) {
+    let types = key.split('|');
+    types.forEach(type => Resource.setLoader(type, defaultLoader[key].loader));
 }

@@ -9,6 +9,9 @@ import { isHitPoint } from "../utils/hitTest";
  * 该组件应该是一个全局组件
  * 应该要挂载到跟节点
  * 用于获取和派发全局事件
+ * 
+ * 点击穿透
+ * 点击冒泡
  */
 export class EventSystem extends Emitter {
     constructor(public transform: Transform) {
