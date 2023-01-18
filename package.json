@@ -10,7 +10,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "docs:build": "yarn typedoc:build && vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "typedoc:build": "tsc --project ./typedoc/tsconfig.json && node --experimental-specifier-resolution=node ./typedoc/dist/doc.js",
     "doc": "yarn typedoc:build && yarn docs:dev"
