@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress';
 import sidebar from '../dist/api.json'
 export default defineConfig({
-
+    'base': '/hxg/',
     title: '文档',
     // description: 'Just playing around.',
     'themeConfig': {
