@@ -6,7 +6,23 @@ export type Options = {
     width: number;
     height: number;
 }
-
+/**
+ * 应用
+ * ```ts
+ * // 方式一
+ * const app = new Applaction({
+ *      width: 500,
+ *      height: 500
+ * });
+ * ```
+ * ```ts
+ * // 方式二
+ * const app = Applaction.run({
+ *      width: 500,
+ *      height: 500
+ * });
+ * ```
+ */
 export class Application {
 
     config: Options = {
@@ -14,8 +30,14 @@ export class Application {
         height: 400
     };
 
+    /**
+     * 舞台，根节点
+     */
     stage: Transform;
 
+    /**
+     * 全局事件处理器
+     */
     eventSystem: EventSystem;
 
     constructor(config: any = {}) {

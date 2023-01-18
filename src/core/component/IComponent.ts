@@ -1,6 +1,6 @@
 export interface IComponent {
     start(): void;
-    update(): void;
+    update(time: number): void;
     destroy(): void;
     onDestroy(): void;
 }

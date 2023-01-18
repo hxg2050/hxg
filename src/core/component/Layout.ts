@@ -3,88 +3,119 @@ import { Vector2 } from "../math/Vector2";
 
 /**
  * 控制布局
- * 当添加了控制布局组件后，原本的position、size和scale会被自动管控手动设置将不会生效
- * anchor 将被重置，angle将被重置，任何外部对布局尺寸的修改将被忽视
- * 布局控制，只控制坐标和宽高
- * 当同时设置
- * 当同时设置左右布局时，scale = {x: 1, y: 1}, 动态设置宽高
+ * 当添加了控制布局组件后，原本的position、size和scale可能会被自动管控手动设置将不会生效
+ * ```ts
+ * // 创建节点
+ * const node = new Transform();
+ * // 添加布局组件
+ * const layout = node.addComponent(Layout);
+ * // 设置铺满整个父节点
+ * layout.left = 0;
+ * layout.right = 0;
+ * layout.top = 0;
+ * layout.right = 0;
+ * // 放入父节点
+ * parent.addChild(node);
+ * ```
  */
 export class Layout extends Component {
-    oldPosition: Vector2 = new Vector2();
-    oldSize: Vector2 = new Vector2();
-    oldScale: Vector2 = new Vector2();
-    oldRotation: number = 0;
+    private oldPosition: Vector2 = new Vector2();
+    private oldSize: Vector2 = new Vector2();
+    private oldScale: Vector2 = new Vector2();
+    private oldRotation: number = 0;
 
-    // 居左
     private _left?: number;
-    set left(val: number|undefined) {
-        this._left = val;
-        this.resize();
-    }
+    /**
+     * 相对左边的距离
+     */
     get left() {
         return this._left;
     }
-
-    // 居上
-    private _top?: number;
-    set top(val: number|undefined) {
-        this._top = val;
+    set left(val: number | undefined) {
+        this._left = val;
         this.resize();
     }
+
+    private _top?: number;
+    /**
+     * 相对顶部的距离
+     */
     get top() {
         return this._top;
     }
-
-    // 居右
-    private _right?: number;
-    set right(val: number|undefined) {
-        this._right = val;
+    set top(val: number | undefined) {
+        this._top = val;
         this.resize();
     }
+
+    private _right?: number;
+    /**
+     * 相对右边的距离
+     */
     get right() {
         return this._right;
     }
-
-    // 居下
-    private _bottom?: number;
-    set bottom(val: number|undefined) {
-        this._bottom = val;
+    set right(val: number | undefined) {
+        this._right = val;
         this.resize();
     }
+
+    private _bottom?: number;
+    /**
+     * 相对底部的距离
+     */
     get bottom() {
         return this._bottom;
     }
+    set bottom(val: number | undefined) {
+        this._bottom = val;
+        this.resize();
+    }
+
+    private _vertical?: number;
 
     /**
      * 水平剧中
      * left 和 right 将失效
+     * 注意：如果要让节点真正实现水平居中需要设置节点的`anchor`
+     * ```ts
+     * const node = new Transform();
+     * node.anchor.x = 0.5;
+     * node.addComponent(Layout);
+     * ```
      */
-    private _vertical?: number;
-    set vertical(val: number|undefined) {
+    get vertical() {
+        return this._vertical;
+    }
+    set vertical(val: number | undefined) {
         this._vertical = val;
         if (val === undefined) {
             return;
         }
         this.resize();
     }
-    get vertical() {
-        return this._vertical;
-    }
 
+    private _horizontal?: number;
     /**
      * 垂直居中
+     * top 和 bottom 将失效
+     * 注意：如果要让节点真正实现垂直居中需要设置节点的`anchor`
+     * ```ts
+     * const node = new Transform();
+     * node.anchor.y = 0.5;
+     * node.addComponent(Layout);
+     * ```
      */
-    private _horizontal?: number;
-    set horizontal(val: number|undefined) {
+    get horizontal() {
+        return this._horizontal;
+    }
+    set horizontal(val: number | undefined) {
         this._horizontal = val;
         if (val === undefined) {
             return;
         }
         this.resize();
 
-    }
-    get horizontal() {
-        return this._horizontal;
     }
 
     start() {
@@ -100,6 +131,10 @@ export class Layout extends Component {
         this.saveNewSize();
     }
 
+    /**
+     * 当挂载节点尺寸发生变化，且需要重新动态计算时调用
+     * 将保存当前组件的位置和大小状态
+     */
     saveNewSize() {
         this.oldPosition.set(this.node.position);
         this.oldSize.set(this.node.size);
@@ -121,13 +156,25 @@ export class Layout extends Component {
 
     _markResize = false;
 
+    /**
+     * 重新计算布局/矫正布局
+     * ```ts
+     * const node = new Transform();
+     * const layout = node.addComponent(Layout);
+     * node.anchor.set(0.5, 0.5);
+     * layout.resize();
+     * ```
+     */
     resize() {
         this._markResize = true;
     }
     /**
      * 矫正布局
      */
-    _resize() {
+    private _resize() {
+        if (!this.node.parent) {
+            return;
+        }
         // console.log('resize');
         this._markResize = false;
         const { size, position } = this.node;
@@ -165,7 +212,7 @@ export class Layout extends Component {
             if (this.top != undefined) {
                 position.y = this.top;
             }
-    
+
             if (this.bottom != undefined) {
                 const parent = this.node.parent!;
                 if (this.top != undefined) {

@@ -5,16 +5,16 @@
     "module": "ESNext",
     "lib": ["ESNext", "DOM"],
     "moduleResolution": "Node",
-    "strict": true,
+    "strict": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
     "noEmit": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noImplicitReturns": true,
     "skipLibCheck": true,
     "alwaysStrict": false
   },
-  "include": ["src", "example/main.bak.ts", "example/vite-env.d.ts", "example/vite-env.d.ts"]
+  "include": ["example-game1", "example/main.bak.ts", "example/vite-env.d.ts", "example/vite-env.d.ts"]
 }

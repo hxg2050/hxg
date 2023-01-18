@@ -13,27 +13,48 @@ interface IRes {
 type LoaderType = {
     [props: string]: { loader: ILoader }
 }
-
-type LoadOptions = {
+/**
+ * 资源加载参数
+ */
+export type LoadOptions = {
+    /**
+     * 类型
+     */
     type: string,
+    /**
+     * 当前资源的独特加载器
+     */
     loader?: ILoader
 }
 
 /**
  * 资源管理和加载
+ * 默认提供了几个常用的加载器
+ * ```ts
+ * Resource.load('photo.png');
+ * ```
  */
 export class Resource {
 
-    // 保存加载器
+    /**
+     * 所有加载器
+     */
     static loader: LoaderType = {}
 
-    // 缓存资源
+    /**
+     * 所有缓存资源
+     */
     static cache: { [props: string]: IRes } = {};
-    // 别名缓存
+
+    /**
+     * 资源别名缓存
+     */
     static nameCache: { [props: string]: string } = {};
 
     /**
      * 添加/修改一个loader加载器
+     * @param type - 类型
+     * @param loader - 加载器
      */
     static setLoader(type: string, loader: ILoader) {
         this.loader[type] = { loader }
@@ -41,6 +62,9 @@ export class Resource {
 
     /**
      * 加载资源
+     * @param source - 资源路径
+     * @param options - 配置
+     * @returns 
      */
     static async load(source: string, options?: LoadOptions): Promise<IRes> {
         if (!!this.cache[source]) {
@@ -98,9 +122,11 @@ export class Resource {
     }
 
     listGroup: string[]|[string, string] = [];
+
     /**
      * 加载一组资源
-     * @param worker 最大同时加载数量，最小为1
+     * @param list - 要加载的资源列表
+     * @param worker - 最大同时加载数量，最小为1
      */
     static loadGroup(list: LoadResListConfig, worker: number = 1) {
         const loader = new GroupLoader();
@@ -112,6 +138,7 @@ export class Resource {
 
     /**
      * 获取加载器
+     * @param type - 根据类型获取加载器
      */
     static getLoader(type: string) {
         const loader = this.loader[type];

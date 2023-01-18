@@ -14,18 +14,15 @@ type FixedArray<T = any, Len extends number = 6, List extends Array<T> = []> =
     ? List // 是就返回 List 本身
     : FixedArray<T, Len, [...List, T]> // 不是就递归，注意传入的数组添加了新的元素 T
 
-type MatrixData = FixedArray<number, 6>;
+type MatrixData = FixedArray<number, 9>;
 /**
  * transform矩阵计算
- * 3*3
- * [scale x, skew y, skew x
- *  scale y, posi x, posi y
- *  0,       0,      1]
  */
 export class Matrix {
     value: MatrixData = [
         1, 0, 0,
-        1, 0, 0
+        0, 1, 0,
+        0, 0, 1
     ];
 
     /**
@@ -77,6 +74,7 @@ export class Matrix {
 
         const sin = Math.sin(this.angle);
         const cos = Math.cos(this.angle);
+
         const a = cos * this.scale.x;
         const b = sin * this.scale.x;
         const c = - sin * this.scale.y;
@@ -84,13 +82,32 @@ export class Matrix {
 
         const x = this.translate.x - (this.offset.x * a) - (this.offset.y * c);
         const y = this.translate.y - (this.offset.x * b) - (this.offset.y * d);
-        this.set(a, b, c, d, x, y);
+        // [
+        //     cos, sin, -sin,
+        //     cos, x, y,
+        //     0, 0 ,1
+        // ]
+        // [
+        //     cos, -sin, 0,
+        //     sin, cos, 0,
+        //     0, 0, 1
+        // ]
+        let sx = this.size.x;
+        let sy = this.size.y;
+        this.set(
+            a, c, 0,
+            b, d, 0,
+            x, y, 1
+        );
     }
 
+    /**
+     * 设置矩阵数据
+     * @param args 
+     */
     public set(...args: MatrixData) {
         this.value = args;
     }
-
 
     append(matrix: Matrix): this {
         const a1 = this.value[0];
@@ -110,24 +127,47 @@ export class Matrix {
     }
 
     prepend(matrix: Matrix): this {
-        const tx1 = this.value[4];
+        const tx1 = this.value[6];
 
-        if (matrix.value[0] !== 1 || matrix.value[1] !== 0 || matrix.value[2] !== 0 || matrix.value[3] !== 1) {
+        /**
+         * 1 -> 3
+         * 2 -> 1
+         * 3 -> 4
+         * 4 -> 6
+         * 5 -> 7
+         * 
+        this.set(
+            a, b, c,
+            d, e, f,
+            0, 0, 1
+        );
+
+        this.set(
+            a, c, 0,
+            b, d, 0,
+            x, y, 1
+        );
+         */
+        if (matrix.value[0] !== 1 || matrix.value[3] !== 0 || matrix.value[1] !== 0 || matrix.value[4] !== 1) {
             const a1 = this.value[0];
-            const c1 = this.value[2];
+            const c1 = this.value[1];
 
-            this.value[0] = (a1 * matrix.value[0]) + (this.value[1] * matrix.value[2]);
-            this.value[1] = (a1 * matrix.value[1]) + (this.value[1] * matrix.value[3]);
-            this.value[2] = (c1 * matrix.value[0]) + (this.value[3] * matrix.value[2]);
-            this.value[3] = (c1 * matrix.value[1]) + (this.value[3] * matrix.value[3]);
+            this.value[0] = (a1 * matrix.value[0]) + (this.value[3] * matrix.value[1]);
+            this.value[3] = (a1 * matrix.value[3]) + (this.value[3] * matrix.value[4]);
+            this.value[1] = (c1 * matrix.value[0]) + (this.value[4] * matrix.value[1]);
+            this.value[4] = (c1 * matrix.value[3]) + (this.value[4] * matrix.value[4]);
         }
 
-        this.value[4] = (tx1 * matrix.value[0]) + (this.value[5] * matrix.value[2]) + matrix.value[4];
-        this.value[5] = (tx1 * matrix.value[1]) + (this.value[5] * matrix.value[3]) + matrix.value[5];
+        this.value[6] = (tx1 * matrix.value[0]) + (this.value[7] * matrix.value[1]) + matrix.value[6];
+        this.value[7] = (tx1 * matrix.value[3]) + (this.value[7] * matrix.value[4]) + matrix.value[7];
 
         return this;
     }
 
+    /**
+     * 克隆当前矩阵
+     * @returns 
+     */
     clone() {
         const matrix = new Matrix();
         matrix.set(...this.get());

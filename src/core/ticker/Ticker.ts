@@ -5,12 +5,12 @@ import { Emitter } from "../emitter";
  */
 export class Ticker extends Emitter {
 
+    private _FPS = 60;
     /**
      * 每秒帧数
      * 最大帧数不会超过浏览器刷新率
      * 默认每秒60帧
      */
-    private _FPS = 60;
     get FPS() {
         return this._FPS;
     }
@@ -33,12 +33,17 @@ export class Ticker extends Emitter {
         this.runFrame();
     }
 
-    runFrame() {
+    private runFrame() {
         requestAnimationFrame((time) => {
             this.update(time);
             this.runFrame();
         });
     }
+
+    /**
+     * 上一帧和当前帧间隔时间 ms
+     */
+    deltaTime: number = 1;
 
     /**
      * 每次刷新要执行的内容
@@ -47,13 +52,15 @@ export class Ticker extends Emitter {
         /**
          * 判断是否要执行当前帧
          */
-        if (time - this.lastTime < this._stepTime) {
+        this.deltaTime = (time - this.lastTime);
+
+        if (this.deltaTime < this._stepTime) {
             return;
         }
         /**
          * time: 上一帧和当前帧时间间隔
          */
-        this.emit('update', time - this.lastTime);
+        this.emit('update', this.deltaTime);
         this.lastTime = time;
     }
 
@@ -71,3 +78,5 @@ export class Ticker extends Emitter {
         
     }
 }
+
+export const ticker = new Ticker();

@@ -1,12 +1,14 @@
 export * from './component';
 export * from './emitter';
 export * from './math';
-export * from './render';
+export * from './canvas2d/render';
 export * from './resource';
 export * from './ticker';
 export * from './transform';
 export * from './event';
 export * from './system';
+export * from './texture';
+export * from './utils';
 
 
 export * from './Application'

@@ -1,18 +1,22 @@
-import { Application } from "../Application";
-import { Container, Sprite } from "../component";
-import { Text } from "../component/Text";
-import { Matrix } from "../math/Matrix";
-import { Transform, Constructor } from "../transform";
+import { Application } from "../../Application";
+import { ticker } from "../../ticker";
+import { Container, Sprite } from "../../component";
+import { Text } from "../../component/Text";
+import { Matrix } from "../../math/Matrix";
+import { Transform, Constructor } from "../../transform";
 import spriteRender from "./spriteRender";
 import textRender from "./textRender";
 
-type RenderFunction<T extends Container> = (context: CanvasRenderingContext2D, matrix: Matrix, transform: Transform<T>, constructor: Constructor<T>) => void
+type RenderFunction<T extends Container> = (context: CanvasRenderingContext2D, matrix: Matrix, component: T) => void
 
 type RenderAction<T extends Container = any> = [
     // Transform,
     Constructor<T>, // 要渲染的类型
     RenderFunction<T> // 渲染的逻辑
 ];
+/**
+ * 渲染器
+ */
 export class Renderer {
 
     renderActions: RenderAction[] = [
@@ -30,13 +34,17 @@ export class Renderer {
 
     private _render(transform: Transform, parentMatrix?: Matrix) {
         // 当前节点帧开始
+        if (!transform.active) {
+            return;
+        }
         transform.emitter.emit(Transform.Event.TICKER_BEFORE);
-        transform.update();
+        transform.update(ticker.deltaTime);
         const matrix = new Matrix();
         matrix.setTransform(transform);
         if (parentMatrix) {
             matrix.prepend(parentMatrix);
         }
+
         for (let j = 0; j < this.renderActions.length; j++) {
             if (this._renderElement(transform, this.renderActions[j][0], matrix, this.renderActions[j][1])) {
                 break;
@@ -65,7 +73,7 @@ export class Renderer {
         if (!element) {
             return false;
         }
-        callback(this.context, matrix, transform as Transform<T>, element);
+        callback(this.context, matrix, element);
         return true;
     }
 }
