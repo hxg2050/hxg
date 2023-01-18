@@ -6,7 +6,7 @@ import { createText } from '../example-game1/node/createText';
 import { FPS } from '../example-game1/components/FPS';
 import { createSpriteByName } from '../example-game1/node/createSpriteByName';
 import { ImageTexture } from '../src/core/texture';
-import { webgl } from '../src/core/webgl';
+// import { webgl } from '../src/core/webgl';
 
 /**
  * 创建应用
@@ -21,8 +21,8 @@ import { webgl } from '../src/core/webgl';
  */
 const canvas = document.querySelector('#canvas')! as HTMLCanvasElement;
 // 此处自定义和视图渲染相关的，默认实现了canvas2d相关的逻辑，理论上支持任何渲染模式，包括使用webgl和html以及其它的，例如pixi
-// app.use(canvas2d(canvas));
-app.use(webgl(canvas));
+app.use(canvas2d(canvas));
+// app.use(webgl(canvas));
 
 const fps = createText('');
 app.stage.addChild(fps.node);
