@@ -14,8 +14,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm ci
-      - run: npm run docs:build
+      - run: npm i yarn -g 
+      - run: yarn install
+      - run: yarn docs:build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
