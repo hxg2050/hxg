@@ -216,4 +216,8 @@ export class Text extends Container {
 		this._update = false;
 		this.texture.update();
     }
+
+	onDestroy(): void {
+		this.node.emitter.off(Transform.Event.TICKER_BEFORE, this._updateTexture, this);
+	}
 }

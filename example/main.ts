@@ -33,15 +33,23 @@ fps.node.size.y = 200;
 // app.stage.addChild(nodeP);
 // nodeP.position.x = 100;
 // nodeP.position.y = 100;
+
+// const fps = createText('');
+// app.stage.addChild(fps.node);
+// fps.addComponent(FPS);
+// fps.node.size.x = 20 + i * 10;
+// fps.node.size.y = 20 + i * 10;
+
 Resource.load('../example-game1/assets/image/icon4.png').then((res) => {
 	const iTexture = new ImageTexture(res.data);
-	for (let i = 0; i < 1; i ++) {
+	for (let i = 0; i < 10; i ++) {
 
-const fps = createText('');
-app.stage.addChild(fps.node);
-fps.addComponent(FPS);
-fps.node.size.x = 200;
-fps.node.size.y = 200;
+		// const fps = createText('sd');
+		// app.stage.addChild(fps.node);
+		// fps.addComponent(FPS);
+		// fps.node.position.x = 20 + i * 10;
+		// fps.node.position.y = 20 + i * 10;
+
 		const spriteNode = new Transform(Sprite);
 		const sprite = spriteNode.getComponent(Sprite)!;
 		sprite.texture = iTexture;

@@ -1,8 +1,10 @@
 import { Component, Container } from "../component";
-import { Emitter } from "../emitter";
+import { Emitter, EventValue } from "../emitter";
+import { TouchEvent } from "../event";
 import { Vector2 } from "../math";
 
 export type Constructor<T = unknown> = new (...args: any[]) => T;
+export type TransformEvent = EventValue<typeof Transform.Event> | `${TouchEvent}`;
 
 let id = 0;
 
@@ -20,7 +22,7 @@ export class Transform<T extends Container = Container> {
     active: boolean = true;
 
     name: string = 'node';
-    emitter = new Emitter<string>();
+    emitter = new Emitter<TransformEvent>();
     /**
      * 事件
      */
