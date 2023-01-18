@@ -42,13 +42,7 @@ fps.node.size.y = 200;
 
 Resource.load('../example-game1/assets/image/icon4.png').then((res) => {
 	const iTexture = new ImageTexture(res.data);
-	for (let i = 0; i < 10; i ++) {
-
-		// const fps = createText('sd');
-		// app.stage.addChild(fps.node);
-		// fps.addComponent(FPS);
-		// fps.node.position.x = 20 + i * 10;
-		// fps.node.position.y = 20 + i * 10;
+	for (let i = 0; i < 500; i ++) {
 
 		const spriteNode = new Transform(Sprite);
 		const sprite = spriteNode.getComponent(Sprite)!;
