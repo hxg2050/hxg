@@ -6,7 +6,6 @@ import { createText } from './node/createText';
 import { game } from './prefabs/game';
 import { load } from './prefabs/load';
 import './style.scss';
-import { webgl } from '../src/core/webgl';
 
 /**
  * 创建应用
