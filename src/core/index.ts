@@ -14,3 +14,5 @@ export * from './utils';
 export * from './Application'
 
 export * from './canvas2d'
+
+export * as ECS from './ecs/ECS';
