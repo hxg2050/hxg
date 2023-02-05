@@ -72,6 +72,7 @@ class Entiy {
 }
 
 abstract class System {
+    queries: typeof Component[] = [];
     update(dt: number) {
 
     }
@@ -91,7 +92,13 @@ class Word {
         let names: string[] = [];
         components.sort();
         components.forEach(component => names.push(component.name));
-        return this.map[names.join(',')];
+        console.log(this.map, names.join(','));
+        let entiys = this.map[names.join(',')];
+        if (!!entiys) {
+            entiys = [];
+        }
+
+        return entiys;
     }
 
     /**
@@ -102,7 +109,14 @@ class Word {
     bindEntiy(entiy: Entiy, components: typeof Component[]) {
         let cacheName: string[] = [];
         components.forEach(component => cacheName.push(component.name));
-        this.map[cacheName.join(',')].push(entiy);
+
+        let key = cacheName.join(',');
+        let entiys = this.map[cacheName.join(',')];
+        if (!!entiys) {
+            entiys = this.map[cacheName.join(',')] = [];
+        }
+
+        entiys.push(entiy);
     }
 
     /**
@@ -118,12 +132,12 @@ class Word {
         this.components.push(component);
         
         this.components.sort();
-        const index = this.components.indexOf(component);
-        const cacheName: string[] = [];
-        for (let i = index; i < this.components.length; i++) {
-            cacheName.push(this.components[i].name);
-            this.map[cacheName.join(',')] = [];
-        }
+        // const index = this.components.indexOf(component);
+        // const cacheName: string[] = [];
+        // for (let i = index; i < this.components.length; i++) {
+        //     cacheName.push(this.components[i].name);
+        //     this.map[cacheName.join(',')] = [];
+        // }
     }
 
     /**

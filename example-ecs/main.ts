@@ -17,22 +17,34 @@ const canvas = document.querySelector('#canvas')! as HTMLCanvasElement;
 app.use(canvas2d(canvas));
 
 const word = new ECS.Word();
-
 class PosComp extends ECS.Component {
 	x: number = 0;
 }
 
 class PosSys extends ECS.System {
+	queries = [PosComp, VeCom];
+
 	update(dt: number): void {
-		const entiys = word.getEntiys(PosComp);
+		this.get(PosComp);
+		const entiys = word.getEntiys(PosComp, VeCom);
+		console.log(entiys);
 		entiys.forEach(entiy => {
-			entiy.getComponent(PosComp)!.x ++;
+			let pos = entiy.getComponent(PosComp)!;
+			let ce = entiy.getComponent(VeCom)!;
+			pos.x += ce.x;
 			console.log(entiy.getComponent(PosComp));
 		});
 	}
 }
 
-const entiy = word.createEntiy();
+class VeCom extends ECS.Component {
+	x: number = 10;
+}
+word.registerComponent(PosComp);
+word.registerComponent(VeCom);
+word.registerSystem(new PosSys);
+
+const entiy = word.createEntiy([ PosComp ]);
 
 ticker.on('update', (dt: number) => {
 	word.update(dt);
