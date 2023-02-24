@@ -1,3 +1,11 @@
+安装
+```
+npm install hxg
+```
+```
+yarn add hxg
+```
+
 一个简单`hello word!`栗子
 ```ts
 import { Application, canvas2d, Transform, Text } from 'hxg';
