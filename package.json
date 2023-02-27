@@ -4,6 +4,12 @@
   "version": "0.1.1",
   "repository": "https://github.com/hxg2050/hxg.git",
   "type": "module",
+	"main": "./dist/index.cjs.js",
+	"module": "./dist/index.esm.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist/"
+	],
   "license": "MIT",
   "scripts": {
     "dev": "vite",
@@ -16,7 +22,6 @@
     "core:build": "rollup -c",
     "doc": "yarn typedoc:build && yarn docs:dev"
   },
-  "main": "./src",
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.0.0",
     "rollup-plugin-copy": "^3.4.0",
