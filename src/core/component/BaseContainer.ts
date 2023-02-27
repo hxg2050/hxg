@@ -1,4 +1,4 @@
-import { Component } from "../Component";
+import { Component } from "./Component";
 import { Transform } from "../transform";
 import { IContainer } from "./IContainer";
 
