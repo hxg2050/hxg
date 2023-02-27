@@ -1,3 +1,4 @@
+import nodeResolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import { defineConfig } from 'rollup';
 export default defineConfig({
@@ -9,5 +10,6 @@ export default defineConfig({
         file: 'dist/index.esm.js',
         format: 'esm'
     }],
-    plugins: [typescript()]
+    plugins: [nodeResolve(), typescript()],
+    external: ['moment']
 });

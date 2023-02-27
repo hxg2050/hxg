@@ -23,7 +23,10 @@
     "doc": "yarn typedoc:build && yarn docs:dev"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-typescript": "^11.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
     "rollup-plugin-copy": "^3.4.0",
     "sass": "^1.56.1",
     "ts-node": "^10.9.1",
