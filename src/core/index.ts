@@ -1,5 +1,4 @@
 export * from './component';
-export * from './emitter';
 export * from './math';
 export * from './canvas2d/render';
 export * from './resource';

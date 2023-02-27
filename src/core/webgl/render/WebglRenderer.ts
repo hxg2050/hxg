@@ -1,3 +1,4 @@
+export {};
 // import { Application } from "../../Application";
 // import { ticker } from "../../ticker";
 // import { Component, Container, Sprite } from "../../component";

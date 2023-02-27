@@ -1,4 +1,4 @@
-import { Emitter } from '../emitter/Emitter'
+import { StoreEmitter as Emitter } from 'store-event'
 import { IComponent } from "./IComponent";
 import { Transform, Constructor } from "../transform";
 

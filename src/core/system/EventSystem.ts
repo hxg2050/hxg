@@ -1,4 +1,4 @@
-import { Emitter } from "../emitter";
+import { StoreEmitter as Emitter } from 'store-event'
 import { TouchEvent } from "../event";
 import { Vector2 } from "../math";
 import { Transform } from "../transform";
@@ -42,7 +42,7 @@ export class EventSystem extends Emitter {
         for (let i = transform.children.length - 1; i >= 0; i --) {
             const node = transform.children[i];
             if (!this.tapEmit(node)) {
-                return;
+                return false;
             }
         }
 

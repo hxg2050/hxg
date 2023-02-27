@@ -1,3 +1,4 @@
+export {}
 // import { Application } from "../Application";
 // import { touchEventListener } from "../event";
 // import { WebglRenderer } from "./render/WebglRenderer";

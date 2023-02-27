@@ -1,5 +1,5 @@
 import { Component, Container } from "../component";
-import { Emitter, EventValue } from "../emitter";
+import { EventValue, StoreEmitter as Emitter } from 'store-event'
 import { TouchEvent } from "../event";
 import { Vector2 } from "../math";
 

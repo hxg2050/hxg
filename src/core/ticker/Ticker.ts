@@ -1,4 +1,4 @@
-import { Emitter } from "../emitter";
+import { StoreEmitter as Emitter } from 'store-event'
 
 /**
  * 刷新器

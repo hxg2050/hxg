@@ -1199,6 +1199,13 @@ sourcemap-codec@^1.4.8:
   resolved "https://registry.npmjs.org/sourcemap-codec/-/sourcemap-codec-1.4.8.tgz"
   integrity sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==
 
+store-event@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/store-event/-/store-event-0.0.10.tgz#b299d145bdacb9f991c8848ab3d6898c604bc3cc"
+  integrity sha512-DP2Zl019Fqizw2USDGaE4y3tXh71uimn3h/hdclMBUvmqIL8cJ80w7ZBQJr2l3JHAyYTs29Yo3cubhjb4KyP1Q==
+  dependencies:
+    tslib "^2.5.0"
+
 supports-preserve-symlinks-flag@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmmirror.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz"

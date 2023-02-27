@@ -31,7 +31,7 @@ class Entiy {
 
     getComponent<T extends Component>(classConstructor: Constructor<T>): T | undefined {
         if (!this._map.has(classConstructor)) {
-            return;
+            return undefined;
         }
         return this._map.get(classConstructor);
     }
@@ -110,7 +110,7 @@ class Word {
         let cacheName: string[] = [];
         components.forEach(component => cacheName.push(component.name));
 
-        let key = cacheName.join(',');
+        // let key = cacheName.join(',');
         let entiys = this.map[cacheName.join(',')];
         if (!!entiys) {
             entiys = this.map[cacheName.join(',')] = [];

@@ -102,7 +102,7 @@ export class Resource {
     static get(name: string) {
         const url = this.nameCache[name];
         if (!url) {
-            return;
+            return undefined;
         }
         return this.cache[url];
     }

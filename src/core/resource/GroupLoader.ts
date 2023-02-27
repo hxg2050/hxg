@@ -1,4 +1,4 @@
-import { Emitter, EventValue } from "../emitter";
+import { EventValue, StoreEmitter as Emitter } from 'store-event'
 import { Resource } from "./Resource";
 /**
  * 资源列表
