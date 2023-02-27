@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import copy from 'rollup-plugin-copy'
 
 const publicDir = 'example-game1';
-const outDir = 'dist';
+const outDir = 'dist-example';
 
 export default defineConfig({
     build: {

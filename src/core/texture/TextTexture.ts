@@ -123,7 +123,7 @@ export class TextTexture extends BaseTexture {
     /**
      * 实际要绘制的内容
      */
-    source: ImageData;
+    source?: ImageData;
 
     constructor(text: Text) {
         super();

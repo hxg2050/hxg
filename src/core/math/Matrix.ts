@@ -92,8 +92,8 @@ export class Matrix {
         //     sin, cos, 0,
         //     0, 0, 1
         // ]
-        let sx = this.size.x;
-        let sy = this.size.y;
+        // let sx = this.size.x;
+        // let sy = this.size.y;
         this.set(
             a, c, 0,
             b, d, 0,

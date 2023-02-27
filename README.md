@@ -1,8 +1,8 @@
 安装
-```
+```sh
 npm install hxg
 ```
-```
+```sh
 yarn add hxg
 ```
 
