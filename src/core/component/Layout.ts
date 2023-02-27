@@ -1,4 +1,4 @@
-import { Component } from "../Component";
+import { Component } from "./Component";
 import { Vector2 } from "../math/Vector2";
 
 /**
