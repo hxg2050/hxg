@@ -20,7 +20,7 @@ export class EventSystem extends Emitter {
     }
 
     addEvents() {
-        this.on(TouchEvent.TOUCH_TAP, this.onTap, this);
+        // this.on(TouchEvent.TOUCH_TAP, this.onTap, this);
         this.on(TouchEvent.TOUCH_BEGIN, this.onBeagin, this);
         this.on(TouchEvent.TOUCH_END, this.onEnd, this);
         this.on(TouchEvent.TOUCH_MOVE, this.onMove, this);
@@ -43,9 +43,9 @@ export class EventSystem extends Emitter {
     /**
      * 点击事件处理
      */
-    onTap(event: Vector2) {
-        this.touchEvent(event, TouchEvent.TOUCH_TAP);
-    }
+    // onTap(event: Vector2) {
+    //     this.touchEvent(event, TouchEvent.TOUCH_TAP);
+    // }
 
     private touchEvent(event: Vector2, eventName: TouchEvent) {
         this.point.set(event.x, event.y);

@@ -2,7 +2,7 @@ import { Application } from "../Application";
 import { TouchEvent as CoreTouchEvent } from "./TouchEvent";
 
 let eventNames:Partial<Record<keyof HTMLElementEventMap, CoreTouchEvent>> = {
-    'click': CoreTouchEvent.TOUCH_TAP,
+    // 'click': CoreTouchEvent.TOUCH_TAP,
     'touchstart': CoreTouchEvent.TOUCH_BEGIN,
     'touchend': CoreTouchEvent.TOUCH_END,
     'touchmove': CoreTouchEvent.TOUCH_MOVE
