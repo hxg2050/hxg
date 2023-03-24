@@ -1,0 +1,600 @@
+[
+    {
+        "text": "src/core/ecs",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+            {
+                "text": "类",
+                "dir": "classes",
+                "items": []
+            },
+            {
+                "text": "接口",
+                "dir": "interfaces",
+                "items": []
+            },
+            {
+                "text": "函数",
+                "dir": "functions",
+                "items": []
+            },
+            {
+                "text": "枚举",
+                "dir": "enums",
+                "items": []
+            },
+            {
+                "text": "变量",
+                "dir": "variables",
+                "items": []
+            }
+        ]
+    },
+    {
+        "text": "src/core/component",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+            {
+                "text": "类",
+                "dir": "classes",
+                "items": [
+                    {
+                        "text": "Audio",
+                        "link": "dist/classes/Audio"
+                    },
+                    {
+                        "text": "BaseContainer",
+                        "link": "dist/classes/BaseContainer"
+                    },
+                    {
+                        "text": "Button",
+                        "link": "dist/classes/Button"
+                    },
+                    {
+                        "text": "Component",
+                        "link": "dist/classes/Component"
+                    },
+                    {
+                        "text": "Container",
+                        "link": "dist/classes/Container"
+                    },
+                    {
+                        "text": "Layout",
+                        "link": "dist/classes/Layout"
+                    },
+                    {
+                        "text": "Sprite",
+                        "link": "dist/classes/Sprite"
+                    },
+                    {
+                        "text": "Text",
+                        "link": "dist/classes/Text"
+                    }
+                ]
+            },
+            {
+                "text": "接口",
+                "dir": "interfaces",
+                "items": [
+                    {
+                        "text": "IComponent",
+                        "link": "dist/interfaces/IComponent"
+                    },
+                    {
+                        "text": "IContainer",
+                        "link": "dist/interfaces/IContainer"
+                    }
+                ]
+            },
+            {
+                "text": "函数",
+                "dir": "functions",
+                "items": []
+            },
+            {
+                "text": "枚举",
+                "dir": "enums",
+                "items": [
+                    {
+                        "text": "TextAlgin",
+                        "link": "dist/enums/TextAlgin"
+                    }
+                ]
+            },
+            {
+                "text": "变量",
+                "dir": "variables",
+                "items": []
+            }
+        ]
+    },
+    {
+        "text": "src/core/event",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+            {
+                "text": "类",
+                "dir": "classes",
+                "items": []
+            },
+            {
+                "text": "接口",
+                "dir": "interfaces",
+                "items": []
+            },
+            {
+                "text": "函数",
+                "dir": "functions",
+                "items": [
+                    {
+                        "text": "touchEventListener",
+                        "link": "dist/modules.html#touchEventListener"
+                    }
+                ]
+            },
+            {
+                "text": "枚举",
+                "dir": "enums",
+                "items": [
+                    {
+                        "text": "TouchEvent",
+                        "link": "dist/enums/TouchEvent"
+                    }
+                ]
+            },
+            {
+                "text": "变量",
+                "dir": "variables",
+                "items": []
+            }
+        ]
+    },
+    {
+        "text": "src/core",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+            {
+                "text": "类",
+                "dir": "classes",
+                "items": [
+                    {
+                        "text": "Application",
+                        "link": "dist/classes/Application"
+                    }
+                ]
+            },
+            {
+                "text": "接口",
+                "dir": "interfaces",
+                "items": []
+            },
+            {
+                "text": "函数",
+                "dir": "functions",
+                "items": []
+            },
+            {
+                "text": "枚举",
+                "dir": "enums",
+                "items": []
+            },
+            {
+                "text": "变量",
+                "dir": "variables",
+                "items": []
+            }
+        ]
+    },
+    {
+        "text": "src/core/resource/loader",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+            {
+                "text": "类",
+                "dir": "classes",
+                "items": [
+                    {
+                        "text": "AudioLoader",
+                        "link": "dist/classes/AudioLoader"
+                    },
+                    {
+                        "text": "ImageLoader",
+                        "link": "dist/classes/ImageLoader"
+                    },
+                    {
+                        "text": "JsonLoader",
+                        "link": "dist/classes/JsonLoader"
+                    }
+                ]
+            },
+            {
+                "text": "接口",
+                "dir": "interfaces",
+                "items": [
+                    {
+                        "text": "ILoader",
+                        "link": "dist/interfaces/ILoader"
+                    }
+                ]
+            },
+            {
+                "text": "函数",
+                "dir": "functions",
+                "items": []
+            },
+            {
+                "text": "枚举",
+                "dir": "enums",
+                "items": []
+            },
+            {
+                "text": "变量",
+                "dir": "variables",
+                "items": []
+            }
+        ]
+    },
+    {
+        "text": "src/core/texture",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+            {
+                "text": "类",
+                "dir": "classes",
+                "items": [
+                    {
+                        "text": "BaseTexture",
+                        "link": "dist/classes/BaseTexture"
+                    },
+                    {
+                        "text": "ImageTexture",
+                        "link": "dist/classes/ImageTexture"
+                    },
+                    {
+                        "text": "TextTexture",
+                        "link": "dist/classes/TextTexture"
+                    }
+                ]
+            },
+            {
+                "text": "接口",
+                "dir": "interfaces",
+                "items": []
+            },
+            {
+                "text": "函数",
+                "dir": "functions",
+                "items": []
+            },
+            {
+                "text": "枚举",
+                "dir": "enums",
+                "items": []
+            },
+            {
+                "text": "变量",
+                "dir": "variables",
+                "items": []
+            }
+        ]
+    },
+    {
+        "text": "src/core/system",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+            {
+                "text": "类",
+                "dir": "classes",
+                "items": [
+                    {
+                        "text": "EventSystem",
+                        "link": "dist/classes/EventSystem"
+                    }
+                ]
+            },
+            {
+                "text": "接口",
+                "dir": "interfaces",
+                "items": []
+            },
+            {
+                "text": "函数",
+                "dir": "functions",
+                "items": []
+            },
+            {
+                "text": "枚举",
+                "dir": "enums",
+                "items": []
+            },
+            {
+                "text": "变量",
+                "dir": "variables",
+                "items": []
+            }
+        ]
+    },
+    {
+        "text": "src/core/resource",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+            {
+                "text": "类",
+                "dir": "classes",
+                "items": [
+                    {
+                        "text": "GroupLoader",
+                        "link": "dist/classes/GroupLoader"
+                    },
+                    {
+                        "text": "Resource",
+                        "link": "dist/classes/Resource"
+                    }
+                ]
+            },
+            {
+                "text": "接口",
+                "dir": "interfaces",
+                "items": []
+            },
+            {
+                "text": "函数",
+                "dir": "functions",
+                "items": []
+            },
+            {
+                "text": "枚举",
+                "dir": "enums",
+                "items": []
+            },
+            {
+                "text": "变量",
+                "dir": "variables",
+                "items": []
+            }
+        ]
+    },
+    {
+        "text": "src/core/math",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+            {
+                "text": "类",
+                "dir": "classes",
+                "items": [
+                    {
+                        "text": "Matrix",
+                        "link": "dist/classes/Matrix"
+                    },
+                    {
+                        "text": "Vector2",
+                        "link": "dist/classes/Vector2"
+                    }
+                ]
+            },
+            {
+                "text": "接口",
+                "dir": "interfaces",
+                "items": []
+            },
+            {
+                "text": "函数",
+                "dir": "functions",
+                "items": []
+            },
+            {
+                "text": "枚举",
+                "dir": "enums",
+                "items": []
+            },
+            {
+                "text": "变量",
+                "dir": "variables",
+                "items": []
+            }
+        ]
+    },
+    {
+        "text": "src/core/canvas2d/render",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+            {
+                "text": "类",
+                "dir": "classes",
+                "items": [
+                    {
+                        "text": "Renderer",
+                        "link": "dist/classes/Renderer"
+                    }
+                ]
+            },
+            {
+                "text": "接口",
+                "dir": "interfaces",
+                "items": []
+            },
+            {
+                "text": "函数",
+                "dir": "functions",
+                "items": []
+            },
+            {
+                "text": "枚举",
+                "dir": "enums",
+                "items": []
+            },
+            {
+                "text": "变量",
+                "dir": "variables",
+                "items": []
+            }
+        ]
+    },
+    {
+        "text": "src/core/ticker",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+            {
+                "text": "类",
+                "dir": "classes",
+                "items": [
+                    {
+                        "text": "Ticker",
+                        "link": "dist/classes/Ticker"
+                    }
+                ]
+            },
+            {
+                "text": "接口",
+                "dir": "interfaces",
+                "items": []
+            },
+            {
+                "text": "函数",
+                "dir": "functions",
+                "items": []
+            },
+            {
+                "text": "枚举",
+                "dir": "enums",
+                "items": []
+            },
+            {
+                "text": "变量",
+                "dir": "variables",
+                "items": [
+                    {
+                        "text": "ticker",
+                        "link": "dist/modules.html#ticker"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "text": "src/core/transform",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+            {
+                "text": "类",
+                "dir": "classes",
+                "items": [
+                    {
+                        "text": "Transform",
+                        "link": "dist/classes/Transform"
+                    }
+                ]
+            },
+            {
+                "text": "接口",
+                "dir": "interfaces",
+                "items": []
+            },
+            {
+                "text": "函数",
+                "dir": "functions",
+                "items": []
+            },
+            {
+                "text": "枚举",
+                "dir": "enums",
+                "items": []
+            },
+            {
+                "text": "变量",
+                "dir": "variables",
+                "items": []
+            }
+        ]
+    },
+    {
+        "text": "src/core/canvas2d",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+            {
+                "text": "类",
+                "dir": "classes",
+                "items": []
+            },
+            {
+                "text": "接口",
+                "dir": "interfaces",
+                "items": []
+            },
+            {
+                "text": "函数",
+                "dir": "functions",
+                "items": [
+                    {
+                        "text": "canvas2d",
+                        "link": "dist/modules.html#canvas2d"
+                    }
+                ]
+            },
+            {
+                "text": "枚举",
+                "dir": "enums",
+                "items": []
+            },
+            {
+                "text": "变量",
+                "dir": "variables",
+                "items": []
+            }
+        ]
+    },
+    {
+        "text": "src/core/utils",
+        "collapsible": true,
+        "collapsed": true,
+        "items": [
+            {
+                "text": "类",
+                "dir": "classes",
+                "items": []
+            },
+            {
+                "text": "接口",
+                "dir": "interfaces",
+                "items": []
+            },
+            {
+                "text": "函数",
+                "dir": "functions",
+                "items": [
+                    {
+                        "text": "isHitPoint",
+                        "link": "dist/modules.html#isHitPoint"
+                    },
+                    {
+                        "text": "request",
+                        "link": "dist/modules.html#request"
+                    }
+                ]
+            },
+            {
+                "text": "枚举",
+                "dir": "enums",
+                "items": []
+            },
+            {
+                "text": "变量",
+                "dir": "variables",
+                "items": []
+            }
+        ]
+    }
+]
