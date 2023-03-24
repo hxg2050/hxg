@@ -1,4 +1,4 @@
-import { Component, TouchEvent, Transform } from "../../src";
+import { Button, Component, TouchEvent, Transform } from "../../src";
 import { createSpriteByName } from "../node/createSpriteByName";
 import { AudioManager } from "./AudioManager";
 import { Map } from "./Map";
@@ -14,9 +14,11 @@ export class Card extends Component {
     mask!: Transform;
 
     start() {
-        this.node.touch = true;
-        this.node.deliver = false;
-        this.node.emitter.on(TouchEvent.TOUCH_TAP, this.onClick, this);
+        const button = this.node.addComponent(Button);
+        button.add(this.onClick, this);
+        // this.node.touch = true;
+        // this.node.deliver = false;
+        // this.node.emitter.on(TouchEvent.TOUCH_TAP, this.onClick, this);
         const sprite = createSpriteByName('mask');
         this.mask = sprite.node;
         this.node.addChild(this.mask);

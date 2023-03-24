@@ -5,7 +5,7 @@ export enum TouchEvent {
     /**
      * 触摸开始
      */
-    TOUCH_BEAGIN = 'TOUCH_BEAGIN',
+    TOUCH_BEGIN = 'TOUCH_BEGIN',
     /**
      * 触摸结束
      */
@@ -13,7 +13,7 @@ export enum TouchEvent {
     /**
      * 触屏点击
      */
-    TOUCH_TAP = 'TOUCH_TAP',
+    // TOUCH_TAP = 'TOUCH_TAP',
     /**
      * 移动手指
      */

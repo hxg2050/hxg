@@ -20,3 +20,9 @@
 11.1、图片
 11.2、音频
 12、声音
+
+事件优化*
+TouchBegin
+TouchMove
+TouchEnd
+TouchTap

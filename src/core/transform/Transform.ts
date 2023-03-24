@@ -1,10 +1,19 @@
 import { Component, Container } from "../component";
 import { EventValue, StoreEmitter as Emitter } from 'store-event'
-import { TouchEvent } from "../event";
 import { Vector2 } from "../math";
+import { TouchEvent } from "../event";
 
 export type Constructor<T = unknown> = new (...args: any[]) => T;
 export type TransformEvent = EventValue<typeof Transform.Event> | `${TouchEvent}`;
+/**
+ * 目前无z-index设定
+ */
+interface TEE {
+    node: Transform;
+    last: TEE;
+    next: TEE;
+}
+// 链表结构
 
 let id = 0;
 
@@ -127,10 +136,18 @@ export class Transform<T extends Container = Container> {
      */
     parent?: Transform;
 
+    private _touch = false;
     /**
      * 触摸事件，默认关闭
      */
-    touch = false;
+    set touch(val: boolean) {
+        this._touch = true;
+
+    }
+    get touch() {
+        return this._touch;
+    }
+
     /**
      * 是否继续向父元素传递事件（冒泡）
      */

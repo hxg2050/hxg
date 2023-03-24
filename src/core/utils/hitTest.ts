@@ -20,19 +20,22 @@ import { Transform } from "../transform";
  * @param point 要判断的点
  * @returns 
  */
-export function isHitPoint(transform: Transform, point: Vector2) {
+export function isHitPoint(point: Vector2, transform: Transform) {
 
     const size = transform.size.clone().mul(transform.getWordScale());
     // 计算偏移后的右上角位置
     const position = transform.getWordPoisition().add(transform.getOffset().mul(-1));
+    let { x, y } = point;
     // 计算旋转
-    const angle = - transform.rotation * Math.PI / 180;
-    const sin = Math.sin(angle);
-    const cos = Math.cos(angle);
+    if (transform.rotation % 360 != 0) {
+        const angle = - transform.rotation * Math.PI / 180;
+        const sin = Math.sin(angle);
+        const cos = Math.cos(angle);
 
-    // 计算旋转修正后的位置
-    const x = (point.x - position.x) * cos - (point.y - position.y) * sin + position.x;
-    const y = (point.x - position.x) * sin + (point.y - position.y) * cos + position.y;
+        // 计算旋转修正后的位置
+        x = (point.x - position.x) * cos - (point.y - position.y) * sin + position.x;
+        y = (point.x - position.x) * sin + (point.y - position.y) * cos + position.y;
+    }
 
     if (x >= position.x && x <= position.x + size.x && y >= position.y && y <= position.y + size.y) {
         return true;
