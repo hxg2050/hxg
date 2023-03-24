@@ -3,6 +3,21 @@ import { Component } from "./Component";
 
 /**
  * 处理点击事件
+ * ```ts
+ * // 创建节点
+ * const node = new Transform();
+ * // 添加布局组件
+ * const button = node.addComponent(Button);
+ * const target = this;
+ * function onClick() {
+ *      console.log('click');
+ *      button.remove(onClick, target);
+ * }
+ * // 添加点击事件
+ * button.add(onClick, target)
+ * // 放入父节点
+ * parent.addChild(node);
+ * ```
  */
 export class Button extends Component {
 
