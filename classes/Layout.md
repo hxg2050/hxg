@@ -85,7 +85,7 @@ const componet = node.addComponent(Component);
 
 #### Defined in
 
-[src/core/component/Component.ts:37](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L37)
+[src/core/component/Component.ts:37](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L37)
 
 ## Properties
 
@@ -95,7 +95,7 @@ const componet = node.addComponent(Component);
 
 #### Defined in
 
-[src/core/component/Layout.ts:157](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Layout.ts#L157)
+[src/core/component/Layout.ts:157](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Layout.ts#L157)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:27](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L27)
+[src/core/component/Component.ts:27](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L27)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:12](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L12)
+[src/core/component/Component.ts:12](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L12)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:17](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L17)
+[src/core/component/Component.ts:17](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L17)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:22](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L22)
+[src/core/component/Component.ts:22](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L22)
 
 ## Accessors
 
@@ -175,7 +175,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Layout.ts:67](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Layout.ts#L67)
+[src/core/component/Layout.ts:67](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Layout.ts#L67)
 
 • `set` **bottom**(`val`): `void`
 
@@ -191,7 +191,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Layout.ts:70](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Layout.ts#L70)
+[src/core/component/Layout.ts:70](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Layout.ts#L70)
 
 ___
 
@@ -214,7 +214,7 @@ node.addComponent(Layout);
 
 #### Defined in
 
-[src/core/component/Layout.ts:109](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Layout.ts#L109)
+[src/core/component/Layout.ts:109](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Layout.ts#L109)
 
 • `set` **horizontal**(`val`): `void`
 
@@ -230,7 +230,7 @@ node.addComponent(Layout);
 
 #### Defined in
 
-[src/core/component/Layout.ts:112](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Layout.ts#L112)
+[src/core/component/Layout.ts:112](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Layout.ts#L112)
 
 ___
 
@@ -246,7 +246,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Layout.ts:31](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Layout.ts#L31)
+[src/core/component/Layout.ts:31](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Layout.ts#L31)
 
 • `set` **left**(`val`): `void`
 
@@ -262,7 +262,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Layout.ts:34](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Layout.ts#L34)
+[src/core/component/Layout.ts:34](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Layout.ts#L34)
 
 ___
 
@@ -278,7 +278,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Layout.ts:55](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Layout.ts#L55)
+[src/core/component/Layout.ts:55](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Layout.ts#L55)
 
 • `set` **right**(`val`): `void`
 
@@ -294,7 +294,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Layout.ts:58](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Layout.ts#L58)
+[src/core/component/Layout.ts:58](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Layout.ts#L58)
 
 ___
 
@@ -310,7 +310,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Layout.ts:43](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Layout.ts#L43)
+[src/core/component/Layout.ts:43](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Layout.ts#L43)
 
 • `set` **top**(`val`): `void`
 
@@ -326,7 +326,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Layout.ts:46](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Layout.ts#L46)
+[src/core/component/Layout.ts:46](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Layout.ts#L46)
 
 ___
 
@@ -349,7 +349,7 @@ node.addComponent(Layout);
 
 #### Defined in
 
-[src/core/component/Layout.ts:87](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Layout.ts#L87)
+[src/core/component/Layout.ts:87](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Layout.ts#L87)
 
 • `set` **vertical**(`val`): `void`
 
@@ -365,7 +365,7 @@ node.addComponent(Layout);
 
 #### Defined in
 
-[src/core/component/Layout.ts:90](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Layout.ts#L90)
+[src/core/component/Layout.ts:90](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Layout.ts#L90)
 
 ## Methods
 
@@ -397,7 +397,7 @@ node.addComponent(Layout);
 
 #### Defined in
 
-[src/core/component/Component.ts:60](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L60)
+[src/core/component/Component.ts:60](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L60)
 
 ___
 
@@ -417,7 +417,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:106](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L106)
+[src/core/component/Component.ts:106](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L106)
 
 ___
 
@@ -449,7 +449,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:83](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L83)
+[src/core/component/Component.ts:83](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L83)
 
 ___
 
@@ -481,7 +481,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:91](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L91)
+[src/core/component/Component.ts:91](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L91)
 
 ___
 
@@ -513,7 +513,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:99](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L99)
+[src/core/component/Component.ts:99](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L99)
 
 ___
 
@@ -529,7 +529,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Layout.ts:149](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Layout.ts#L149)
+[src/core/component/Layout.ts:149](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Layout.ts#L149)
 
 ___
 
@@ -549,7 +549,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:113](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L113)
+[src/core/component/Component.ts:113](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L113)
 
 ___
 
@@ -569,7 +569,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:75](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L75)
+[src/core/component/Component.ts:75](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L75)
 
 ___
 
@@ -595,7 +595,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:68](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L68)
+[src/core/component/Component.ts:68](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L68)
 
 ___
 
@@ -617,7 +617,7 @@ layout.resize();
 
 #### Defined in
 
-[src/core/component/Layout.ts:168](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Layout.ts#L168)
+[src/core/component/Layout.ts:168](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Layout.ts#L168)
 
 ___
 
@@ -634,7 +634,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Layout.ts:138](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Layout.ts#L138)
+[src/core/component/Layout.ts:138](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Layout.ts#L138)
 
 ___
 
@@ -654,7 +654,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Layout.ts:121](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Layout.ts#L121)
+[src/core/component/Layout.ts:121](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Layout.ts#L121)
 
 ___
 
@@ -674,4 +674,4 @@ ___
 
 #### Defined in
 
-[src/core/component/Layout.ts:153](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Layout.ts#L153)
+[src/core/component/Layout.ts:153](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Layout.ts#L153)

@@ -57,7 +57,7 @@ loader.start();
 
 #### Defined in
 
-[src/core/resource/GroupLoader.ts:38](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/resource/GroupLoader.ts#L38)
+[src/core/resource/GroupLoader.ts:38](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/resource/GroupLoader.ts#L38)
 
 ## Properties
 
@@ -69,7 +69,7 @@ loader.start();
 
 #### Defined in
 
-[src/core/resource/GroupLoader.ts:57](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/resource/GroupLoader.ts#L57)
+[src/core/resource/GroupLoader.ts:57](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/resource/GroupLoader.ts#L57)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[src/core/resource/GroupLoader.ts:48](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/resource/GroupLoader.ts#L48)
+[src/core/resource/GroupLoader.ts:48](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/resource/GroupLoader.ts#L48)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[src/core/resource/GroupLoader.ts:65](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/resource/GroupLoader.ts#L65)
+[src/core/resource/GroupLoader.ts:65](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/resource/GroupLoader.ts#L65)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[src/core/resource/GroupLoader.ts:37](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/resource/GroupLoader.ts#L37)
+[src/core/resource/GroupLoader.ts:37](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/resource/GroupLoader.ts#L37)
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-[src/core/resource/GroupLoader.ts:61](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/resource/GroupLoader.ts#L61)
+[src/core/resource/GroupLoader.ts:61](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/resource/GroupLoader.ts#L61)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[src/core/resource/GroupLoader.ts:53](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/resource/GroupLoader.ts#L53)
+[src/core/resource/GroupLoader.ts:53](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/resource/GroupLoader.ts#L53)
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-[src/core/resource/GroupLoader.ts:41](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/resource/GroupLoader.ts#L41)
+[src/core/resource/GroupLoader.ts:41](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/resource/GroupLoader.ts#L41)
 
 ## Methods
 
@@ -172,7 +172,7 @@ const list: LoadResListConfig = [
 
 #### Defined in
 
-[src/core/resource/GroupLoader.ts:117](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/resource/GroupLoader.ts#L117)
+[src/core/resource/GroupLoader.ts:117](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/resource/GroupLoader.ts#L117)
 
 ___
 
@@ -188,7 +188,7 @@ ___
 
 #### Defined in
 
-[src/core/resource/GroupLoader.ts:71](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/resource/GroupLoader.ts#L71)
+[src/core/resource/GroupLoader.ts:71](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/resource/GroupLoader.ts#L71)
 
 ___
 
@@ -204,4 +204,4 @@ ___
 
 #### Defined in
 
-[src/core/resource/GroupLoader.ts:99](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/resource/GroupLoader.ts#L99)
+[src/core/resource/GroupLoader.ts:99](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/resource/GroupLoader.ts#L99)

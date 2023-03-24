@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[src/core/component/IComponent.ts:4](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/IComponent.ts#L4)
+[src/core/component/IComponent.ts:4](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/IComponent.ts#L4)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[src/core/component/IComponent.ts:5](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/IComponent.ts#L5)
+[src/core/component/IComponent.ts:5](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/IComponent.ts#L5)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[src/core/component/IComponent.ts:2](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/IComponent.ts#L2)
+[src/core/component/IComponent.ts:2](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/IComponent.ts#L2)
 
 ___
 
@@ -79,4 +79,4 @@ ___
 
 #### Defined in
 
-[src/core/component/IComponent.ts:3](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/IComponent.ts#L3)
+[src/core/component/IComponent.ts:3](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/IComponent.ts#L3)

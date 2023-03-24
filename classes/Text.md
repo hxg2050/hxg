@@ -94,7 +94,7 @@ text.color = '#FF0000';
 
 #### Defined in
 
-[src/core/component/Container.ts:5](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Container.ts#L5)
+[src/core/component/Container.ts:5](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Container.ts#L5)
 
 ## Properties
 
@@ -110,7 +110,7 @@ text.color = '#FF0000';
 
 #### Defined in
 
-[src/core/component/Component.ts:27](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L27)
+[src/core/component/Component.ts:27](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L27)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:12](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L12)
+[src/core/component/Component.ts:12](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L12)
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:17](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L17)
+[src/core/component/Component.ts:17](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L17)
 
 ___
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:22](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L22)
+[src/core/component/Component.ts:22](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L22)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:202](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L202)
+[src/core/component/Text.ts:202](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L202)
 
 ## Accessors
 
@@ -186,7 +186,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:76](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L76)
+[src/core/component/Text.ts:76](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L76)
 
 • `set` **algin**(`val`): `void`
 
@@ -202,7 +202,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:79](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L79)
+[src/core/component/Text.ts:79](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L79)
 
 ___
 
@@ -219,7 +219,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:167](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L167)
+[src/core/component/Text.ts:167](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L167)
 
 • `set` **autoWarp**(`val`): `void`
 
@@ -235,7 +235,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:170](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L170)
+[src/core/component/Text.ts:170](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L170)
 
 ___
 
@@ -251,7 +251,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:151](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L151)
+[src/core/component/Text.ts:151](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L151)
 
 • `set` **bold**(`val`): `void`
 
@@ -267,7 +267,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:154](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L154)
+[src/core/component/Text.ts:154](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L154)
 
 ___
 
@@ -283,7 +283,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:182](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L182)
+[src/core/component/Text.ts:182](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L182)
 
 • `set` **color**(`val`): `void`
 
@@ -299,7 +299,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:185](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L185)
+[src/core/component/Text.ts:185](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L185)
 
 ___
 
@@ -315,7 +315,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:106](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L106)
+[src/core/component/Text.ts:106](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L106)
 
 • `set` **fontFamily**(`val`): `void`
 
@@ -331,7 +331,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:109](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L109)
+[src/core/component/Text.ts:109](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L109)
 
 ___
 
@@ -347,7 +347,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:121](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L121)
+[src/core/component/Text.ts:121](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L121)
 
 • `set` **fontSize**(`val`): `void`
 
@@ -363,7 +363,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:124](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L124)
+[src/core/component/Text.ts:124](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L124)
 
 ___
 
@@ -379,7 +379,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:136](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L136)
+[src/core/component/Text.ts:136](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L136)
 
 • `set` **italic**(`val`): `void`
 
@@ -395,7 +395,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:139](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L139)
+[src/core/component/Text.ts:139](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L139)
 
 ___
 
@@ -411,7 +411,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:46](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L46)
+[src/core/component/Text.ts:46](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L46)
 
 • `set` **letterPacing**(`val`): `void`
 
@@ -427,7 +427,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:49](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L49)
+[src/core/component/Text.ts:49](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L49)
 
 ___
 
@@ -443,7 +443,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:61](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L61)
+[src/core/component/Text.ts:61](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L61)
 
 • `set` **lineSpace**(`val`): `void`
 
@@ -459,7 +459,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:64](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L64)
+[src/core/component/Text.ts:64](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L64)
 
 ___
 
@@ -473,7 +473,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:91](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L91)
+[src/core/component/Text.ts:91](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L91)
 
 • `set` **value**(`val`): `void`
 
@@ -489,7 +489,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:94](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L94)
+[src/core/component/Text.ts:94](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L94)
 
 ## Methods
 
@@ -521,7 +521,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:60](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L60)
+[src/core/component/Component.ts:60](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L60)
 
 ___
 
@@ -541,7 +541,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:106](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L106)
+[src/core/component/Component.ts:106](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L106)
 
 ___
 
@@ -573,7 +573,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:83](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L83)
+[src/core/component/Component.ts:83](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L83)
 
 ___
 
@@ -605,7 +605,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:91](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L91)
+[src/core/component/Component.ts:91](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L91)
 
 ___
 
@@ -637,7 +637,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:99](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L99)
+[src/core/component/Component.ts:99](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L99)
 
 ___
 
@@ -657,7 +657,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:220](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L220)
+[src/core/component/Text.ts:220](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L220)
 
 ___
 
@@ -677,7 +677,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:75](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L75)
+[src/core/component/Component.ts:75](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L75)
 
 ___
 
@@ -703,7 +703,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:68](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L68)
+[src/core/component/Component.ts:68](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L68)
 
 ___
 
@@ -723,7 +723,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:204](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Text.ts#L204)
+[src/core/component/Text.ts:204](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Text.ts#L204)
 
 ___
 
@@ -749,4 +749,4 @@ ___
 
 #### Defined in
 
-[src/core/component/Component.ts:52](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/component/Component.ts#L52)
+[src/core/component/Component.ts:52](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/component/Component.ts#L52)

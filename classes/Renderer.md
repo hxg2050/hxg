@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[src/core/canvas2d/render/Renderer.ts:27](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/canvas2d/render/Renderer.ts#L27)
+[src/core/canvas2d/render/Renderer.ts:27](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/canvas2d/render/Renderer.ts#L27)
 
 ## Properties
 
@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[src/core/canvas2d/render/Renderer.ts:27](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/canvas2d/render/Renderer.ts#L27)
+[src/core/canvas2d/render/Renderer.ts:27](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/canvas2d/render/Renderer.ts#L27)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[src/core/canvas2d/render/Renderer.ts:27](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/canvas2d/render/Renderer.ts#L27)
+[src/core/canvas2d/render/Renderer.ts:27](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/canvas2d/render/Renderer.ts#L27)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[src/core/canvas2d/render/Renderer.ts:22](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/canvas2d/render/Renderer.ts#L22)
+[src/core/canvas2d/render/Renderer.ts:22](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/canvas2d/render/Renderer.ts#L22)
 
 ## Methods
 
@@ -77,4 +77,4 @@ ___
 
 #### Defined in
 
-[src/core/canvas2d/render/Renderer.ts:30](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/canvas2d/render/Renderer.ts#L30)
+[src/core/canvas2d/render/Renderer.ts:30](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/canvas2d/render/Renderer.ts#L30)

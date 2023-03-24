@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[src/core/ecs/ECS.ts:28](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/ecs/ECS.ts#L28)
+[src/core/ecs/ECS.ts:28](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/ecs/ECS.ts#L28)
 
 ## Properties
 
@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[src/core/ecs/ECS.ts:26](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/ecs/ECS.ts#L26)
+[src/core/ecs/ECS.ts:26](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/ecs/ECS.ts#L26)
 
 ## Methods
 
@@ -68,7 +68,7 @@
 
 #### Defined in
 
-[src/core/ecs/ECS.ts:39](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/ecs/ECS.ts#L39)
+[src/core/ecs/ECS.ts:39](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/ecs/ECS.ts#L39)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[src/core/ecs/ECS.ts:32](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/ecs/ECS.ts#L32)
+[src/core/ecs/ECS.ts:32](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/ecs/ECS.ts#L32)
 
 ___
 
@@ -120,4 +120,4 @@ ___
 
 #### Defined in
 
-[src/core/ecs/ECS.ts:55](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/ecs/ECS.ts#L55)
+[src/core/ecs/ECS.ts:55](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/ecs/ECS.ts#L55)

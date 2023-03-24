@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[src/core/event/TouchEvent.ts:8](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/event/TouchEvent.ts#L8)
+[src/core/event/TouchEvent.ts:8](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/event/TouchEvent.ts#L8)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[src/core/event/TouchEvent.ts:12](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/event/TouchEvent.ts#L12)
+[src/core/event/TouchEvent.ts:12](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/event/TouchEvent.ts#L12)
 
 ___
 
@@ -44,4 +44,4 @@ ___
 
 #### Defined in
 
-[src/core/event/TouchEvent.ts:20](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/event/TouchEvent.ts#L20)
+[src/core/event/TouchEvent.ts:20](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/event/TouchEvent.ts#L20)

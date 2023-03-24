@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[src/core/math/Vector2.ts:6](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/math/Vector2.ts#L6)
+[src/core/math/Vector2.ts:6](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/math/Vector2.ts#L6)
 
 ## Properties
 
@@ -46,7 +46,7 @@
 
 #### Defined in
 
-[src/core/math/Vector2.ts:11](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/math/Vector2.ts#L11)
+[src/core/math/Vector2.ts:11](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/math/Vector2.ts#L11)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/core/math/Vector2.ts:12](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/math/Vector2.ts#L12)
+[src/core/math/Vector2.ts:12](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/math/Vector2.ts#L12)
 
 ## Methods
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[src/core/math/Vector2.ts:39](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/math/Vector2.ts#L39)
+[src/core/math/Vector2.ts:39](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/math/Vector2.ts#L39)
 
 ▸ **add**(`num`): [`Vector2`](Vector2.md)
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[src/core/math/Vector2.ts:40](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/math/Vector2.ts#L40)
+[src/core/math/Vector2.ts:40](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/math/Vector2.ts#L40)
 
 ▸ **add**(`vector2`): [`Vector2`](Vector2.md)
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[src/core/math/Vector2.ts:41](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/math/Vector2.ts#L41)
+[src/core/math/Vector2.ts:41](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/math/Vector2.ts#L41)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[src/core/math/Vector2.ts:30](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/math/Vector2.ts#L30)
+[src/core/math/Vector2.ts:30](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/math/Vector2.ts#L30)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-[src/core/math/Vector2.ts:58](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/math/Vector2.ts#L58)
+[src/core/math/Vector2.ts:58](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/math/Vector2.ts#L58)
 
 ▸ **mul**(`num`): [`Vector2`](Vector2.md)
 
@@ -166,7 +166,7 @@ ___
 
 #### Defined in
 
-[src/core/math/Vector2.ts:59](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/math/Vector2.ts#L59)
+[src/core/math/Vector2.ts:59](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/math/Vector2.ts#L59)
 
 ▸ **mul**(`num`): [`Vector2`](Vector2.md)
 
@@ -184,7 +184,7 @@ ___
 
 #### Defined in
 
-[src/core/math/Vector2.ts:63](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/math/Vector2.ts#L63)
+[src/core/math/Vector2.ts:63](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/math/Vector2.ts#L63)
 
 ___
 
@@ -202,7 +202,7 @@ ___
 
 #### Defined in
 
-[src/core/math/Vector2.ts:81](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/math/Vector2.ts#L81)
+[src/core/math/Vector2.ts:81](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/math/Vector2.ts#L81)
 
 ___
 
@@ -223,7 +223,7 @@ ___
 
 #### Defined in
 
-[src/core/math/Vector2.ts:14](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/math/Vector2.ts#L14)
+[src/core/math/Vector2.ts:14](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/math/Vector2.ts#L14)
 
 ▸ **set**(`vector2`): [`Vector2`](Vector2.md)
 
@@ -239,4 +239,4 @@ ___
 
 #### Defined in
 
-[src/core/math/Vector2.ts:15](https://github.com/hxg2050/hxg/blob/6aa982d/src/core/math/Vector2.ts#L15)
+[src/core/math/Vector2.ts:15](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/math/Vector2.ts#L15)
