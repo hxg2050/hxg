@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[src/core/ecs/ECS.ts:75](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/ecs/ECS.ts#L75)
+[src/core/ecs/ECS.ts:75](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/ecs/ECS.ts#L75)
 
 ## Methods
 
@@ -50,4 +50,4 @@
 
 #### Defined in
 
-[src/core/ecs/ECS.ts:76](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/ecs/ECS.ts#L76)
+[src/core/ecs/ECS.ts:76](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/ecs/ECS.ts#L76)

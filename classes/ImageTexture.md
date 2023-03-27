@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[src/core/texture/ImageTexture.ts:8](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/texture/ImageTexture.ts#L8)
+[src/core/texture/ImageTexture.ts:8](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/ImageTexture.ts#L8)
 
 ## Properties
 
@@ -56,7 +56,7 @@
 
 #### Defined in
 
-[src/core/texture/BaseTexture.ts:20](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/texture/BaseTexture.ts#L20)
+[src/core/texture/BaseTexture.ts:20](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/BaseTexture.ts#L20)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[src/core/texture/ImageTexture.ts:8](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/texture/ImageTexture.ts#L8)
+[src/core/texture/ImageTexture.ts:8](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/ImageTexture.ts#L8)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[src/core/texture/BaseTexture.ts:16](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/texture/BaseTexture.ts#L16)
+[src/core/texture/BaseTexture.ts:16](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/BaseTexture.ts#L16)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[src/core/texture/BaseTexture.ts:8](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/texture/BaseTexture.ts#L8)
+[src/core/texture/BaseTexture.ts:8](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/BaseTexture.ts#L8)
 
 ___
 
@@ -114,4 +114,4 @@ ___
 
 #### Defined in
 
-[src/core/texture/BaseTexture.ts:12](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/texture/BaseTexture.ts#L12)
+[src/core/texture/BaseTexture.ts:12](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/BaseTexture.ts#L12)

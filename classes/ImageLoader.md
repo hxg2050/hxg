@@ -44,4 +44,4 @@
 
 #### Defined in
 
-[src/core/resource/loader/ImageLoader.ts:7](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/resource/loader/ImageLoader.ts#L7)
+[src/core/resource/loader/ImageLoader.ts:7](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/resource/loader/ImageLoader.ts#L7)

@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/core/ecs/ECS.ts:6](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/ecs/ECS.ts#L6)
+[src/core/ecs/ECS.ts:6](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/ecs/ECS.ts#L6)
 
 ## Properties
 
@@ -36,4 +36,4 @@
 
 #### Defined in
 
-[src/core/ecs/ECS.ts:5](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/ecs/ECS.ts#L5)
+[src/core/ecs/ECS.ts:5](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/ecs/ECS.ts#L5)

@@ -64,7 +64,7 @@ Emitter.constructor
 
 #### Defined in
 
-[src/core/system/EventSystem.ts:17](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/system/EventSystem.ts#L17)
+[src/core/system/EventSystem.ts:17](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/system/EventSystem.ts#L17)
 
 ## Properties
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[src/core/system/EventSystem.ts:29](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/system/EventSystem.ts#L29)
+[src/core/system/EventSystem.ts:29](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/system/EventSystem.ts#L29)
 
 ___
 
@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-[src/core/system/EventSystem.ts:17](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/system/EventSystem.ts#L17)
+[src/core/system/EventSystem.ts:17](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/system/EventSystem.ts#L17)
 
 ## Methods
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[src/core/system/EventSystem.ts:22](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/system/EventSystem.ts#L22)
+[src/core/system/EventSystem.ts:22](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/system/EventSystem.ts#L22)
 
 ___
 
@@ -434,7 +434,7 @@ ___
 
 #### Defined in
 
-[src/core/system/EventSystem.ts:31](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/system/EventSystem.ts#L31)
+[src/core/system/EventSystem.ts:31](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/system/EventSystem.ts#L31)
 
 ___
 
@@ -454,7 +454,7 @@ ___
 
 #### Defined in
 
-[src/core/system/EventSystem.ts:35](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/system/EventSystem.ts#L35)
+[src/core/system/EventSystem.ts:35](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/system/EventSystem.ts#L35)
 
 ___
 
@@ -474,7 +474,7 @@ ___
 
 #### Defined in
 
-[src/core/system/EventSystem.ts:39](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/system/EventSystem.ts#L39)
+[src/core/system/EventSystem.ts:39](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/system/EventSystem.ts#L39)
 
 ___
 
@@ -559,4 +559,4 @@ ___
 
 #### Defined in
 
-[src/core/system/EventSystem.ts:59](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/system/EventSystem.ts#L59)
+[src/core/system/EventSystem.ts:59](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/system/EventSystem.ts#L59)

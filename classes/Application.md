@@ -47,7 +47,7 @@ const app = Applaction.run({
 
 #### Defined in
 
-[src/core/Application.ts:43](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/Application.ts#L43)
+[src/core/Application.ts:43](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/Application.ts#L43)
 
 ## Properties
 
@@ -57,7 +57,7 @@ const app = Applaction.run({
 
 #### Defined in
 
-[src/core/Application.ts:28](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/Application.ts#L28)
+[src/core/Application.ts:28](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/Application.ts#L28)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[src/core/Application.ts:41](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/Application.ts#L41)
+[src/core/Application.ts:41](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/Application.ts#L41)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[src/core/Application.ts:36](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/Application.ts#L36)
+[src/core/Application.ts:36](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/Application.ts#L36)
 
 ## Methods
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[src/core/Application.ts:70](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/Application.ts#L70)
+[src/core/Application.ts:70](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/Application.ts#L70)
 
 ___
 
@@ -124,4 +124,4 @@ ___
 
 #### Defined in
 
-[src/core/Application.ts:75](https://github.com/hxg2050/hxg/blob/51e5ed2/src/core/Application.ts#L75)
+[src/core/Application.ts:75](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/Application.ts#L75)
