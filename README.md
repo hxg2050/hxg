@@ -1,4 +1,5 @@
 文档查看 [https://hxg2050.github.io/hxg/](https://hxg2050.github.io/hxg/)
+\
 安装
 ```sh
 npm install hxg
