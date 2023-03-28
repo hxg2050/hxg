@@ -17,10 +17,16 @@ import { Component } from "./Component";
  * ```
  */
 export class Mask extends Component {
+    /**
+     * 是否需要重绘
+     */
     renew = true;
-
+    /**
+     * 遮罩蒙版
+     */
     value?: Transform;
+    /**
+     * 最终效果的纹理，这样设计不影响原节点和蒙版节点
+     */
     texture?: ImageTexture;
-
-
 }
