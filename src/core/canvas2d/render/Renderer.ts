@@ -73,6 +73,7 @@ export class Renderer {
         if (!element) {
             return false;
         }
+        this.context.globalAlpha = transform.alpha;
         callback(this.context, matrix, element);
         return true;
     }

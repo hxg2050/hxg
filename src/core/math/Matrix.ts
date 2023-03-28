@@ -99,6 +99,7 @@ export class Matrix {
             b, d, 0,
             x, y, 1
         );
+        return this;
     }
 
     /**

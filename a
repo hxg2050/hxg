@@ -26,3 +26,7 @@ TouchBegin
 TouchMove
 TouchEnd
 TouchTap
+
+13、矢量绘制Graphics
+13.1、线段，圆，矩形，圆角矩形，多边形
+14、mask实现

@@ -1,6 +1,6 @@
 import { Component, Container } from "../component";
 import { EventValue, StoreEmitter as Emitter } from 'store-event'
-import { Vector2 } from "../math";
+import { Matrix, Vector2 } from "../math";
 import { TouchEvent } from "../event";
 
 export type Constructor<T = unknown> = new (...args: any[]) => T;
@@ -257,6 +257,7 @@ export class Transform<T extends Container = Container> {
         }
         this.children.push(transform);
         transform.parent = this;
+        return transform;
     }
 
     /**
@@ -385,20 +386,6 @@ export class Transform<T extends Container = Container> {
     }
 
     /**
-     * 获取相对于世界的旋转
-     */
-    getWordRotation() {
-        let angle = this.rotation;
-        let parent = this.parent;
-        while (parent) {
-            angle += parent.rotation;
-            parent = parent.parent;
-
-        }
-        return angle;
-    }
-
-    /**
      * 获取相对于世界的缩放
      */
     getWordScale() {
@@ -412,13 +399,81 @@ export class Transform<T extends Container = Container> {
         return scale;
     }
 
+    // matrix?: Matrix;
+
     /**
-     * 获取尺寸，计算宽高，缩放之后的尺寸实尺寸
+     * 获取尺寸，计算宽高，缩放,旋转之后在舞台中的尺寸实尺寸
+     * 获取？/测量？
+     * 有问题
      */
     getRectangle() {
-        const rect = this.scale.clone();
-        const scale = this.getWordScale();
-        rect.mul(scale);
-        return rect;
+        const position = this.getWordPoisition();
+        // 获取4个顶点的坐标
+        const points = [
+            {
+                x: position.x,
+                y: position.y
+            },
+            {
+                x: position.x,
+                y: position.y + this.size.y
+            },
+            {
+                x: position.x + this.size.x,
+                y: position.y + this.size.y
+            },
+            {
+                x: position.x + this.size.x,
+                y: position.y
+            }
+        ];
+
+        if (this.children) {
+            this.children.forEach(val => {
+                const rect = val.getRectangle();
+                points.push({ x: rect.x1, y: rect.y1});
+                points.push({ x: rect.x2, y: rect.y2});
+            });
+        }
+
+        let minX = Math.min(...points.map(point => point.x));
+        let minY = Math.min(...points.map(point => point.y));
+        let maxX = Math.max(...points.map(point => point.x));
+        let maxY = Math.max(...points.map(point => point.y));
+
+        function rotatePoint(pivot, point, cos, sin) {
+            return {
+                x: (cos * (point.x - pivot.x)) - (sin * (point.y - pivot.y)) + pivot.x,
+                y: (sin * (point.x - pivot.x)) + (cos * (point.y - pivot.y)) + pivot.y
+            };
+        }
+        let anchor = this.getOffset();
+        let boundingBox = {
+            x1: Number.POSITIVE_INFINITY,
+            y1: Number.POSITIVE_INFINITY,
+            x2: Number.NEGATIVE_INFINITY,
+            y2: Number.NEGATIVE_INFINITY,
+            width: 0,
+            height: 0
+        };
+
+        let degrees = this.rotation;
+        let radians = degrees * (Math.PI / 180);
+        let cos = Math.cos(radians);
+        let sin = Math.sin(radians);
+        
+        points.forEach((point) => {
+            let rotatedPoint = rotatePoint(anchor, point, cos, sin);
+        
+            boundingBox.x1 = Math.min(boundingBox.x1, rotatedPoint.x);
+            boundingBox.y1 = Math.min(boundingBox.y1, rotatedPoint.y);
+            boundingBox.x2 = Math.max(boundingBox.x2, rotatedPoint.x);
+            boundingBox.y2 = Math.max(boundingBox.y2, rotatedPoint.y);
+        });
+
+        boundingBox.width = boundingBox.x2 - boundingBox.x1;
+        boundingBox.height = boundingBox.y2 - boundingBox.y1;
+        
+        return boundingBox;
     }
 }

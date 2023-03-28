@@ -1,143 +1,102 @@
-// import './style.scss';
-// import { Resource } from '../src/core/resource';
-// import { Application, canvas2d, Sprite, Ticker, ticker, TouchEvent, Transform } from '../src';
-// import { createText } from '../example-game1/node/createText';
-// import { FPS } from '../example-game1/components/FPS';
-// import { ImageTexture } from '../src/core/texture';
+import './style.scss';
+import { Application, canvas2d, ImageTexture, LoadResListConfig, Resource, Sprite, Transform } from '../src';
+import { createSpriteByName } from '../example-game1/node/createSpriteByName';
+import { Mask } from '../src/core/component/Mask';
+/**
+ * 创建应用
+ */
+const app = new Application({
+	width: 1280,
+	height: 720
+});
 
-// /**
-//  * 创建应用
-//  */
-// const app = new Application({
-// 	width: 720,
-// 	height: 1280
-// });
+const canvas = document.querySelector('#canvas')! as HTMLCanvasElement;
+app.use(canvas2d(canvas));
 
-// const canvas = document.querySelector('#canvas')! as HTMLCanvasElement;
-// app.use(canvas2d(canvas));
-// Resource.load('../example-game1/assets/image/icon4.png').then((res) => {
-// 	const iTexture = new ImageTexture(res.data);
-// 	const spriteNode = new Transform(Sprite);
-// 	const sprite = spriteNode.getComponent(Sprite)!;
-// 	sprite.texture = iTexture;
-// 	sprite.resize();
+const image_path = './assets/image/';
+const res_list: LoadResListConfig = [
+    ['icon1.png', 'icon1'],
+    ['icon2.png', 'icon2'],
+    ['icon3.png', 'icon3'],
+    ['icon4.png', 'icon4'],
+    ['icon5.png', 'icon5'],
+    ['icon6.png', 'icon6'],
+    ['icon7.png', 'icon7'],
+    ['icon8.png', 'icon8'],
+    ['icon9.png', 'icon9'],
+    ['icon10.png', 'icon10'],
+    ['icon11.png', 'icon11'],
+    ['icon12.png', 'icon12'],
+    ['icon13.png', 'icon13'],
+    ['icon14.png', 'icon14'],
+    ['icon15.png', 'icon15'],
+    ['icon16.png', 'icon16'],
+    ['input.png', 'input'],
+    ['bg.jpg', 'bg'],
+    ['mask.png', 'mask'],
+    ['replay.png', 'replay'],
+    ['mask_black.png', 'mask_black'],
+    ['over_bg.png', 'over_bg'],
+    ['failed_text.png', 'failed_text'],
+    ['win_text.png', 'win_text'],
+];
 
-// 	app.stage.addChild(spriteNode);
-// 	// spriteNode.size.set(200, 200);
-// 	// spriteNode.scale.set(1.5, 2);
-// 	spriteNode.anchor.set(0.5, 0.5);
+const resList = (list: LoadResListConfig, root: string) => {
+    for (let i = 0; i < list.length; i ++) {
+        let item = list[i];
+        if (typeof item == 'string') {
+            list[i] = root + item;
+        } else {
+            item[0] = root + item[0];
+        }
+    }
+    return list;
+}
+let loadedCount = 0;
+const resCount = res_list.length;
 
-// 	spriteNode.position.x = 100;
-// 	spriteNode.position.y = 100;
-// 	spriteNode.touch = true;
-// 	spriteNode.emitter.on(TouchEvent.TOUCH_TAP, () => {
-// 		console.log('TouchEvent.TOUCH_TAP');
-// 	}, this);
-// 	spriteNode.emitter.on(TouchEvent.TOUCH_BEGIN, () => {
-// 		console.log('TouchEvent.TOUCH_BEGIN');
-// 	}, this);
-// });
+function resLoader(list: LoadResListConfig) {
+    const loader = Resource.loadGroup(list);
+    loader.on('loaded', () => {
+        loadedCount ++;
+        if (loadedCount == resCount) {
+            const bg = app.stage.addComponent(Sprite);
+            const res = Resource.get('bg')!;
+            bg.texture = new ImageTexture(res.data);
+            console.log(bg);
+            run();
+        }
+    });
+}
+resLoader(resList(res_list, image_path));
+
+function run() {
+    const img1 = createSpriteByName('icon1')!;
+    app.stage.addChild(img1.node);
+    const img2 = createSpriteByName('icon10')!;
+    app.stage.addChild(img2.node);
+    img2.node.alpha = 0.6;
+    img2.node.position.set(40, 40);
 
 
+    const img3 = createSpriteByName('icon10')!;
+
+    const mask = img3.addComponent(Mask);
+    const maskImg = createSpriteByName('icon2');
+    maskImg.node.position.x = 72 / 2;
+    maskImg.node.position.y = 72 / 2;
+    // maskImg.node.scale.set(0.5, 0.5);
+    mask.value = maskImg.node;
+    maskImg.node.anchor.set(0.5, 0.5);
+    maskImg.node.rotation = 45;
+
+    img3.node.addChild(maskImg.node);
+    app.stage.addChild(img3.node);
+    // img3.node.alpha = 0.5;
+    img3.node.position.set(60, 60);
+    // console.log(img3.node.getRectangle());
 
 
-
-
-
-// interface _Node {
-// 	children: _Node[];
-// 	id: number;
-// 	active: boolean;
-// }
-
-// let data: _Node[] = [{
-// 	children: [
-// 		{
-// 			children: [],
-// 			id: 2,
-// 			active: false
-// 		}
-// 	],
-// 	id: 1,
-// 	active: true
-// }, {
-// 	children: [
-// 		{
-// 			children: [
-// 				{
-// 					children: [],
-// 					id: 5,
-// 					active: false
-// 				},
-// 				{
-// 					children: [],
-// 					id: 6,
-// 					active: true
-// 				},
-// 				{
-// 					children: [],
-// 					id: 7,
-// 					active: true
-// 				},
-// 				{
-// 					children: [],
-// 					id: 8,
-// 					active: true
-// 				},
-// 				{
-// 					children: [],
-// 					id: 9,
-// 					active: false
-// 				},
-// 			],
-// 			id: 4,
-// 			active: false
-// 		}
-// 	],
-// 	id: 3,
-// 	active: false
-// }]
-
-// /**
-//  * 从下往上，从里往外
-//  * @param data 
-//  * @returns 
-//  */
-// function findActive(data: _Node[]) {
-// 	for (let i = data.length - 1; i >= 0; i--) {
-// 		const node = data[i];
-// 		if (node.children.length > 0) {
-// 			if (findActive(node.children)) {
-// 				return node;
-// 			}
-// 		}
-// 		if (node.active) {
-// 			return node;
-// 		}
-// 	}
-// }
-
-// let cache:_Node[] = [];
-
-// function cacheActive(data: _Node[]) {
-// 	for (let i = data.length - 1; i >= 0; i--) {
-// 		const node = data[i];
-// 		if (node.children.length > 0) {
-// 			cacheActive(node.children);
-// 		}
-// 		if (node.active) {
-// 			cache.unshift(node);
-// 		}
-// 	}
-// }
-// cacheActive(data);
-
-// console.log(cache);
-// console.log(findActive(cache));
-
-// /**
-//  * 当节点发生变化时事件
-//  */
-// onNodeChange(node) {
-
-// }
+    // const img4 = createSpriteByName('icon1')!;
+    // app.stage.addChild(img4.node);
+}
