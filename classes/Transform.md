@@ -56,7 +56,6 @@ const node = new Transform();
 - [getOffset](Transform.md#getoffset)
 - [getRectangle](Transform.md#getrectangle)
 - [getWordPoisition](Transform.md#getwordpoisition)
-- [getWordRotation](Transform.md#getwordrotation)
 - [getWordScale](Transform.md#getwordscale)
 - [removeAllComponent](Transform.md#removeallcomponent)
 - [removeChild](Transform.md#removechild)
@@ -87,7 +86,7 @@ const node = new Transform();
 
 #### Defined in
 
-[src/core/transform/Transform.ts:65](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L65)
+[src/core/transform/Transform.ts:65](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L65)
 
 ## Properties
 
@@ -97,7 +96,7 @@ const node = new Transform();
 
 #### Defined in
 
-[src/core/transform/Transform.ts:115](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L115)
+[src/core/transform/Transform.ts:115](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L115)
 
 ___
 
@@ -107,7 +106,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:104](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L104)
+[src/core/transform/Transform.ts:104](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L104)
 
 ___
 
@@ -117,7 +116,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:31](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L31)
+[src/core/transform/Transform.ts:31](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L31)
 
 ___
 
@@ -129,7 +128,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:163](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L163)
+[src/core/transform/Transform.ts:163](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L163)
 
 ___
 
@@ -141,7 +140,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:248](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L248)
+[src/core/transform/Transform.ts:248](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L248)
 
 ___
 
@@ -154,7 +153,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:132](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L132)
+[src/core/transform/Transform.ts:132](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L132)
 
 ___
 
@@ -164,7 +163,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:126](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L126)
+[src/core/transform/Transform.ts:126](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L126)
 
 ___
 
@@ -176,7 +175,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:154](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L154)
+[src/core/transform/Transform.ts:154](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L154)
 
 ___
 
@@ -186,7 +185,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:34](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L34)
+[src/core/transform/Transform.ts:34](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L34)
 
 ___
 
@@ -196,7 +195,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:28](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L28)
+[src/core/transform/Transform.ts:28](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L28)
 
 ___
 
@@ -206,7 +205,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:33](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L33)
+[src/core/transform/Transform.ts:33](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L33)
 
 ___
 
@@ -218,7 +217,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:137](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L137)
+[src/core/transform/Transform.ts:137](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L137)
 
 ___
 
@@ -230,7 +229,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:158](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L158)
+[src/core/transform/Transform.ts:158](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L158)
 
 ___
 
@@ -252,7 +251,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:38](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L38)
+[src/core/transform/Transform.ts:38](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L38)
 
 ## Accessors
 
@@ -268,7 +267,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:119](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L119)
+[src/core/transform/Transform.ts:119](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L119)
 
 • `set` **anchor**(`value`): `void`
 
@@ -284,7 +283,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:122](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L122)
+[src/core/transform/Transform.ts:122](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L122)
 
 ___
 
@@ -300,7 +299,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:74](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L74)
+[src/core/transform/Transform.ts:74](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L74)
 
 • `set` **position**(`value`): `void`
 
@@ -316,7 +315,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:77](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L77)
+[src/core/transform/Transform.ts:77](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L77)
 
 ___
 
@@ -332,7 +331,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:108](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L108)
+[src/core/transform/Transform.ts:108](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L108)
 
 • `set` **rotation**(`value`): `void`
 
@@ -348,7 +347,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:111](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L111)
+[src/core/transform/Transform.ts:111](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L111)
 
 ___
 
@@ -364,7 +363,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:97](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L97)
+[src/core/transform/Transform.ts:97](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L97)
 
 • `set` **scale**(`value`): `void`
 
@@ -380,7 +379,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:100](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L100)
+[src/core/transform/Transform.ts:100](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L100)
 
 ___
 
@@ -396,7 +395,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:85](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L85)
+[src/core/transform/Transform.ts:85](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L85)
 
 • `set` **size**(`value`): `void`
 
@@ -412,7 +411,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:88](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L88)
+[src/core/transform/Transform.ts:88](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L88)
 
 ___
 
@@ -426,7 +425,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:147](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L147)
+[src/core/transform/Transform.ts:147](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L147)
 
 • `set` **touch**(`val`): `void`
 
@@ -444,13 +443,13 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:143](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L143)
+[src/core/transform/Transform.ts:143](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L143)
 
 ## Methods
 
 ### addChild
 
-▸ **addChild**(`transform`): `void`
+▸ **addChild**(`transform`): [`Transform`](Transform.md)<[`Container`](Container.md)\>
 
 插入一个子节点
 
@@ -462,11 +461,11 @@ ___
 
 #### Returns
 
-`void`
+[`Transform`](Transform.md)<[`Container`](Container.md)\>
 
 #### Defined in
 
-[src/core/transform/Transform.ts:254](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L254)
+[src/core/transform/Transform.ts:254](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L254)
 
 ___
 
@@ -489,7 +488,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:267](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L267)
+[src/core/transform/Transform.ts:268](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L268)
 
 ___
 
@@ -517,7 +516,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:169](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L169)
+[src/core/transform/Transform.ts:169](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L169)
 
 ___
 
@@ -533,7 +532,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:316](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L316)
+[src/core/transform/Transform.ts:317](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L317)
 
 ___
 
@@ -587,7 +586,7 @@ body.find('head/rEye');
 
 #### Defined in
 
-[src/core/transform/Transform.ts:353](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L353)
+[src/core/transform/Transform.ts:354](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L354)
 
 ___
 
@@ -615,7 +614,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:203](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L203)
+[src/core/transform/Transform.ts:203](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L203)
 
 ___
 
@@ -645,7 +644,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:211](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L211)
+[src/core/transform/Transform.ts:211](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L211)
 
 ___
 
@@ -676,7 +675,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:227](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L227)
+[src/core/transform/Transform.ts:227](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L227)
 
 ___
 
@@ -692,23 +691,34 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:371](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L371)
+[src/core/transform/Transform.ts:372](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L372)
 
 ___
 
 ### getRectangle
 
-▸ **getRectangle**(): [`Vector2`](Vector2.md)
+▸ **getRectangle**(): `Object`
 
-获取尺寸，计算宽高，缩放之后的尺寸实尺寸
+获取尺寸，计算宽高，缩放,旋转之后在舞台中的尺寸实尺寸
+获取？/测量？
+有问题
 
 #### Returns
 
-[`Vector2`](Vector2.md)
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `height` | `number` |
+| `width` | `number` |
+| `x1` | `number` |
+| `x2` | `number` |
+| `y1` | `number` |
+| `y2` | `number` |
 
 #### Defined in
 
-[src/core/transform/Transform.ts:418](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L418)
+[src/core/transform/Transform.ts:409](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L409)
 
 ___
 
@@ -724,23 +734,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:378](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L378)
-
-___
-
-### getWordRotation
-
-▸ **getWordRotation**(): `number`
-
-获取相对于世界的旋转
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[src/core/transform/Transform.ts:390](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L390)
+[src/core/transform/Transform.ts:379](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L379)
 
 ___
 
@@ -756,7 +750,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:404](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L404)
+[src/core/transform/Transform.ts:391](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L391)
 
 ___
 
@@ -772,7 +766,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:193](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L193)
+[src/core/transform/Transform.ts:193](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L193)
 
 ___
 
@@ -794,7 +788,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:279](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L279)
+[src/core/transform/Transform.ts:280](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L280)
 
 ___
 
@@ -816,7 +810,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:292](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L292)
+[src/core/transform/Transform.ts:293](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L293)
 
 ___
 
@@ -832,7 +826,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:301](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L301)
+[src/core/transform/Transform.ts:302](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L302)
 
 ___
 
@@ -854,7 +848,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:182](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L182)
+[src/core/transform/Transform.ts:182](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L182)
 
 ___
 
@@ -874,4 +868,4 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:309](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L309)
+[src/core/transform/Transform.ts:310](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L310)

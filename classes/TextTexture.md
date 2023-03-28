@@ -45,7 +45,7 @@
 
 #### Defined in
 
-[src/core/texture/TextTexture.ts:128](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/TextTexture.ts#L128)
+[src/core/texture/TextTexture.ts:128](https://github.com/hxg2050/hxg/blob/2de6870/src/core/texture/TextTexture.ts#L128)
 
 ## Properties
 
@@ -61,7 +61,7 @@
 
 #### Defined in
 
-[src/core/texture/BaseTexture.ts:20](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/BaseTexture.ts#L20)
+[src/core/texture/BaseTexture.ts:20](https://github.com/hxg2050/hxg/blob/2de6870/src/core/texture/BaseTexture.ts#L20)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[src/core/texture/TextTexture.ts:126](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/TextTexture.ts#L126)
+[src/core/texture/TextTexture.ts:126](https://github.com/hxg2050/hxg/blob/2de6870/src/core/texture/TextTexture.ts#L126)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[src/core/texture/TextTexture.ts:121](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/TextTexture.ts#L121)
+[src/core/texture/TextTexture.ts:121](https://github.com/hxg2050/hxg/blob/2de6870/src/core/texture/TextTexture.ts#L121)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[src/core/texture/BaseTexture.ts:16](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/BaseTexture.ts#L16)
+[src/core/texture/BaseTexture.ts:16](https://github.com/hxg2050/hxg/blob/2de6870/src/core/texture/BaseTexture.ts#L16)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-[src/core/texture/BaseTexture.ts:8](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/BaseTexture.ts#L8)
+[src/core/texture/BaseTexture.ts:8](https://github.com/hxg2050/hxg/blob/2de6870/src/core/texture/BaseTexture.ts#L8)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 #### Defined in
 
-[src/core/texture/BaseTexture.ts:12](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/BaseTexture.ts#L12)
+[src/core/texture/BaseTexture.ts:12](https://github.com/hxg2050/hxg/blob/2de6870/src/core/texture/BaseTexture.ts#L12)
 
 ## Methods
 
@@ -147,4 +147,4 @@ ___
 
 #### Defined in
 
-[src/core/texture/TextTexture.ts:133](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/TextTexture.ts#L133)
+[src/core/texture/TextTexture.ts:133](https://github.com/hxg2050/hxg/blob/2de6870/src/core/texture/TextTexture.ts#L133)

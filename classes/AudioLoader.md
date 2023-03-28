@@ -44,4 +44,4 @@
 
 #### Defined in
 
-[src/core/resource/loader/AudioLoader.ts:7](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/resource/loader/AudioLoader.ts#L7)
+[src/core/resource/loader/AudioLoader.ts:7](https://github.com/hxg2050/hxg/blob/2de6870/src/core/resource/loader/AudioLoader.ts#L7)

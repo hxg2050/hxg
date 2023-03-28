@@ -42,7 +42,7 @@ Resource.load('photo.png');
 
 #### Defined in
 
-[src/core/resource/Resource.ts:124](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/resource/Resource.ts#L124)
+[src/core/resource/Resource.ts:124](https://github.com/hxg2050/hxg/blob/2de6870/src/core/resource/Resource.ts#L124)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[src/core/resource/Resource.ts:47](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/resource/Resource.ts#L47)
+[src/core/resource/Resource.ts:47](https://github.com/hxg2050/hxg/blob/2de6870/src/core/resource/Resource.ts#L47)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[src/core/resource/Resource.ts:42](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/resource/Resource.ts#L42)
+[src/core/resource/Resource.ts:42](https://github.com/hxg2050/hxg/blob/2de6870/src/core/resource/Resource.ts#L42)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/core/resource/Resource.ts:52](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/resource/Resource.ts#L52)
+[src/core/resource/Resource.ts:52](https://github.com/hxg2050/hxg/blob/2de6870/src/core/resource/Resource.ts#L52)
 
 ## Methods
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-[src/core/resource/Resource.ts:102](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/resource/Resource.ts#L102)
+[src/core/resource/Resource.ts:102](https://github.com/hxg2050/hxg/blob/2de6870/src/core/resource/Resource.ts#L102)
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-[src/core/resource/Resource.ts:143](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/resource/Resource.ts#L143)
+[src/core/resource/Resource.ts:143](https://github.com/hxg2050/hxg/blob/2de6870/src/core/resource/Resource.ts#L143)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 #### Defined in
 
-[src/core/resource/Resource.ts:69](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/resource/Resource.ts#L69)
+[src/core/resource/Resource.ts:69](https://github.com/hxg2050/hxg/blob/2de6870/src/core/resource/Resource.ts#L69)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 #### Defined in
 
-[src/core/resource/Resource.ts:131](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/resource/Resource.ts#L131)
+[src/core/resource/Resource.ts:131](https://github.com/hxg2050/hxg/blob/2de6870/src/core/resource/Resource.ts#L131)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[src/core/resource/Resource.ts:115](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/resource/Resource.ts#L115)
+[src/core/resource/Resource.ts:115](https://github.com/hxg2050/hxg/blob/2de6870/src/core/resource/Resource.ts#L115)
 
 ___
 
@@ -222,4 +222,4 @@ ___
 
 #### Defined in
 
-[src/core/resource/Resource.ts:59](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/resource/Resource.ts#L59)
+[src/core/resource/Resource.ts:59](https://github.com/hxg2050/hxg/blob/2de6870/src/core/resource/Resource.ts#L59)

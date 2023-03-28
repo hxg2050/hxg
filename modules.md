@@ -86,7 +86,7 @@
 
 #### Defined in
 
-[src/core/transform/Transform.ts:6](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L6)
+[src/core/transform/Transform.ts:6](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L6)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[src/core/resource/Resource.ts:19](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/resource/Resource.ts#L19)
+[src/core/resource/Resource.ts:19](https://github.com/hxg2050/hxg/blob/2de6870/src/core/resource/Resource.ts#L19)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-[src/core/resource/GroupLoader.ts:6](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/resource/GroupLoader.ts#L6)
+[src/core/resource/GroupLoader.ts:6](https://github.com/hxg2050/hxg/blob/2de6870/src/core/resource/GroupLoader.ts#L6)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[src/core/Application.ts:5](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/Application.ts#L5)
+[src/core/Application.ts:5](https://github.com/hxg2050/hxg/blob/2de6870/src/core/Application.ts#L5)
 
 ___
 
@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-[src/core/transform/Transform.ts:7](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/transform/Transform.ts#L7)
+[src/core/transform/Transform.ts:7](https://github.com/hxg2050/hxg/blob/2de6870/src/core/transform/Transform.ts#L7)
 
 ## Variables
 
@@ -154,7 +154,7 @@ ___
 
 #### Defined in
 
-[src/core/ticker/Ticker.ts:82](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/ticker/Ticker.ts#L82)
+[src/core/ticker/Ticker.ts:82](https://github.com/hxg2050/hxg/blob/2de6870/src/core/ticker/Ticker.ts#L82)
 
 ## Functions
 
@@ -188,7 +188,7 @@ canvas2d相关工作
 
 #### Defined in
 
-[src/core/canvas2d/index.ts:10](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/canvas2d/index.ts#L10)
+[src/core/canvas2d/index.ts:10](https://github.com/hxg2050/hxg/blob/2de6870/src/core/canvas2d/index.ts#L10)
 
 ___
 
@@ -224,7 +224,7 @@ console.log('isHit', isHit);
 
 #### Defined in
 
-[src/core/utils/hitTest.ts:23](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/utils/hitTest.ts#L23)
+[src/core/utils/hitTest.ts:23](https://github.com/hxg2050/hxg/blob/2de6870/src/core/utils/hitTest.ts#L23)
 
 ___
 
@@ -244,7 +244,7 @@ ___
 
 #### Defined in
 
-[src/core/utils/request.ts:1](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/utils/request.ts#L1)
+[src/core/utils/request.ts:1](https://github.com/hxg2050/hxg/blob/2de6870/src/core/utils/request.ts#L1)
 
 ___
 
@@ -276,4 +276,4 @@ ___
 
 #### Defined in
 
-[src/core/event/touchEventListener.ts:39](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/event/touchEventListener.ts#L39)
+[src/core/event/touchEventListener.ts:39](https://github.com/hxg2050/hxg/blob/2de6870/src/core/event/touchEventListener.ts#L39)

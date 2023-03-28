@@ -122,7 +122,7 @@ ___
 
 #### Defined in
 
-[src/core/ticker/Ticker.ts:27](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/ticker/Ticker.ts#L27)
+[src/core/ticker/Ticker.ts:27](https://github.com/hxg2050/hxg/blob/2de6870/src/core/ticker/Ticker.ts#L27)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[src/core/ticker/Ticker.ts:46](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/ticker/Ticker.ts#L46)
+[src/core/ticker/Ticker.ts:46](https://github.com/hxg2050/hxg/blob/2de6870/src/core/ticker/Ticker.ts#L46)
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-[src/core/ticker/Ticker.ts:25](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/ticker/Ticker.ts#L25)
+[src/core/ticker/Ticker.ts:25](https://github.com/hxg2050/hxg/blob/2de6870/src/core/ticker/Ticker.ts#L25)
 
 ## Accessors
 
@@ -164,7 +164,7 @@ ___
 
 #### Defined in
 
-[src/core/ticker/Ticker.ts:14](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/ticker/Ticker.ts#L14)
+[src/core/ticker/Ticker.ts:14](https://github.com/hxg2050/hxg/blob/2de6870/src/core/ticker/Ticker.ts#L14)
 
 • `set` **FPS**(`val`): `void`
 
@@ -180,7 +180,7 @@ ___
 
 #### Defined in
 
-[src/core/ticker/Ticker.ts:17](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/ticker/Ticker.ts#L17)
+[src/core/ticker/Ticker.ts:17](https://github.com/hxg2050/hxg/blob/2de6870/src/core/ticker/Ticker.ts#L17)
 
 ## Methods
 
@@ -317,7 +317,7 @@ ___
 
 #### Defined in
 
-[src/core/ticker/Ticker.ts:77](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/ticker/Ticker.ts#L77)
+[src/core/ticker/Ticker.ts:77](https://github.com/hxg2050/hxg/blob/2de6870/src/core/ticker/Ticker.ts#L77)
 
 ___
 
@@ -530,7 +530,7 @@ ___
 
 #### Defined in
 
-[src/core/ticker/Ticker.ts:32](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/ticker/Ticker.ts#L32)
+[src/core/ticker/Ticker.ts:32](https://github.com/hxg2050/hxg/blob/2de6870/src/core/ticker/Ticker.ts#L32)
 
 ___
 
@@ -546,7 +546,7 @@ ___
 
 #### Defined in
 
-[src/core/ticker/Ticker.ts:70](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/ticker/Ticker.ts#L70)
+[src/core/ticker/Ticker.ts:70](https://github.com/hxg2050/hxg/blob/2de6870/src/core/ticker/Ticker.ts#L70)
 
 ___
 
@@ -568,4 +568,4 @@ ___
 
 #### Defined in
 
-[src/core/ticker/Ticker.ts:51](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/ticker/Ticker.ts#L51)
+[src/core/ticker/Ticker.ts:51](https://github.com/hxg2050/hxg/blob/2de6870/src/core/ticker/Ticker.ts#L51)

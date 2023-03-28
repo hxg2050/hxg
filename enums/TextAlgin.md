@@ -16,7 +16,7 @@
 
 #### Defined in
 
-[src/core/component/Text.ts:6](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/component/Text.ts#L6)
+[src/core/component/Text.ts:6](https://github.com/hxg2050/hxg/blob/2de6870/src/core/component/Text.ts#L6)
 
 ___
 
@@ -26,7 +26,7 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:5](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/component/Text.ts#L5)
+[src/core/component/Text.ts:5](https://github.com/hxg2050/hxg/blob/2de6870/src/core/component/Text.ts#L5)
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 #### Defined in
 
-[src/core/component/Text.ts:7](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/component/Text.ts#L7)
+[src/core/component/Text.ts:7](https://github.com/hxg2050/hxg/blob/2de6870/src/core/component/Text.ts#L7)

@@ -44,4 +44,4 @@
 
 #### Defined in
 
-[src/core/resource/loader/JsonLoader.ts:8](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/resource/loader/JsonLoader.ts#L8)
+[src/core/resource/loader/JsonLoader.ts:8](https://github.com/hxg2050/hxg/blob/2de6870/src/core/resource/loader/JsonLoader.ts#L8)

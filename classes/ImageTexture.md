@@ -17,10 +17,15 @@
 ### Properties
 
 - [height](ImageTexture.md#height)
+- [onLoadFn](ImageTexture.md#onloadfn)
 - [source](ImageTexture.md#source)
 - [width](ImageTexture.md#width)
 - [x](ImageTexture.md#x)
 - [y](ImageTexture.md#y)
+
+### Methods
+
+- [onLoad](ImageTexture.md#onload)
 
 ## Constructors
 
@@ -40,7 +45,7 @@
 
 #### Defined in
 
-[src/core/texture/ImageTexture.ts:8](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/ImageTexture.ts#L8)
+[src/core/texture/ImageTexture.ts:8](https://github.com/hxg2050/hxg/blob/2de6870/src/core/texture/ImageTexture.ts#L8)
 
 ## Properties
 
@@ -56,7 +61,17 @@
 
 #### Defined in
 
-[src/core/texture/BaseTexture.ts:20](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/BaseTexture.ts#L20)
+[src/core/texture/BaseTexture.ts:20](https://github.com/hxg2050/hxg/blob/2de6870/src/core/texture/BaseTexture.ts#L20)
+
+___
+
+### onLoadFn
+
+• **onLoadFn**: `any`
+
+#### Defined in
+
+[src/core/texture/ImageTexture.ts:15](https://github.com/hxg2050/hxg/blob/2de6870/src/core/texture/ImageTexture.ts#L15)
 
 ___
 
@@ -66,7 +81,7 @@ ___
 
 #### Defined in
 
-[src/core/texture/ImageTexture.ts:8](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/ImageTexture.ts#L8)
+[src/core/texture/ImageTexture.ts:8](https://github.com/hxg2050/hxg/blob/2de6870/src/core/texture/ImageTexture.ts#L8)
 
 ___
 
@@ -82,7 +97,7 @@ ___
 
 #### Defined in
 
-[src/core/texture/BaseTexture.ts:16](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/BaseTexture.ts#L16)
+[src/core/texture/BaseTexture.ts:16](https://github.com/hxg2050/hxg/blob/2de6870/src/core/texture/BaseTexture.ts#L16)
 
 ___
 
@@ -98,7 +113,7 @@ ___
 
 #### Defined in
 
-[src/core/texture/BaseTexture.ts:8](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/BaseTexture.ts#L8)
+[src/core/texture/BaseTexture.ts:8](https://github.com/hxg2050/hxg/blob/2de6870/src/core/texture/BaseTexture.ts#L8)
 
 ___
 
@@ -114,4 +129,18 @@ ___
 
 #### Defined in
 
-[src/core/texture/BaseTexture.ts:12](https://github.com/hxg2050/hxg/blob/c8b326a/src/core/texture/BaseTexture.ts#L12)
+[src/core/texture/BaseTexture.ts:12](https://github.com/hxg2050/hxg/blob/2de6870/src/core/texture/BaseTexture.ts#L12)
+
+## Methods
+
+### onLoad
+
+▸ **onLoad**(): `void`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/texture/ImageTexture.ts:16](https://github.com/hxg2050/hxg/blob/2de6870/src/core/texture/ImageTexture.ts#L16)
