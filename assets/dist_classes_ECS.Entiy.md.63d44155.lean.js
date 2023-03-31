@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a,N as o}from"./chunks/framework.2075e729.js";const b=JSON.parse('{"title":"Class: Entiy","description":"","frontmatter":{},"headers":[],"relativePath":"dist/classes/ECS.Entiy.md"}'),r={name:"dist/classes/ECS.Entiy.md"},n=o("",54),d=[n];function l(s,h,c,i,m,p){return a(),t("div",null,d)}const u=e(r,[["render",l]]);export{b as __pageData,u as default};
