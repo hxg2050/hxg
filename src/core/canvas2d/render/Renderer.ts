@@ -1,11 +1,12 @@
 import { Application } from "../../Application";
 import { ticker } from "../../ticker";
-import { Container, Sprite } from "../../component";
+import { Container, Graphics, Sprite } from "../../component";
 import { Text } from "../../component/Text";
 import { Matrix } from "../../math/Matrix";
 import { Transform, Constructor } from "../../transform";
 import spriteRender from "./spriteRender";
 import textRender from "./textRender";
+import graphicsRender from "./graphicsRender";
 
 type RenderFunction<T extends Container> = (context: CanvasRenderingContext2D, matrix: Matrix, component: T) => void
 
@@ -22,6 +23,7 @@ export class Renderer {
     renderActions: RenderAction[] = [
         [Sprite, spriteRender],
         [Text, textRender],
+        [Graphics, graphicsRender],
     ];
 
     constructor(public context: CanvasRenderingContext2D, public app: Application) {

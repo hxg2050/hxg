@@ -23,7 +23,7 @@ export class Vector2 {
     // public set(x: number | Vector2, y?: number): Vector2;
     public set(x: number | Vector2, y?: number) {
         if (typeof x === 'number') {
-            if (typeof y === undefined) {
+            if (y == undefined) {
                 y = x;
             }
             this.x = x;

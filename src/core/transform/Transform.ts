@@ -171,7 +171,7 @@ export class Transform<T extends Container = Container> {
         // return <T>this.components.find(value => value instanceof classConstructor);
         // component.node = this;
         this.components.push(component);
-        component.start();
+        setTimeout(component.start.bind(component));
         return component;
     }
 

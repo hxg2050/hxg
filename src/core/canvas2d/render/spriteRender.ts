@@ -4,7 +4,7 @@ import { Vector2 } from "../../math";
 import { Matrix } from "../../math/Matrix";
 import { ImageTexture } from "../../texture";
 import { Transform } from "../../transform";
-import { hidpi } from "../hidpi";
+import textureRender from "./textureRender";
 
 const maskWeak = new WeakMap();
 
@@ -52,21 +52,14 @@ export default function spriteRender<T extends Sprite = Sprite>(ctx: CanvasRende
     if (!texture) {
         return;
     }
-    const _matrix = matrix.get();
-    ctx.save();
     const mask = sprite.getComponent(Mask);
     if (mask) {
         if (!mask.texture) {
             mask.value.active = false;
             mask.texture = maskTexture(sprite.node, mask.value);
         }
-        ctx.transform(_matrix[0], _matrix[3], _matrix[1], _matrix[4], _matrix[6], _matrix[7]);
-
-        ctx.drawImage(mask.texture.source, mask.texture.x, mask.texture.y, mask.texture.width, mask.texture.height, 0, 0, sprite.node.size.x, sprite.node.size.y);
+        textureRender(ctx, sprite.node, matrix, mask.texture);
     } else {
-        // ctx.globalCompositeOperation = 'source-over';
-        ctx.transform(_matrix[0], _matrix[3], _matrix[1], _matrix[4], _matrix[6], _matrix[7]);
-        ctx.drawImage(texture.source, texture.x, texture.y, texture.width, texture.height, 0, 0, sprite.node.size.x, sprite.node.size.y);
+        textureRender(ctx, sprite.node, matrix, texture);
     }
-    ctx.restore();
 }
