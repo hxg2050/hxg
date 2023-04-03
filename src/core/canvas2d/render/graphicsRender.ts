@@ -42,7 +42,7 @@ export default async function graphicsRender<T extends Graphics = Graphics>(ctx:
             await new Promise((resolve) => {
                 if (sprite.texture) {
                     sprite.texture.source.src = _ctx.canvas.toDataURL();
-                    resolve(true);
+                    resolve(sprite.texture.source);
                 } else {
                     const image = new Image();
                     image.src = _ctx.canvas.toDataURL();
