@@ -1,0 +1,1 @@
+import{_ as e,c as a,o as t,N as r}from"./chunks/framework.2075e729.js";const u=JSON.parse('{"title":"Class: Matrix","description":"","frontmatter":{},"headers":[],"relativePath":"dist/classes/Matrix.md"}'),o={name:"dist/classes/Matrix.md"},n=r("",112),i=[n];function h(d,l,s,c,f,b){return t(),a("div",null,i)}const x=e(o,[["render",h]]);export{u as __pageData,x as default};
