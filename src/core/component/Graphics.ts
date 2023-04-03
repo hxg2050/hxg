@@ -17,11 +17,25 @@ export class Graphics extends BaseContainer { // extends Component
      */
     tasks: any[] = [];
 
+    /**
+     * 是否需要重绘
+     */
+    redraw = true;
+
+    start() {
+        this.node.size.emitter.on('change', this.toRedraw, this);
+    }
+
+    toRedraw() {
+        this.redraw = true;
+    }
+
     pushTask(name: string, ...args: (string | number)[]) {
         this.tasks.push({
             action: name,
             args
         });
+        this.redraw = true;
     }
 
     /**
@@ -153,5 +167,9 @@ export class Graphics extends BaseContainer { // extends Component
             this.lineTo(x, y);
         }
         this.closePath();
+    }
+
+    onDestroy(): void {
+        this.node.size.emitter.off('change', this.toRedraw, this);
     }
 }

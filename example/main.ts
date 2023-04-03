@@ -1,5 +1,5 @@
 import './style.scss';
-import { Application, canvas2d, Graphics, ImageTexture, LoadResListConfig, Rect, Resource, Sprite, Transform } from '../src';
+import { Application, canvas2d, Graphics, ImageTexture, Rect, Resource, Sprite, Transform } from '../src';
 
 /**
  * 创建应用
@@ -23,11 +23,11 @@ Resource.load('../example-game1/assets/image/icon4.png').then((res) => {
 	const node = app.stage.addChild(new Transform(Graphics));
 	node.position.set(100, 100);
 	node.size.set(100, 100);
-	node.rotation = 45;
+	// node.rotation = 45;
 	const r = node.addComponent(Rect)!;
 	r.radius = 10;
-	r.fill = '#ff0000'
-	r.storke = '#0000FF'
-	r.storkeWidth = 10;
+	r.fill = '#0000FF'
+	// r.storke = '#ff0000'
+	// r.storkeWidth = 8;
 	// console.log(node);
 });

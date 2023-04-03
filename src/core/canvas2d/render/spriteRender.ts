@@ -9,7 +9,7 @@ import textureRender from "./textureRender";
 const maskWeak = new WeakMap();
 
 const canvas = document.createElement('canvas');
-document.body.append(canvas);
+// document.body.append(canvas);
 
 function createCanvas(size: Vector2) {
     const canvas = document.createElement('canvas');

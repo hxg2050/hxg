@@ -14,9 +14,23 @@ export class Vector2 {
         typeof x === 'number' ? this.set(x, y) : this.set(x);
     }
 
-    public x: number = 0;
-    public y: number = 0;
+    private _x: number = 0;
+    public set x(val: number) {
+        this._x = val;
+        this.emitter.emit('change', this);
+    }
+    public get x() {
+        return this._x;
+    }
 
+    private _y: number = 0;
+    public set y(val: number) {
+        this._y = val;
+        this.emitter.emit('change', this);
+    }
+    public get y() {
+        return this._y;
+    }
     public set(num: number) : Vector2;
     public set(x: number, y: number): Vector2;
     public set(vector2: Vector2): Vector2;

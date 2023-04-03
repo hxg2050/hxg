@@ -1,15 +1,13 @@
 import { Graphics } from "../../component"
 import { Matrix } from "../../math";
 import { Texture } from "../../texture";
+import { createCanvasCtx } from "../../utils/createCanvas";
 import textureRender from "./textureRender";
 
-export default function graphicsRender<T extends Graphics = Graphics>(ctx: CanvasRenderingContext2D, matrix: Matrix, sprite: T) {
-    if (!sprite.texture) {
+export default async function graphicsRender<T extends Graphics = Graphics>(ctx: CanvasRenderingContext2D, matrix: Matrix, sprite: T) {
+    if (!sprite.texture || sprite.redraw) {
         const g = sprite;
-        const canvas = document.createElement('canvas') as HTMLCanvasElement;
-        canvas.width = sprite.node.size.x;
-        canvas.height = sprite.node.size.y;
-        const _ctx = canvas.getContext('2d');
+        const _ctx = createCanvasCtx(sprite.node.size.x, sprite.node.size.y);
         for (let i = 0; i < g.tasks.length; i++) {
             const { action, args } = g.tasks[i];
             switch (action) {
@@ -41,10 +39,22 @@ export default function graphicsRender<T extends Graphics = Graphics>(ctx: Canva
                     _ctx.ellipse(args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7]);
                     break;
             }
-            const image = new Image();
-            image.src = canvas.toDataURL();
-            sprite.texture = new Texture(image);
-            // document.body.append(image);
+            await new Promise((resolve) => {
+                if (sprite.texture) {
+                    sprite.texture.source.src = _ctx.canvas.toDataURL();
+                    resolve(true);
+                } else {
+                    const image = new Image();
+                    image.src = _ctx.canvas.toDataURL();
+                    image.onload = () => {
+                        sprite.texture = new Texture(image);
+                        console.log(sprite.texture);
+                        image.onload = undefined;
+                        resolve(image);
+                    }
+                }
+                sprite.redraw = false;
+            });
         }
     }
     if (sprite.texture) {

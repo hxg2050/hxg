@@ -1,5 +1,4 @@
 import { Matrix } from "../../math";
-import { BaseTexture } from "../../texture";
 import { Texture } from "../../texture/Texture";
 import { Transform } from "../../transform";
 
