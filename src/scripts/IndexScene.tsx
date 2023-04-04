@@ -1,4 +1,5 @@
-import { Component, BaseContainer } from "../core/component";
+import { Thing } from "../core";
+import { Component, BaseContainer, Container, Sprite } from "../core/component";
 // import Container from "../core/src/components/Container";
 // import IContainer from "../core/src/components/IContainer";
 // import Layout from "../core/src/components/Layout";
@@ -64,6 +65,32 @@ interface ISceneConfig {
 // const createTransform = (config: ISceneConfig) => {
 
 // }
+function node(container: Constructor<BaseContainer> | string, name?: string | ((node: any) => any), options?: any) {
+
+}
+
+function component(comp: Constructor<Component> | string, name?: string, options?: any) {
+
+}
+
+export const sc = node(Container, 'root', {
+    type: '',
+    position: {
+        x: 1,
+        y: 2
+    },
+    children: [
+        {
+            type: '',
+            components: [
+                component(Sprite, 'sprite', {
+                    body: node('root'),
+                    action: component('sprite')
+                })
+            ]
+        }
+    ]
+})
 
 const scene = (config: ISceneConfig) => {
     const node = new Transform(config.node);
@@ -83,4 +110,25 @@ const scene = (config: ISceneConfig) => {
 
 export default function() {
     // return scene(data);
+}
+
+export class Scene extends Thing {
+    constructor() {
+        super();
+    }
+
+    slot: Array<string> = ['core', 'core1'];
+
+    start() {
+        this.addComponent(Sprite);
+    }
+
+    render() {
+        return (<>
+            <Scene>
+                <slot name="core"/>
+                <slot name="core1"/>
+            </Scene>
+        </>)
+    }
 }

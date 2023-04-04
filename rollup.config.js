@@ -1,6 +1,8 @@
-import nodeResolve from '@rollup/plugin-node-resolve';
-import typescript from '@rollup/plugin-typescript';
 import { defineConfig } from 'rollup';
+import resolve from '@rollup/plugin-node-resolve';
+import typescript from '@rollup/plugin-typescript';
+import babel from '@rollup/plugin-babel'
+
 export default defineConfig({
     input: 'src/index.ts',
     output: [{
@@ -10,6 +12,6 @@ export default defineConfig({
         file: 'dist/index.esm.js',
         format: 'esm'
     }],
-    plugins: [nodeResolve(), typescript()],
+    plugins: [resolve(), typescript(), babel({ babelHelpers: 'bundled', extensions: ['ts', 'tsx'] })],
     external: ['moment']
 });

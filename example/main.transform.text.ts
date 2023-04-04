@@ -1,11 +1,5 @@
+import { Resource, Ticker } from '../src';
 import './style.scss'
-import Resource from "./core/resource/Resource";
-import Transform from './core/src/Transform';
-import Sprite from './core/src/components/Sprite';
-import Stage from './core/stage/Stage';
-// import Renderer from './core/render/Renderer';
-import Vector2 from './core/src/Vector2';
-import Ticker from './core/ticker/Ticker';
 
 
 const canvas = document.createElement('canvas');

@@ -64,7 +64,7 @@ export class Transform<T extends Container = Container> {
      */
     constructor(classConstructor?: Constructor<T>) {
         this.id = ++ id;
-        this.addComponent(classConstructor || Container);
+        classConstructor && this.addComponent(classConstructor);
     }
 
     private _position: Vector2 = new Vector2();

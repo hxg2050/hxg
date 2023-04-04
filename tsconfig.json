@@ -6,6 +6,7 @@
     "lib": ["ESNext", "DOM"],
     "moduleResolution": "Node",
     "strict": false,
+    "jsx": "preserve",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
@@ -15,7 +16,10 @@
     "noImplicitReturns": false,
     "skipLibCheck": true,
     "declaration": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    // "jsxFactory": "h2",
+    // "jsxFragmentFactory": "Fragment2",
+    // "jsxImportSource": "reasct"
   },
   "include": ["src"]
 }

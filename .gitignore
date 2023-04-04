@@ -23,3 +23,5 @@ dist-example
 *.njsproj
 *.sln
 *.sw?
+
+.vitepress

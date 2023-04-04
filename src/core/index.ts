@@ -8,7 +8,7 @@ export * from './event';
 export * from './system';
 export * from './texture';
 export * from './utils';
-
+export * from './thing';
 
 export * from './Application'
 
