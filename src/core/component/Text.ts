@@ -1,4 +1,5 @@
-import { TextTexture } from "../texture";
+import { canvasHelper } from "../canvas2d/canvasHelper";
+import { Texture } from "../texture";
 import { Transform } from "../transform";
 import { Container } from "./Container";
 export enum TextAlgin {
@@ -51,7 +52,7 @@ export class Text extends Container {
 			return;
 		}
 		this._letterPacing = val;
-		this._update = true;
+		this.redraw = true;
 	}
 
 	private _lineSpace: number = 0;
@@ -66,7 +67,7 @@ export class Text extends Container {
 			return;
 		}
 		this._lineSpace = val;
-		this._update = true;
+		this.redraw = true;
 	}
 
 	private _algin: TextAlgin = TextAlgin.LEFT;
@@ -81,7 +82,7 @@ export class Text extends Container {
 			return;
 		}
 		this._algin = val;
-		this._update = true;
+		this.redraw = true;
 	}
 
 	/**
@@ -96,7 +97,7 @@ export class Text extends Container {
 			return;
 		}
 		this._value = val;
-		this._update = true;
+		this.redraw = true;
 	}
 
 	private _fontFamily: string = 'Arial';
@@ -111,7 +112,7 @@ export class Text extends Container {
 			return;
 		}
 		this._fontFamily = val;
-		this._update = true;
+		this.redraw = true;
 	}
 	
 	private _fontSize: number = 14;
@@ -126,7 +127,7 @@ export class Text extends Container {
 			return;
 		}
 		this._fontSize = val;
-		this._update = true;
+		this.redraw = true;
 	}
 	
 	private _italic: boolean = false;
@@ -141,7 +142,7 @@ export class Text extends Container {
 			return;
 		}
 		this._italic = val;
-		this._update = true;
+		this.redraw = true;
 	}
 
 	private _bold: boolean = false;
@@ -156,7 +157,7 @@ export class Text extends Container {
 			return;
 		}
 		this._bold = val;
-		this._update = true;
+		this.redraw = true;
 	}
 
 	private _autoWarp: boolean = false;
@@ -172,7 +173,7 @@ export class Text extends Container {
 			return;
 		}
 		this._autoWarp = val;
-		this._update = true;
+		this.redraw = true;
 	}
 
     private _color: string = '#000000';
@@ -187,7 +188,7 @@ export class Text extends Container {
 			return;
 		}
 		this._color = val;
-		this._update = true;
+		this.redraw = true;
 	}
 
 	/**
@@ -199,25 +200,7 @@ export class Text extends Container {
 	//  */
 	// height: number = 0;
 
-	texture: TextTexture = new TextTexture(this);
+	texture: Texture = new Texture(canvasHelper.createContext(1, 1).canvas);
 
-	start() {
-		this.node.emitter.on(Transform.Event.TICKER_BEFORE, this._updateTexture, this);
-	}
-
-	private _update = false;
-    /**
-     * 测量绘制文字
-     */
-    private _updateTexture() {
-		if (!this._update) {
-			return;
-		}
-		this._update = false;
-		this.texture.update();
-    }
-
-	onDestroy(): void {
-		this.node.emitter.off(Transform.Event.TICKER_BEFORE, this._updateTexture, this);
-	}
+	public redraw = false;
 }

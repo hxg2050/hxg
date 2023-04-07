@@ -17,9 +17,9 @@
     "skipLibCheck": true,
     "declaration": true,
     "outDir": "dist",
-    // "jsxFactory": "h2",
-    // "jsxFragmentFactory": "Fragment2",
+    // "jsxFactory": "jsx",
+    // "jsxFragmentFactory": "Fragment",
     // "jsxImportSource": "reasct"
   },
-  "include": ["src"]
+  "include": ["src", "example"]
 }

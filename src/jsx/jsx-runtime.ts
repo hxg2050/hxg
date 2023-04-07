@@ -1,35 +1,40 @@
 import { Constructor, Thing, Transform } from "../core";
 
-let lastTarget = undefined;
-
 export function createNode<T extends Thing = Thing>(node: Constructor<T>, options: Partial<T>) {
-    // if (node === Fragment) {
-    //     return;
-    // }
-    const newNode = new node();
+    const transform = new node();
     for (let key in options) {
-        if (Reflect.has(newNode, key)) {
-            Reflect.set(newNode, key, options[key]);
+        if (Reflect.has(transform, key)) {
+            Reflect.set(transform, key, options[key]);
         }
     }
-    if (lastTarget) {
-        lastTarget.addChild(newNode);
+    if (transform.render) {
+        const children = transform.render();
+
+        if (Array.isArray(children)) {
+            children.forEach(val => {
+                transform.addChild(val);
+            });
+        } else {
+            transform.addChild(children);
+        }
     }
-    lastTarget = newNode;
-    newNode.render();
-    return newNode;
+    return transform;
 }
 
-export function jsx(node: any, options: any) {
-    if (node === Fragment) {
-        return;
+export function jsx(tag: any, props: any, ...children: any[]) {
+    if (tag === Fragment && !(tag.prototype instanceof Thing)) {
+        return tag(props, ...children);
     }
-    return createNode(node, options);
+    const node = createNode(tag, props || {});
+    children.forEach(val => {
+        node.addChild(val)
+    });
+    return node;
 }
 export const jsxs = jsx;
 
-export function Fragment(...args: any) {
-    console.log('Fragment', args);
+export function Fragment(props: any, ...children: any[]) {
+    return children;
 }
 
 export const jsxDEV = jsx;

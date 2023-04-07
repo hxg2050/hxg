@@ -2,7 +2,7 @@ import { Sprite } from "../../component";
 import { Mask } from "../../component/Mask";
 import { Vector2 } from "../../math";
 import { Matrix } from "../../math/Matrix";
-import { ImageTexture } from "../../texture";
+import { Texture } from "../../texture";
 import { Transform } from "../../transform";
 import textureRender from "./textureRender";
 
@@ -36,7 +36,7 @@ function maskTexture(node: Transform, mask: Transform) {
     const image = new Image();
     image.src = ctx.canvas.toDataURL();
 
-    const texture = new ImageTexture(image);
+    const texture = new Texture(image);
     return texture;
 }
 

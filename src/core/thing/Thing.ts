@@ -1,5 +1,18 @@
+import { StoreEmitter } from "store-event";
 import { Container } from "../component";
 import { Transform } from "../transform";
-export abstract class Thing<T extends Container = Container> extends Transform<T> {
-    abstract render(): any;
+
+const SE_KEY = 'value';
+
+interface IThing {
+    start?(): void;
+}
+
+export class Thing<T extends Container = Container> extends Transform<T> {
+    
+    start?() {
+
+    };
+
+    render?(): any;
 }

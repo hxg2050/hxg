@@ -8,11 +8,11 @@ const outDir = 'dist-example';
 
 export default defineConfig({
     esbuild: {
-        jsxFactory: 'h',
+        jsxFactory: 'jsx',
         jsxFragment: 'Fragment',
-        'jsx': 'automatic',
+        'jsx': 'transform',
         'jsxImportSource': 'hxg',
-        // jsxInject: `import  *  as a from '@/jsx/jsx-runtime.ts'`
+        jsxInject: `import { jsx, Fragment } from '/src/jsx/jsx-runtime.ts'`
     },
     resolve: {
         alias: {

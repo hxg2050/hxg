@@ -1,13 +1,23 @@
 import { Graphics } from "../../component"
 import { Matrix } from "../../math";
 import { Texture } from "../../texture";
-import { createCanvasCtx } from "../../utils/createCanvas";
+import { canvasHelper } from "../canvasHelper";
 import textureRender from "./textureRender";
 
 export default async function graphicsRender<T extends Graphics = Graphics>(ctx: CanvasRenderingContext2D, matrix: Matrix, sprite: T) {
     if (!sprite.texture || sprite.redraw) {
         const g = sprite;
-        const _ctx = createCanvasCtx(sprite.node.size.x, sprite.node.size.y);
+        const texture = sprite.texture;
+            
+        if (!texture.source) {
+            canvasHelper.createContext(...sprite.node.size.toArray());
+        }
+        texture.source.width = sprite.node.size.x;
+        texture.source.height = sprite.node.size.y;
+        texture.source = texture.source;
+
+        const _ctx = (texture.source as HTMLCanvasElement).getContext('2d');
+
         for (let i = 0; i < g.tasks.length; i++) {
             const { action, args } = g.tasks[i];
             switch (action) {
@@ -39,22 +49,8 @@ export default async function graphicsRender<T extends Graphics = Graphics>(ctx:
                     _ctx.ellipse(args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7]);
                     break;
             }
-            await new Promise((resolve) => {
-                if (sprite.texture) {
-                    sprite.texture.source.src = _ctx.canvas.toDataURL();
-                    resolve(sprite.texture.source);
-                } else {
-                    const image = new Image();
-                    image.src = _ctx.canvas.toDataURL();
-                    image.onload = () => {
-                        sprite.texture = new Texture(image);
-                        console.log(sprite.texture);
-                        image.onload = undefined;
-                        resolve(image);
-                    }
-                }
-                sprite.redraw = false;
-            });
+
+            sprite.redraw = false;
         }
     }
     if (sprite.texture) {

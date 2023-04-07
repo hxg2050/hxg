@@ -1,20 +1,29 @@
 import { BaseTexture } from "./BaseTexture";
 
+type Resource = HTMLImageElement | HTMLCanvasElement;
+
 /**
  * 纹理
  */
 export class Texture extends BaseTexture {
-    // source: HTMLImageElement;
-    constructor(public source: HTMLImageElement) {
-        super();
-        source.addEventListener('load', this.onLoadFn);
-        this.width = source.width;
-        this.height = source.height;
+
+    _source?: Resource;
+    get source() {
+        return this._source;
     }
 
-    onLoadFn = this.onLoad.bind(this);
-    onLoad() {
+    set source(val: Resource) {
+        this._source = val;
         this.width = this.source.width;
         this.height = this.source.height;
+    }
+
+    // source: HTMLImageElement;
+    constructor(source?: Resource) {
+        super();
+        if (!source) {
+            return;
+        }
+        this.source = source;
     }
 }

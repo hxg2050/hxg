@@ -32,6 +32,9 @@ export class Transform<T extends Container = Container> {
 
     name: string = 'node';
     emitter = new Emitter<TransformEvent>();
+
+    redraw = false;
+
     /**
      * 事件
      */
@@ -78,6 +81,21 @@ export class Transform<T extends Container = Container> {
         this._position = value;
     }
 
+    get x() {
+        return this.position.x;
+    }
+    set x(val: number) {
+        this.position.x = val;
+    }
+
+
+    get y() {
+        return this.position.y;
+    }
+    set y(val: number) {
+        this.position.y = val;
+    }
+
     private _size: Vector2 = new Vector2();
     /**
      * 大小
@@ -90,6 +108,21 @@ export class Transform<T extends Container = Container> {
         this.emitter.emit(Transform.Event.RESIZE);
     }
 
+    get width() {
+        return this.size.x;
+    }
+    set width(val: number) {
+        this.size.x = val;
+    }
+    get height() {
+        return this.size.y;
+    }
+    set height(val: number) {
+        this.size.y = val;
+    }
+    
+
+
     private _scale: Vector2 = new Vector2(1, 1);
     /**
      * 缩放
@@ -101,6 +134,20 @@ export class Transform<T extends Container = Container> {
         this._scale = value;
     }
 
+    get scaleX() {
+        return this.scale.x;
+    }
+    set scaleX(val: number) {
+        this.scale.x = val;
+    }
+    
+    get scaleY() {
+        return this.scale.y;
+    }
+    set scaleY(val: number) {
+        this.scale.y = val;
+    }
+    
     _rotation: number = 0;//Vector2 = new Vector2(0, 1);
     /**
      * 旋转
@@ -122,6 +169,21 @@ export class Transform<T extends Container = Container> {
     set anchor(value: Vector2) {
         this._anchor = value;
     }
+    
+    get anchorX() {
+        return this.anchor.x;
+    }
+    set anchorX(val: number) {
+        this.anchor.x = val;
+    }
+
+    get anchorY() {
+        return this.anchor.y;
+    }
+    set anchorY(val: number) {
+        this.anchor.y = val;
+    }
+
     // 要应用位置等信息的元素
     container!: T;
 
@@ -360,9 +422,29 @@ export class Transform<T extends Container = Container> {
             return undefined;
         }
         if (path.length > 0) {
-            return node.find(path.join('/'));
+            return node.find(path);
         }
         return node;
+    }
+
+    /**
+     * 根据name查找节点
+     * @param queryString 
+     * @returns 
+     */
+    select(queryString: string | string[]) {
+        queryString = typeof queryString === 'string' ? queryString.split(',') : queryString;
+        const children = [];
+        this.children.forEach(val => {
+            if (queryString.includes(val.name)) {
+                children.push(val);
+            }
+            if (val.children.length > 0) {
+                children.push(...val.select(queryString));
+            }
+        });
+
+        return children;
     }
 
     /**

@@ -104,4 +104,8 @@ export class Vector2 {
         const r = Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));
         return new Vector2(this.x / r, this.y / r);
     }
+
+    toArray(): [number, number] {
+        return [this.x, this.y];
+    }
 }
