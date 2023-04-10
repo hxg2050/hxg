@@ -1,7 +1,7 @@
 {
   "name": "hxg",
   "private": false,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "repository": "https://github.com/hxg2050/hxg.git",
   "type": "module",
   "main": "./dist/index.cjs.js",
