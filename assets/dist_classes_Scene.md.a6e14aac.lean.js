@@ -1,1 +1,0 @@
-import{_ as e,c as a,o as r,N as t}from"./chunks/framework.2075e729.js";const b=JSON.parse('{"title":"Class: Scene","description":"","frontmatter":{},"headers":[],"relativePath":"dist/classes/Scene.md"}'),n={name:"dist/classes/Scene.md"},o=t("",643),i=[o];function h(l,d,s,c,f,m){return r(),a("div",null,i)}const u=e(n,[["render",h]]);export{b as __pageData,u as default};
