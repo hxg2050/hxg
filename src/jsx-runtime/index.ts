@@ -1,4 +1,5 @@
-import { Constructor, Thing, Transform } from "../core";
+import type { Constructor } from "hxg";
+import { Thing } from 'hxg';
 // 数组扁平化
 function flatDeep(arr) {
 	return arr.reduce((pre, next) => {

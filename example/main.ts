@@ -1,6 +1,7 @@
 import './style.scss';
 import { Application, canvas2d, createNode } from '../src';
 import { App } from './TsxTest';
+
 /**
  * 创建应用
  */
