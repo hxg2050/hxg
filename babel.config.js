@@ -9,7 +9,7 @@ export default function (api) {
                 {
                     "throwIfNamespace": true, // defaults to true
                     "runtime": "automatic", // defaults to classic
-                    "importSource": resolve('./src/jsx'), // defaults to react
+                    "importSource": resolve('./jsx-runtime'), // defaults to react
                 }
             ]
         ],
