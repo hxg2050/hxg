@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a,N as r}from"./chunks/framework.2075e729.js";const u=JSON.parse('{"title":"Class: Vector2","description":"","frontmatter":{},"headers":[],"relativePath":"dist/classes/Vector2.md"}'),o={name:"dist/classes/Vector2.md"},d=r("",150),l=[d];function h(n,c,s,i,m,f){return a(),t("div",null,l)}const p=e(o,[["render",h]]);export{u as __pageData,p as default};
