@@ -1,5 +1,5 @@
 import { Layout, Resource, Sprite, Transform } from "../../src";
-import { ImageTexture } from "../../src/core/texture";
+import { Texture } from "../../src/core/texture";
 import { ScaleAnimation } from "../component/ScaleAnimation";
 
 export function scaleSprite() {
@@ -10,7 +10,7 @@ export function scaleSprite() {
 
     const source = '../assets/images/img.png';
     Resource.load(source).then((img) => {
-        const texture = new ImageTexture(img);
+        const texture = new Texture(img.data);
         sprite.texture = texture;
         // 更具图片重置尺寸
         sprite.resize();

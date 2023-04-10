@@ -1,6 +1,6 @@
 import { Transform } from "../transform";
 import { BaseContainer } from "./BaseContainer";
-import { ImageTexture } from "../texture";
+import { Texture } from "../texture";
 /**
  * 图片显示组件
  * ```ts
@@ -30,7 +30,7 @@ export class Sprite extends BaseContainer {
     /**
      * 图片纹理，储存图片的相关信息
      */
-    public texture?: ImageTexture;
+    public texture?: Texture;
 
     start(): void {
         super.start();
