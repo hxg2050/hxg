@@ -20,6 +20,10 @@
     // "jsxFactory": "jsx",
     // "jsxFragmentFactory": "Fragment",
     // "jsxImportSource": "reasct"
+    "paths": {
+      "hxg": ["./src"],
+      "hxg/*": ["./src/*"],
+    }
   },
   "include": ["src"]
 }
