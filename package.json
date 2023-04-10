@@ -25,12 +25,6 @@
   },
   "devDependencies": {
     "@algolia/client-search": "^4.17.0",
-    "@babel/cli": "^7.21.0",
-    "@babel/core": "^7.21.4",
-    "@babel/plugin-syntax-jsx": "^7.21.4",
-    "@babel/plugin-transform-react-jsx": "^7.21.0",
-    "@babel/preset-env": "^7.21.4",
-    "@babel/preset-typescript": "^7.21.4",
     "@rollup/plugin-alias": "^4.0.3",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-node-resolve": "^15.0.1",

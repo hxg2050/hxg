@@ -1,3 +1,3 @@
 export * from './core'
 export * from './scripts/IndexScene'
-export * from './jsx/jsx-runtime'
+export * from './jsx-runtime'
