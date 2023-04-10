@@ -17,7 +17,7 @@ export default async function graphicsRender<T extends Graphics = Graphics>(ctx:
         texture.source = texture.source;
 
         const _ctx = (texture.source as HTMLCanvasElement).getContext('2d');
-
+        _ctx.clearRect(0, 0, ...sprite.node.size.toArray());
         for (let i = 0; i < g.tasks.length; i++) {
             const { action, args } = g.tasks[i];
             switch (action) {

@@ -1,6 +1,12 @@
 import { Constructor, Thing, Transform } from "../core";
+// 数组扁平化
+function flatDeep(arr) {
+	return arr.reduce((pre, next) => {
+		return pre.concat(Array.isArray(next) ?  flatDeep(next) : next)
+	},[])
+}
 
-export function createNode<T extends Thing = Thing>(node: Constructor<T>, options: Partial<T>) {
+export function createNode<T extends Thing = Thing>(node: Constructor<T>, options: Partial<T> = {}) {
     const transform = new node();
     for (let key in options) {
         if (Reflect.has(transform, key)) {
@@ -9,21 +15,16 @@ export function createNode<T extends Thing = Thing>(node: Constructor<T>, option
     }
     if (transform.render) {
         const children = transform.render();
-
-        if (Array.isArray(children)) {
-            children.forEach(val => {
-                transform.addChild(val);
-            });
-        } else {
-            transform.addChild(children);
-        }
+        flatDeep([children]).forEach(val => {
+            transform.addChild(val);
+        });
     }
     return transform;
 }
 
 export function jsx(tag: any, props: any, ...children: any[]) {
-    if (tag === Fragment && !(tag.prototype instanceof Thing)) {
-        return tag(props, ...children);
+    if (typeof tag === 'function' && !(tag.prototype instanceof Thing)) {
+        return tag(props === null ? undefined : props, ...children);
     }
     const node = createNode(tag, props || {});
     children.forEach(val => {

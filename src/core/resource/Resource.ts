@@ -150,6 +150,9 @@ const defaultLoader: LoaderType = {
     'png|jpg': {
         loader: new ImageLoader()
     },
+    // 'canvas': {
+    //     loader: new ImageLoader()
+    // },
     'json': {
         loader: new JsonLoader()
     },

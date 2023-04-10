@@ -1,56 +1,59 @@
-import { Graphics, Rect, Sprite, Text, Texture, Thing, Vector2 } from "../src";
+import { Container, Graphics, Rect, Text, Thing } from "../src";
 
-export class TextThing extends Thing<Text> {
+class FPS extends Thing<Text> {
+
+    constructor() {
+        super(Text);
+    }
+
+    start(): void {
+        this.width = 100;
+        this.height = 100;
+    }
+
     set value(val: string) {
         this.container.value = val;
     }
 
-    constructor() {
-        super(Text);
-        const text = this.getComponent(Text)!;
-        this.size.set(100, 100);
-        text.value = '你好'
-        this.position.x = 50;
-    }
-    render() {
-        return (<></>)
+    update(dt: number) {
+        super.update(dt);
+        this.value = dt.toString();
     }
 }
 
-export class RectThing extends Thing<Graphics> {
-
+class RedRect extends Thing<Graphics> {
     rect: Rect;
 
     constructor() {
         super(Graphics);
         this.rect = this.addComponent(Rect);
-        this.size.set(100, 100);
-        // this.position.x = -100;
-    }
-
-    start(): void {
-        this.size.set(100, 100);
+        this.size.set(100);
     }
 }
 
-export class TsxTest extends Thing<Sprite> {
-    constructor() {
-        super(Sprite);
+
+function Rects({ x = 100, y = 0 }) {
+    const rects = [];
+    for (let i = 0; i < 10; i++) {
+        rects.push(<RedRect x={100 + x} y={30 + i * 20 + y}></RedRect>);
     }
 
-    set source(val: Texture) {
-        this.container.texture = val;
-        this.container.resize();
-        // this.find('fight');
-        // this.select('fight,close');
-    }
+    return (
+        <>{...rects}</>
+    );
+}
 
-    render() {
+export class App extends Thing {
+
+    render(): Thing<Container> {
+        const rects = [];
+        for (let i = 0; i < 10; i++) {
+            rects.push(<RedRect x={100} y={30 + i * 20}></RedRect>);
+        }
+
         return (<>
-            <TextThing name="fight" value="123">
-                <TextThing value="45678"/>
-                <RectThing />
-            </TextThing>
+            <FPS></FPS>
+            <Rects y={100} />
         </>)
     }
 }

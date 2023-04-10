@@ -6,6 +6,9 @@ import { Transform } from "../../transform";
  * 纹理渲染
  */
 export default function textureRender(ctx: CanvasRenderingContext2D, node: Transform, matrix: Matrix, texture: Texture) {
+    if (texture.width == 0 || texture.height == 0) {
+        return;
+    }
     ctx.save();
     const _matrix = matrix.get();
     ctx.transform(_matrix[0], _matrix[3], _matrix[1], _matrix[4], _matrix[6], _matrix[7]);

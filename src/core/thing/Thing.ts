@@ -1,18 +1,15 @@
 import { StoreEmitter } from "store-event";
 import { Container } from "../component";
-import { Transform } from "../transform";
-
-const SE_KEY = 'value';
-
-interface IThing {
-    start?(): void;
-}
+import { Constructor, Transform } from "../transform";
 
 export class Thing<T extends Container = Container> extends Transform<T> {
     
-    start?() {
+    constructor(classConstructor?: Constructor<T>) {
+        super(classConstructor);
+        this.start && setTimeout(this.start.bind(this));
+    }
 
-    };
+    start?(): void;
 
-    render?(): any;
+    render?(): Thing<T>;
 }
