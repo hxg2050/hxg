@@ -16,7 +16,9 @@
     "noImplicitReturns": false,
     "skipLibCheck": true,
     "declaration": true,
-    "outDir": "dist",
+    "declarationDir": "./types",
+    "emitDeclarationOnly": true,
+    // "outDir": "types",
     // "jsxFactory": "jsx",
     // "jsxFragmentFactory": "Fragment",
     // "jsxImportSource": "reasct"
@@ -25,5 +27,5 @@
       "hxg/*": ["./src/*"],
     }
   },
-  "include": ["src"]
+  "include": ["src", "jsx-runtime"]
 }

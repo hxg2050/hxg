@@ -1,0 +1,19 @@
+{
+    "name": "jsx-runtime",
+    "version": "0.2.3",
+    "private": true,
+    "license": "MIT",
+    "main": "./dist/index.cjs.js",
+    "module": "./dist/index.esm.js",
+    "types": "./../types/jsx-runtime/src/index.d.ts",
+    "peerDependencies": {
+        "hxg": "^0.2.3"
+    },
+    "exports": {
+        ".": {
+            "types": "./../types/jsx-runtime/src/index.d.ts",
+            "import": "./dist/index.esm.js",
+            "require": "./dist/index.cjs.js"
+        }
+    }
+}

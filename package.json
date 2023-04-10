@@ -6,20 +6,22 @@
   "type": "module",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
-  "types": "./dist/index.d.ts",
+  "types": "./types/src/index.d.ts",
   "files": [
-    "dist/"
+    "dist/",
+    "types/",
+    "jsx-runtime/"
   ],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.es.js",
+      "types": "./types/src/index.d.ts",
+      "import": "./dist/index.esm.js",
       "require": "./dist/index.cjs.js"
     },
     "./jsx-runtime": {
-      "types": "./dist/jsx-runtime.d.ts",
-      "import": "./dist/jsx-runtime.es.js",
-      "require": "./dist/jsx-runtime.cjs.js"
+      "types": "./types/jsx-runtime/src/index.d.ts",
+      "import": "./jsx-runtime/index.esm.js",
+      "require": "./jsx-runtime/index.cjs.js"
     }
   },
   "license": "MIT",
@@ -31,7 +33,7 @@
     "docs:build": "yarn typedoc:build && vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "typedoc:build": "tsc --project ./typedoc/tsconfig.json && node --experimental-specifier-resolution=node ./typedoc/dist/doc.js",
-    "core:build": "rollup -c",
+    "core:build": "tsc && rollup -c",
     "doc": "yarn typedoc:build && yarn docs:dev",
     "babel:build": "babel ./src --out-dir lib --extensions .ts,.tsx"
   },

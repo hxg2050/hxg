@@ -2,32 +2,40 @@ import { defineConfig } from 'rollup';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 
-export default defineConfig([{
-    input: 'src/index.ts',
-    output: [{
-        dir: 'dist',
-        // file: 'dist/index.cjs.js',
-        entryFileNames: "[name].[format].js",
-        format: 'cjs'
-    }, {
+const formats = ['cjs', 'esm'];
 
-        dir: 'dist',
-        // file: 'dist/index.cjs.js',
-        entryFileNames: "[name].[format].js",
-        // file: 'dist/index.esm.js',
-        format: 'esm'
-    }],
-    plugins: [resolve(), typescript()],
+export default defineConfig([{
+    input: 'src/core/index.ts',
+    output: formats.map(fmt => {
+        return {
+            dir: 'dist',
+            entryFileNames: `[name].${fmt}.js`,
+            format: fmt
+        }
+    }),
+    plugins: [resolve(), typescript({
+        compilerOptions: {
+            outDir: "./dist",
+            declaration: false,
+            declarationDir: undefined
+        }
+    })],
 }, {
-    input: 'src/jsx-runtime/index.ts',
-    output: [{
-        file: 'dist/jsx-runtime.cjs.js',
-        format: 'cjs',
-    }, {
-        file: 'dist/jsx-runtime.esm.js',
-        format: 'esm',
-    }],
-    plugins: [resolve(), typescript()],
+    input: 'jsx-runtime/src/index.ts',
+    output: formats.map(fmt => {
+        return {
+            dir: 'jsx-runtime/dist',
+            entryFileNames: `[name].${fmt}.js`,
+            format: fmt
+        }
+    }),
+    plugins: [resolve(), typescript({
+        compilerOptions: {
+            outDir: "./jsx-runtime/dist",
+            declaration: false,
+            declarationDir: undefined
+        }
+    })],
     external: ['hxg']
 },
 ]);
