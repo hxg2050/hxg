@@ -1,25 +1,25 @@
 import { BaseTexture } from "./BaseTexture";
 
-type Resource = HTMLImageElement | HTMLCanvasElement;
+export type TextureResource = HTMLImageElement | HTMLCanvasElement;
 
 /**
  * 纹理
  */
 export class Texture extends BaseTexture {
 
-    _source?: Resource;
+    _source?: TextureResource;
     get source() {
         return this._source;
     }
 
-    set source(val: Resource) {
+    set source(val: TextureResource) {
         this._source = val;
         this.width = this.source.width;
         this.height = this.source.height;
     }
 
     // source: HTMLImageElement;
-    constructor(source?: Resource) {
+    constructor(source?: TextureResource) {
         super();
         if (!source) {
             return;
