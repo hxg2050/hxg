@@ -4,7 +4,7 @@ import { ILoader } from "./loader/ILoader";
 import { ImageLoader } from "./loader/ImageLoader";
 import { JsonLoader } from "./loader/JsonLoader";
 
-interface IRes {
+export interface IRes {
     data: any; // 资源
     type: string; // 类型
     url: string; // 网络路径

@@ -6,6 +6,10 @@ export type TextureResource = HTMLImageElement | HTMLCanvasElement;
  * 纹理
  */
 export class Texture extends BaseTexture {
+    /**
+     * 旋转
+     */
+    rotation = 0;
 
     _source?: TextureResource;
     get source() {

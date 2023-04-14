@@ -1,10 +1,10 @@
+import { IRes, Resource } from "../resource";
 import { Texture, TextureResource } from "../texture";
 import { Component } from "./Component";
 import { Sprite } from "./Sprite";
 
 
 type AtlasFrame = {
-    name: string;
     /**
      * 原图裁剪参数
      */
@@ -30,7 +30,68 @@ type AtlasFrame = {
         w: number;
         h: number;
     };
+
+    rotated: boolean
 }
+
+type SheetFrames = {
+    frames: Record<string, AtlasFrame>;
+    animations: {
+        Attack: string[];
+    };
+    meta: {
+        app: string;
+        version: string;
+        image: string;
+        format: string;
+        size: {
+            w: number;
+            h: number;
+        };
+        scale: number;
+    }
+}
+
+type SheetFramesConfig = {
+    frames: {
+        filename: string;
+        frame: {
+            x: number;
+            y: number;
+            w: number;
+            h: number;
+        };
+        rotated: boolean;
+        trimmed: boolean;
+        spriteSourceSize: {
+            x: number;
+            y: number;
+            w: number;
+            h: number;
+        };
+        sourceSize: {
+            w: number;
+            h: number;
+        };
+        pivot: {
+            x: number;
+            y: number;
+        };
+    }[]
+
+    meta: {
+        app: string;
+        version: string;
+        image: string;
+        format: string;
+        size: {
+            w: number;
+            h: number;
+        };
+        scale: number;
+    }
+}
+
 /**
  * 图集处理，可用于逐帧动画
  * 配合Sprite可显示图片
@@ -38,7 +99,7 @@ type AtlasFrame = {
  */
 export class SpriteSheet extends Component {
     frames: Record<string, Texture> = {};
-    animations: {} = {};
+    animations: Record<string, string[]> = {};
     /**
      * 展示的节点
      */
@@ -67,13 +128,16 @@ export class SpriteSheet extends Component {
     /**
      * 添加一个素材
      */
-    add(res: TextureResource, data: AtlasFrame) {
+    add(res: TextureResource, data: AtlasFrame, name: string) {
         const texture = new Texture(res);
         texture.x = data.frame.x;
         texture.y = data.frame.y;
         texture.width = data.frame.w;
         texture.height = data.frame.h;
-        this.set(data.name, texture);
+        if (data.rotated) {
+            texture.rotation = 90;
+        }
+        this.set(name, texture);
     }
 
     /**
@@ -82,5 +146,23 @@ export class SpriteSheet extends Component {
      */
     show(name: string) {
         this.sprite.texture = this.get(name);
+    }
+
+    /**
+     * 加载图集
+     * @param config 
+     */
+    load(config: SheetFrames, res?: IRes) {
+        if (!res) {
+            res = Resource.get(config.meta.image);
+        }
+
+        for (let name in config.frames) {
+            this.add(res.data, config.frames[name], name);
+        }
+
+        if (config.animations) {
+            this.animations = config.animations;
+        }
     }
 }
