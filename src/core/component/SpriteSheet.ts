@@ -31,6 +31,11 @@ type AtlasFrame = {
         h: number;
     };
 
+    pivot: {
+        x: number;
+        y: number;
+    }
+
     rotated: boolean
 }
 
@@ -135,8 +140,13 @@ export class SpriteSheet extends Component {
         texture.width = data.frame.w;
         texture.height = data.frame.h;
         if (data.rotated) {
-            texture.rotation = 90;
+            texture.rotation = -90;
+            texture.width = data.frame.h;
+            texture.height = data.frame.w;
         }
+        texture.left = data.spriteSourceSize.x;
+        texture.top = data.spriteSourceSize.y;
+        texture.anchor.set(data.pivot.x, data.pivot.y);
         this.set(name, texture);
     }
 

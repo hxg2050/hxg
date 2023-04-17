@@ -1,3 +1,4 @@
+import { Vector2 } from "../math";
 import { BaseTexture } from "./BaseTexture";
 
 export type TextureResource = HTMLImageElement | HTMLCanvasElement;
@@ -10,6 +11,9 @@ export class Texture extends BaseTexture {
      * 旋转
      */
     rotation = 0;
+    left = 0;
+    top = 0;
+    anchor: Vector2 = new Vector2();
 
     _source?: TextureResource;
     get source() {

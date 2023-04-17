@@ -145,6 +145,9 @@
       }
     }
   },
+  "animations": {
+    "Idle": ["0.png","1.png","2.png","3.png", "4.png", "5.png"]
+  },
   "meta": {
     "app": "http://free-tex-packer.com",
     "version": "0.6.7",
