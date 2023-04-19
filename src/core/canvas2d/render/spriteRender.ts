@@ -4,12 +4,8 @@ import { Vector2 } from "../../math";
 import { Matrix } from "../../math/Matrix";
 import { Texture } from "../../texture";
 import { Transform } from "../../transform";
+import { canvasHelper } from "../canvasHelper";
 import textureRender from "./textureRender";
-
-const maskWeak = new WeakMap();
-
-const canvas = document.createElement('canvas');
-// document.body.append(canvas);
 
 function createCanvas(size: Vector2) {
     const canvas = document.createElement('canvas');
@@ -19,7 +15,7 @@ function createCanvas(size: Vector2) {
 }
 
 function maskTexture(node: Transform, mask: Transform) {
-    const ctx = createCanvas(node.size);
+    const ctx = canvasHelper.createContext(...node.size.toArray(), 1);
     ctx.save();
     const matrix = new Matrix().setTransform(mask).get();
     ctx.transform(matrix[0], matrix[3], matrix[1], matrix[4], matrix[6], matrix[7]);
@@ -33,10 +29,8 @@ function maskTexture(node: Transform, mask: Transform) {
     const sprite = <Sprite>node.container;
     ctx.drawImage(sprite.texture.source, sprite.texture.x, sprite.texture.y);
 
-    const image = new Image();
-    image.src = ctx.canvas.toDataURL();
-
-    const texture = new Texture(image);
+    const texture = new Texture(ctx.canvas);
+    texture.init = true;
     return texture;
 }
 

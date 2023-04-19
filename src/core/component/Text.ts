@@ -200,7 +200,7 @@ export class Text extends Container {
 	//  */
 	// height: number = 0;
 
-	texture: Texture = new Texture(canvasHelper.createContext(0, 0).canvas);
+	texture?: Texture<HTMLCanvasElement>;
 
 	public redraw = false;
 }

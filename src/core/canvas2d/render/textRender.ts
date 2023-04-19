@@ -17,15 +17,21 @@ interface ISizeText {
  * @param text 文本
  */
 const autoWrapText = async (text: Text) => {
-    const texture = text.texture;
-    if (!texture.source) {
-        canvasHelper.createContext(...text.node.size.toArray());
+    if (text.value === '') {
+        return;
     }
+    let ctx: CanvasRenderingContext2D;
+    if (!text.texture) {
+        ctx = canvasHelper.createContext(...text.node.size.toArray());
+        text.texture = new Texture(ctx.canvas);
+        text.texture.init = true;
+    }
+
+    const texture = text.texture;
+
     texture.source.width = text.node.size.x;
     texture.source.height = text.node.size.y;
     texture.source = texture.source;
-
-    const ctx = (texture.source as HTMLCanvasElement).getContext('2d');
 
     ctx.fillStyle = text.color;
 
@@ -131,14 +137,14 @@ const autoWrapText = async (text: Text) => {
  * @param node 
  * @returns 
  */
-export default async function textRender<T extends Text = Text>(ctx: CanvasRenderingContext2D, matrix: Matrix, text: T) {
+export default function textRender<T extends Text = Text>(ctx: CanvasRenderingContext2D, matrix: Matrix, text: T) {
+
+    if (text.redraw) {
+        autoWrapText(text);
+    }
 	const texture = text.texture;
     if (!texture || !texture.source) {
         return;
-    }
-
-    if (text.redraw) {
-        await autoWrapText(text);
     }
 
     textureRender(ctx, text.node, matrix, text.texture);

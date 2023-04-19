@@ -30,11 +30,14 @@ export class Ticker extends Emitter {
      * 开始
      */
     start() {
+        this.paused = false;
         this.runFrame();
     }
 
+    animationFrame: number;
+
     private runFrame() {
-        requestAnimationFrame((time) => {
+        this.animationFrame = requestAnimationFrame((time) => {
             this.update(time);
             this.runFrame();
         });
@@ -64,11 +67,14 @@ export class Ticker extends Emitter {
         this.lastTime = time;
     }
 
+    paused = false;
+
     /**
      * 暂停
      */
     stop() {
-
+        this.paused = true;
+        cancelAnimationFrame(this.animationFrame);
     }
 
     /**

@@ -1689,12 +1689,10 @@ sourcemap-codec@^1.4.8:
   resolved "https://registry.yarnpkg.com/sourcemap-codec/-/sourcemap-codec-1.4.8.tgz#ea804bd94857402e6992d05a38ef1ae35a9ab4c4"
   integrity sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==
 
-store-event@^0.0.10:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/store-event/-/store-event-0.0.10.tgz#b299d145bdacb9f991c8848ab3d6898c604bc3cc"
-  integrity sha512-DP2Zl019Fqizw2USDGaE4y3tXh71uimn3h/hdclMBUvmqIL8cJ80w7ZBQJr2l3JHAyYTs29Yo3cubhjb4KyP1Q==
-  dependencies:
-    tslib "^2.5.0"
+store-event@^0.0.12:
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/store-event/-/store-event-0.0.12.tgz#77e033891bc8ed2dc4760611bdd06fa501e03a80"
+  integrity sha512-ru1D83vDHmptzsTC5UHhZ/awENnLABT9ArxKPZrL+ruARxg+JCHRFs5XGuy1S5j+0at6LjyZxspuUuIo+IOBhQ==
 
 strip-ansi@^6.0.1:
   version "6.0.1"

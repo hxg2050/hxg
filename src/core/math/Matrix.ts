@@ -182,4 +182,18 @@ export class Matrix {
     get(): MatrixData {
         return this.value;
     }
+    /**
+     * 旋转
+     */
+    rotate(angle: number) {
+        const cos = Math.cos(angle);
+        const sin = Math.sin(angle);
+        this.set(
+            cos, -sin, 0,
+            sin, cos, 0,
+            0, 0, 1
+        )
+
+        return this;
+    }
 }

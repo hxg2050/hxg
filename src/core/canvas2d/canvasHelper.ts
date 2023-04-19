@@ -1,14 +1,17 @@
 import { hidpi } from "./hidpi";
 
 
-function createContext(width: number = 0, height: number = 0) {
+function createContext(width: number = 0, height: number = 0, dpi = window.devicePixelRatio): CanvasRenderingContext2D {
     const canvas = document.createElement('canvas');
-    const context = hidpi(canvas.getContext('2d', {
-        willReadFrequently: true
-    }) as CanvasRenderingContext2D);
-
     canvas.width = width;
     canvas.height = height;
+    let context = canvas.getContext('2d', {
+        willReadFrequently: true
+    });
+    if (dpi) {
+        context = hidpi(context, dpi);
+    }
+
     context.clearRect(0, 0, width, height);
     return context;
 }
