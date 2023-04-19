@@ -1,1 +1,0 @@
-import{_ as e,c as r,o as t,N as a}from"./chunks/framework.2075e729.js";const b=JSON.parse('{"title":"Class: Texture","description":"","frontmatter":{},"headers":[],"relativePath":"dist/classes/Texture.md"}'),o={name:"dist/classes/Texture.md"},h=a("",71),i=[h];function s(n,d,c,l,u,x){return t(),r("div",null,i)}const p=e(o,[["render",s]]);export{b as __pageData,p as default};
