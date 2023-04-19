@@ -56,6 +56,6 @@
   },
   "dependencies": {
     "@tweenjs/tween.js": "^18.6.4",
-    "store-event": "^0.0.12"
+    "store-event": "^0.0.13"
   }
 }
