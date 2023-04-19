@@ -62,6 +62,22 @@ export type SheetFrames = {
  * 图集处理，可用于逐帧动画
  * 配合Sprite可显示图片
  * 配合动画组件可以处理动画
+ * ```ts
+ * let json = await Resource.load('./example/assets/animations/Samurai/Attack.json');
+ * let img = await Resource.load('./example/assets/animations/Samurai/Attack.png');
+ * // 如果要控制动画大小可以使用父节点包裹的方式控制scale属性
+ * const group = app.stage.addChild(new Transform);
+ * group.scale.set(2);
+ * const node = group.addChild(new Transform(Sprite));
+ * const sprite = node.getComponent(Sprite)!;
+ * const spriteSheet = node.addComponent(SpriteSheet);
+ * spriteSheet.load(json.data, img);
+ * // 需要在下一帧才能正常切换
+ * ticker.once('update', () => {
+ *     spriteSheet.show('0.png');
+ *     sprite.resize();
+ * }, this);
+ * ```
  */
 export class SpriteSheet extends Component {
     /**

@@ -59,6 +59,25 @@ app.use(canvas2d(canvas));
 		ssa.play('Attack');
 	}, this);
 
+	// let json = await Resource.load('./example/assets/animations/Samurai/Attack.json');
+	// let img = await Resource.load('./example/assets/animations/Samurai/Attack.png');
+	// console.log(json);
+	// // 如果要控制动画大小可以使用父节点包裹的方式控制scale属性
+	// const group = app.stage.addChild(new Transform);
+	// group.scale.set(2);
+	
+	// const node = group.addChild(new Transform(Sprite));
+	// // node.anchor.set(0.5);
+	// const sprite = node.getComponent(Sprite)!;
+	// const spriteSheet = node.addComponent(SpriteSheet);
+	// spriteSheet.load(json.data, img);
+	
+	// ticker.once('update', () => {
+	// 	// ssa.play('Attack');
+	// 	spriteSheet.show('0.png');
+	// 	sprite.resize();
+	// }, this);
+	
 	// 动画播放只能在下一帧执行
 	// let img2 = await Resource.load('./example/assets/images/img.png');
 	// const spriteNode = app.stage.addChild(new Transform(Sprite));
