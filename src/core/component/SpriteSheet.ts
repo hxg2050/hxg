@@ -1,10 +1,11 @@
+import { Vector2 } from "../math";
 import { IRes, Resource } from "../resource";
 import { Texture, TextureResource } from "../texture";
 import { Component } from "./Component";
 import { Sprite } from "./Sprite";
 
 
-type AtlasFrame = {
+export type AtlasFrame = {
     /**
      * 原图裁剪参数
      */
@@ -39,51 +40,11 @@ type AtlasFrame = {
     rotated: boolean
 }
 
-type SheetFrames = {
+export type SheetFrames = {
     frames: Record<string, AtlasFrame>;
     animations: {
         Attack: string[];
     };
-    meta: {
-        app: string;
-        version: string;
-        image: string;
-        format: string;
-        size: {
-            w: number;
-            h: number;
-        };
-        scale: number;
-    }
-}
-
-type SheetFramesConfig = {
-    frames: {
-        filename: string;
-        frame: {
-            x: number;
-            y: number;
-            w: number;
-            h: number;
-        };
-        rotated: boolean;
-        trimmed: boolean;
-        spriteSourceSize: {
-            x: number;
-            y: number;
-            w: number;
-            h: number;
-        };
-        sourceSize: {
-            w: number;
-            h: number;
-        };
-        pivot: {
-            x: number;
-            y: number;
-        };
-    }[]
-
     meta: {
         app: string;
         version: string;
@@ -103,7 +64,13 @@ type SheetFramesConfig = {
  * 配合动画组件可以处理动画
  */
 export class SpriteSheet extends Component {
+    /**
+     * 纹理集
+     */
     frames: Record<string, Texture> = {};
+    /**
+     * 动画配置
+     */
     animations: Record<string, string[]> = {};
     /**
      * 展示的节点
@@ -132,6 +99,9 @@ export class SpriteSheet extends Component {
 
     /**
      * 添加一个素材
+     * @param res 资源
+     * @param data 配置
+     * @param name 内部别名
      */
     add(res: TextureResource, data: AtlasFrame, name: string) {
         const texture = new Texture(res);
@@ -141,18 +111,17 @@ export class SpriteSheet extends Component {
         texture.height = data.frame.h;
         if (data.rotated) {
             texture.rotation = -90;
-            texture.width = data.frame.h;
-            texture.height = data.frame.w;
         }
         texture.left = data.spriteSourceSize.x;
         texture.top = data.spriteSourceSize.y;
         texture.anchor.set(data.pivot.x, data.pivot.y);
+        texture.sourceSize = new Vector2(data.sourceSize.w, data.sourceSize.h);
         this.set(name, texture);
     }
 
     /**
      * 设置要现实的素材
-     * @param name 
+     * @param name 内部别名
      */
     show(name: string) {
         this.sprite.texture = this.get(name);
@@ -160,18 +129,23 @@ export class SpriteSheet extends Component {
 
     /**
      * 加载图集
-     * @param config 
+     * 如果没有传入资源,则使用配置里面的资源路径进行加载，但是还是要提前保证路径资源已经被提前加载
+     * @param config 配置
+     * @param res 资源
      */
     load(config: SheetFrames, res?: IRes) {
         if (!res) {
+            // 使用配置里面的资源路径进行加载
             res = Resource.get(config.meta.image);
         }
 
         for (let name in config.frames) {
+            // 添加并解析每个资源
             this.add(res.data, config.frames[name], name);
         }
 
         if (config.animations) {
+            // 配置动画
             this.animations = config.animations;
         }
     }

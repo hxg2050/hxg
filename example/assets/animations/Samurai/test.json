@@ -7,7 +7,7 @@
 	"trimmed": true,
 	"spriteSourceSize": {"x":40,"y":61,"w":45,"h":67},
 	"sourceSize": {"w":128,"h":128},
-	"anchor": {"x":0,"y":0}
+	"pivot": {"x":0,"y":0}
 },
 "Attack-1.png":
 {
@@ -16,7 +16,7 @@
 	"trimmed": true,
 	"spriteSourceSize": {"x":38,"y":63,"w":56,"h":65},
 	"sourceSize": {"w":128,"h":128},
-	"anchor": {"x":0,"y":0}
+	"pivot": {"x":0,"y":0}
 },
 "Attack-2.png":
 {
@@ -25,7 +25,7 @@
 	"trimmed": true,
 	"spriteSourceSize": {"x":38,"y":63,"w":50,"h":65},
 	"sourceSize": {"w":128,"h":128},
-	"anchor": {"x":0,"y":0}
+	"pivot": {"x":0,"y":0}
 }},
 "animations": {
 	"Attack": ["Attack-0.png","Attack-1.png","Attack-2.png"]

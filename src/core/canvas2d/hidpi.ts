@@ -2,9 +2,9 @@
  * 解决canvas模糊问题
  * 重写部分用到的api
  */
-export function hidpi(context: CanvasRenderingContext2D): CanvasRenderingContext2D {
+export function hidpi(context: CanvasRenderingContext2D, dpi = window.devicePixelRatio): CanvasRenderingContext2D {
 
-    const dpi = window.devicePixelRatio;
+    // const dpi = window.devicePixelRatio;
     if (dpi == 1) {
         return context;
     }
@@ -12,7 +12,7 @@ export function hidpi(context: CanvasRenderingContext2D): CanvasRenderingContext
     context.canvas.height *= dpi;
     // context.scale(dpi, dpi);
 
-    const { clearRect, fillText, strokeText, stroke, drawImage, transform, getImageData } = context;
+    const { clearRect, fillText, strokeText, stroke, drawImage, translate, transform, getImageData } = context;
     //    clearRect(x: number, y: number, w: number, h: number): void;
     context.clearRect = (x: number, y: number, w: number, h: number) => {
         x *= dpi;
@@ -68,6 +68,12 @@ export function hidpi(context: CanvasRenderingContext2D): CanvasRenderingContext
         } else {
             drawImage.bind(context)(image, sx, sy);
         }
+    }
+
+    context.translate = (x: number, y: number) => {
+        x *= dpi;
+        y *= dpi;
+        translate.bind(context)(x, y);
     }
 
     // transform(a: number, b: number, c: number, d: number, e: number, f: number): void;

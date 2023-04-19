@@ -67,7 +67,7 @@ export class Graphics extends BaseContainer { // extends Component
     /**
      * 图片纹理，储存图片的相关信息
      */
-    public texture: Texture = new Texture(canvasHelper.createContext(0, 0).canvas);
+    public texture?: Texture;
     /**
      * 记录要执行的操作记录
      */

@@ -7,15 +7,11 @@ import textureRender from "./textureRender";
 export default async function graphicsRender<T extends Graphics = Graphics>(ctx: CanvasRenderingContext2D, matrix: Matrix, sprite: T) {
     if (!sprite.texture || sprite.redraw) {
         const g = sprite;
-        const texture = sprite.texture;
-            
-        if (!texture.source) {
-            canvasHelper.createContext(...sprite.node.size.toArray());
+        if (!sprite.texture) {
+            sprite.texture = new Texture(canvasHelper.createContext(...sprite.node.size.toArray(), 1).canvas);
+            sprite.texture.init = true;
         }
-        texture.source.width = sprite.node.size.x;
-        texture.source.height = sprite.node.size.y;
-        texture.source = texture.source;
-
+        const texture = sprite.texture;
         const _ctx = (texture.source as HTMLCanvasElement).getContext('2d');
         _ctx.clearRect(0, 0, ...sprite.node.size.toArray());
         for (let i = 0; i < g.tasks.length; i++) {
