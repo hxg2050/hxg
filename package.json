@@ -1,7 +1,7 @@
 {
   "name": "hxg",
   "private": false,
-  "version": "0.3.1",
+  "version": "0.3.2",
   "repository": "https://github.com/hxg2050/hxg.git",
   "type": "module",
   "main": "./dist/index.cjs.js",
@@ -10,7 +10,8 @@
   "files": [
     "dist/",
     "types/",
-    "jsx-runtime/"
+    "jsx-runtime/dist/",
+    "jsx-runtime/package.json"
   ],
   "exports": {
     ".": {
@@ -20,8 +21,8 @@
     },
     "./jsx-runtime": {
       "types": "./types/jsx-runtime/src/index.d.ts",
-      "import": "./jsx-runtime/index.esm.js",
-      "require": "./jsx-runtime/index.cjs.js"
+      "import": "./jsx-runtime/dist/index.esm.js",
+      "require": "./jsx-runtime/dist/index.cjs.js"
     }
   },
   "license": "MIT",
