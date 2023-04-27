@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a,N as r}from"./chunks/framework.0799945b.js";const b=JSON.parse('{"title":"Class: Word","description":"","frontmatter":{},"headers":[],"relativePath":"dist/classes/ECS.Word.md"}'),o={name:"dist/classes/ECS.Word.md"},n=r("",102),s=[n];function d(i,h,l,c,p,m){return a(),t("div",null,s)}const u=e(o,[["render",d]]);export{b as __pageData,u as default};
