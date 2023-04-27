@@ -12,7 +12,18 @@ export function hidpi(context: CanvasRenderingContext2D, dpi = window.devicePixe
     context.canvas.height *= dpi;
     // context.scale(dpi, dpi);
 
-    const { clearRect, fillText, strokeText, stroke, drawImage, translate, transform, getImageData } = context;
+    const {
+        clearRect,
+        fillText,
+        strokeText,
+        stroke,
+        drawImage,
+        translate,
+        transform,
+        getImageData,
+        moveTo,
+        lineTo
+    } = context;
     //    clearRect(x: number, y: number, w: number, h: number): void;
     context.clearRect = (x: number, y: number, w: number, h: number) => {
         x *= dpi;
@@ -89,6 +100,27 @@ export function hidpi(context: CanvasRenderingContext2D, dpi = window.devicePixe
         sw *= dpi;
         sh *= dpi;
         return getImageData.bind(context)(sx, sy, sw, sh, settings);
+    }
+
+    context.moveTo = (x: number, y: number) => {
+        x *= dpi;
+        y *= dpi;
+        return moveTo.bind(context)(x, y);
+    }
+
+    context.lineTo = (x: number, y: number) => {
+        x *= dpi;
+        y *= dpi;
+        return lineTo.bind(context)(x, y);
+    }
+
+    const { getContext } = context.canvas;
+
+    context.canvas.getContext = (contextId: string, options?: any) => {
+        if (contextId == '2d') {
+            return context;
+        }
+        return getContext.bind(context.canvas)(contextId) as any;
     }
 
     return context;

@@ -20,7 +20,7 @@ export function canvas2d(canvas: HTMLCanvasElement) {
          */
         // const ctx = canvas.getContext('2d')!;
         const ctx = hidpi(canvas.getContext('2d')!);
-        const renderer = new Renderer(ctx, app);
+        const renderer = new Renderer(ctx, app.stage);
         // canvas.getContext('2d')!.scale(1/dpr, 1/dpr);
         /**
          * 创建一个刷新器

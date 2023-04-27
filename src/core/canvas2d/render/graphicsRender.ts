@@ -8,11 +8,12 @@ export default async function graphicsRender<T extends Graphics = Graphics>(ctx:
     if (!sprite.texture || sprite.redraw) {
         const g = sprite;
         if (!sprite.texture) {
-            sprite.texture = new Texture(canvasHelper.createContext(...sprite.node.size.toArray(), 1).canvas);
+            const canvas = canvasHelper.createContext(...sprite.node.size.toArray()).canvas;
+            sprite.texture = new Texture(canvas);
             sprite.texture.init = true;
         }
         const texture = sprite.texture;
-        const _ctx = (texture.source as HTMLCanvasElement).getContext('2d');
+        const _ctx = (texture.source as HTMLCanvasElement).getContext('2d')!;
         _ctx.clearRect(0, 0, ...sprite.node.size.toArray());
         for (let i = 0; i < g.tasks.length; i++) {
             const { action, args } = g.tasks[i];

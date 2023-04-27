@@ -7,7 +7,7 @@ function createContext(width: number = 0, height: number = 0, dpi = window.devic
     canvas.height = height;
     let context = canvas.getContext('2d', {
         willReadFrequently: true
-    });
+    })!;
     if (dpi) {
         context = hidpi(context, dpi);
     }
@@ -21,7 +21,7 @@ async function toImage(canvas: HTMLCanvasElement): Promise<HTMLImageElement> {
         const image = new Image();
         image.src = canvas.toDataURL();
         image.onload = () => {
-            image.onload = undefined;
+            image.onload = null;
             resolve(image);
         }
     });

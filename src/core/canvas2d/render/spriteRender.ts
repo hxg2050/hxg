@@ -7,13 +7,6 @@ import { Transform } from "../../transform";
 import { canvasHelper } from "../canvasHelper";
 import textureRender from "./textureRender";
 
-function createCanvas(size: Vector2) {
-    const canvas = document.createElement('canvas');
-    canvas.width = size.x;
-    canvas.height = size.y;
-    return canvas.getContext('2d');
-}
-
 function maskTexture(node: Transform, mask: Transform) {
     const ctx = canvasHelper.createContext(...node.size.toArray(), 1);
     ctx.save();

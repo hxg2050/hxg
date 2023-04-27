@@ -7,6 +7,9 @@ import { Transform, Constructor } from "../../transform";
 import spriteRender from "./spriteRender";
 import textRender from "./textRender";
 import graphicsRender from "./graphicsRender";
+import { canvasHelper } from "../canvasHelper";
+import textureRender from "./textureRender";
+import { Texture } from "../..";
 
 type RenderFunction<T extends Container> = (context: CanvasRenderingContext2D, matrix: Matrix, component: T) => void
 
@@ -26,12 +29,13 @@ export class Renderer {
         [Graphics, graphicsRender],
     ];
 
-    constructor(public context: CanvasRenderingContext2D, public app: Application) {
+    constructor(public context: CanvasRenderingContext2D, public app: Transform) {
     }
 
     render() {
-        this.context.clearRect(0, 0, this.app.config.width, this.app.config.height);
-        this._render(this.app.stage);
+        this.context.clearRect(0, 0, this.app.width, this.app.height);
+        this._render(this.app);
+        return this.context;
     }
 
     private _render(transform: Transform, parentMatrix?: Matrix) {
@@ -39,13 +43,24 @@ export class Renderer {
         if (!transform.active) {
             return;
         }
-        transform.emitter.emit(Transform.Event.TICKER_BEFORE);
-        transform.update(ticker.deltaTime);
+        
         const matrix = new Matrix();
-        matrix.setTransform(transform);
+        if (this.app !== transform) {
+            matrix.setTransform(transform);
+        }
+
         if (parentMatrix) {
             matrix.prepend(parentMatrix);
         }
+
+        if (transform.alone && this.app !== transform) {
+            const texture = new Texture(this.renderAlone(transform).canvas);
+            textureRender(this.context, transform, matrix, texture);
+            return;
+        }
+
+        transform.emitter.emit(Transform.Event.TICKER_BEFORE);
+        transform.update(ticker.deltaTime);
 
         for (let j = 0; j < this.renderActions.length; j++) {
             if (this._renderElement(transform, this.renderActions[j][0], matrix, this.renderActions[j][1])) {
@@ -61,6 +76,15 @@ export class Renderer {
             const child = transform.children[i];
             this._render(child, matrix);
         }
+    }
+
+    /**
+     * 独立绘制
+     */
+    private renderAlone(transform: Transform) {
+        const ctx = canvasHelper.createContext(...transform.size.toArray());
+        const renderer = new Renderer(ctx, transform);
+        return renderer.render();
     }
 
     /**

@@ -27,6 +27,8 @@ export class Transform<T extends Container = Container> {
 
     id: number = 0;
 
+    alone = false;
+
     // 是否激活
     active: boolean = true;
 
