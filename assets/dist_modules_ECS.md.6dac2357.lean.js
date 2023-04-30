@@ -1,1 +1,0 @@
-import{_ as e,c as a,o as s,N as t}from"./chunks/framework.0799945b.js";const p=JSON.parse('{"title":"Namespace: ECS","description":"","frontmatter":{},"headers":[],"relativePath":"dist/modules/ECS.md"}'),o={name:"dist/modules/ECS.md"},l=t("",4),n=[l];function c(r,i,h,d,_,m){return s(),a("div",null,n)}const S=e(o,[["render",c]]);export{p as __pageData,S as default};
