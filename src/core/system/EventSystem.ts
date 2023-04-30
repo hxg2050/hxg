@@ -1,4 +1,4 @@
-import { StoreEmitter as Emitter } from 'store-event'
+import EE from 'eventemitter3'
 import { TouchEvent } from '../event';
 import { Vector2 } from "../math";
 import { Transform } from "../transform";
@@ -13,7 +13,7 @@ import { isHitPoint } from "../utils/hitTest";
  * 点击穿透
  * 点击冒泡
  */
-export class EventSystem extends Emitter {
+export class EventSystem extends EE {
     constructor(public transform: Transform) {
         super();
         this.addEvents();
