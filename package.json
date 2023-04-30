@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "@algolia/client-search": "^4.17.0",
+    "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-typescript": "^11.0.0",
     "@types/node": "^18.15.11",
