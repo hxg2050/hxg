@@ -1,9 +1,11 @@
-import { EventValue, StoreEmitter as Emitter } from 'store-event'
+import EE from 'eventemitter3'
 import { Resource } from "./Resource";
+import { ValueOf } from '../types/ValueOf';
 /**
  * 资源列表
  */
 export type LoadResListConfig = (string | [string, string])[];
+
 
 /**
  * 资源组加载
@@ -45,7 +47,7 @@ export class GroupLoader {
         COMPLATE: 'complate'
     } as const;
 
-    emitter = new Emitter<EventValue<typeof GroupLoader.Event>>();
+    emitter = new EE<ValueOf<typeof GroupLoader.Event>>();
 
     /**
      * 同时加载最大数量

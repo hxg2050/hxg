@@ -1,4 +1,3 @@
-import { canvasHelper } from "../canvas2d/canvasHelper";
 import { Texture } from "../texture";
 import { BaseContainer } from "./BaseContainer";
 

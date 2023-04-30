@@ -1,4 +1,3 @@
-import { BaseContainer } from "./BaseContainer";
 import { Component } from "./Component";
 import { Graphics } from "./Graphics";
 

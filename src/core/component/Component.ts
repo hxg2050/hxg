@@ -1,4 +1,4 @@
-import { StoreEmitter as Emitter } from 'store-event'
+import EE from 'eventemitter3'
 import { IComponent } from "./IComponent";
 import { Transform, Constructor } from "../transform";
 
@@ -24,7 +24,7 @@ export class Component implements IComponent
     /**
      * 事件处理器
      */
-    emitter = new Emitter();
+    emitter = new EE();
 
     /**
      * 组件不能单独实例化，必须通过Transform.addComponent创建

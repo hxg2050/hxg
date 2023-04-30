@@ -1,4 +1,3 @@
-import { StoreEmitter } from "store-event";
 import { Container } from "../component";
 import { Constructor, Transform } from "../transform";
 

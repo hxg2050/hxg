@@ -1,9 +1,9 @@
-import { StoreEmitter as Emitter } from 'store-event'
+import EE from 'eventemitter3'
 
 /**
  * 刷新器
  */
-export class Ticker extends Emitter {
+export class Ticker extends EE {
 
     private _FPS = 60;
     /**

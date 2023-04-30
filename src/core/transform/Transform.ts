@@ -1,10 +1,11 @@
 import { Component, Container } from "../component";
-import { EventValue, StoreEmitter as Emitter } from 'store-event'
+import EE from 'eventemitter3'
 import { Matrix, Vector2 } from "../math";
 import { TouchEvent } from "../event";
+import { ValueOf } from "../types/ValueOf";
 
 export type Constructor<T = unknown> = new (...args: any[]) => T;
-export type TransformEvent = EventValue<typeof Transform.Event> | `${TouchEvent}`;
+export type TransformEvent = ValueOf<typeof Transform.Event> | `${TouchEvent}`;
 /**
  * 目前无z-index设定
  */
@@ -33,7 +34,7 @@ export class Transform<T extends Container = Container> {
     active: boolean = true;
 
     name: string = 'node';
-    emitter = new Emitter<TransformEvent>();
+    emitter = new EE<TransformEvent>();
 
     redraw = false;
 
@@ -57,6 +58,7 @@ export class Transform<T extends Container = Container> {
          * 帧刷新前
          */
         TICKER_BEFORE: 'TICKER_BEFORE',
+
         /**
          * 帧刷新后
          */
@@ -226,6 +228,8 @@ export class Transform<T extends Container = Container> {
      */
     alpha = 1;
 
+    start?(): void;
+
     /**
      * 添加一个组件
      * @param classConstructor - 要挂载的组件
@@ -381,8 +385,10 @@ export class Transform<T extends Container = Container> {
     destroy() {
         this.parent?.removeChild(this);
         // this.removeAllComponent();
+        this.onDestroy && this.onDestroy();
     }
 
+    onDestroy?(): void;
     /**
      * 路径查找节点
      * ```ts

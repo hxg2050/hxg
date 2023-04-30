@@ -1,4 +1,4 @@
-import { StoreEmitter } from "store-event";
+import EE from "eventemitter3";
 import { Timeline } from "../modules";
 import { Component } from "./Component";
 /**
@@ -15,7 +15,7 @@ export class Animation extends Component {
     /**
      * 用于记录回调的时间线,在target时间线后执行
      */
-    timeline = new StoreEmitter();
+    timeline = new EE();
 
     /**
      * 动画总长

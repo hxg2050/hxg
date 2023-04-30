@@ -11,12 +11,7 @@ node_modules
 dist
 dist-ssr
 dist-example
-<<<<<<< HEAD
-types
-jsx-runtime/dist
-=======
-types/
->>>>>>> dev
+/types
 *.local
 
 # Editor directories and files

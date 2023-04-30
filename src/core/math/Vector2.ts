@@ -1,11 +1,11 @@
-import { StoreEmitter } from "store-event";
+import EE from "eventemitter3";
 
 /**
  * 二维向量
  */
 export class Vector2 {
 
-    emitter: StoreEmitter = new StoreEmitter();
+    emitter = new EE();
 
     constructor(num?: number);
     constructor(vector2: Vector2);
