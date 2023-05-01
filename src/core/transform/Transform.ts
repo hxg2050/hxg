@@ -304,7 +304,7 @@ export class Transform<T extends Container = Container> {
                 return;
             }
 
-            list.push.apply(list, value.getComponentsInChildren(classConstructor));
+            list.push.apply(list, value.node.getComponentsInChildren(classConstructor));
         });
 
         return list;
