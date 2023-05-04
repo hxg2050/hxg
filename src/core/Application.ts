@@ -2,10 +2,10 @@ import { Transform } from './transform';
 import { Vector2 } from './math';
 import { EventSystem } from './system';
 
-export type Options = {
+export type Options = Partial<{
     width: number;
     height: number;
-}
+}>
 /**
  * 应用
  * ```ts
@@ -40,7 +40,7 @@ export class Application {
      */
     eventSystem: EventSystem;
 
-    constructor(config: any = {}) {
+    constructor(config: Options = {}) {
         this.config = Object.assign({}, this.config, config);
         this.stage = new Transform();
         this.stage.size = new Vector2(this.config.width, this.config.height);

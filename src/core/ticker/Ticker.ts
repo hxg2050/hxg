@@ -60,10 +60,13 @@ export class Ticker extends EE {
         if (this.deltaTime < this._stepTime) {
             return;
         }
+        
+        this.emit('beforeUpdate', this.deltaTime);
         /**
          * time: 上一帧和当前帧时间间隔
          */
         this.emit('update', this.deltaTime);
+        this.emit('afterUpdate', this.deltaTime);
         this.lastTime = time;
     }
 

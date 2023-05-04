@@ -3,6 +3,17 @@ import { touchEventListener } from "../event";
 import { Renderer } from "./render";
 import { ticker } from "../ticker";
 import { hidpi } from "./hidpi";
+import { Mask } from "../component";
+import { mask } from "./component/Mask";
+import { each } from "./bridge";
+
+const componentActions = {
+    beforeUpdate: [
+        [Mask, mask]
+    ],
+    update: [],
+    afterUpdate: []
+}
 
 /**
  * canvas2d相关工作
@@ -18,16 +29,20 @@ export function canvas2d(canvas: HTMLCanvasElement) {
         /**
          * 自定义渲染器
          */
-        // const ctx = canvas.getContext('2d')!;
         const ctx = hidpi(canvas.getContext('2d')!);
         const renderer = new Renderer(ctx, app.stage);
-        // canvas.getContext('2d')!.scale(1/dpr, 1/dpr);
         /**
          * 创建一个刷新器
          */
         // const ticker = new Ticker();
-        ticker.start();
+        for (let p in componentActions) {
+            ticker.on(p, () => {
+                const action = componentActions[p];
+                each(action[0], action[1]);
+            });
+        }
         ticker.on('update', renderer.render, renderer);
+        ticker.start();
         app.use(touchEventListener(canvas));
     }
 }

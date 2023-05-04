@@ -3,6 +3,7 @@ import EE from 'eventemitter3'
 import { Matrix, Vector2 } from "../math";
 import { TouchEvent } from "../event";
 import { ValueOf } from "../types/ValueOf";
+import { addComponent, removeComponent } from "./componentBridge";
 
 export type Constructor<T = unknown> = new (...args: any[]) => T;
 export type TransformEvent = ValueOf<typeof Transform.Event> | `${TouchEvent}`;
@@ -37,7 +38,6 @@ export class Transform<T extends Container = Container> {
     emitter = new EE<TransformEvent>();
 
     redraw = false;
-
     /**
      * 事件
      */
@@ -235,12 +235,7 @@ export class Transform<T extends Container = Container> {
      * @param classConstructor - 要挂载的组件
      */
     addComponent<T extends Component>(classConstructor: Constructor<T>): T {
-        const component = new classConstructor(this);
-        // return <T>this.components.find(value => value instanceof classConstructor);
-        // component.node = this;
-        this.components.push(component);
-        setTimeout(component.start.bind(component));
-        return component;
+        return addComponent(this, classConstructor);
     }
 
     /**
@@ -248,11 +243,7 @@ export class Transform<T extends Container = Container> {
      * @param component - 将要移除的组件
      */
     removeComponent(component: Component) {
-        let index = this.components.findIndex(value => value == component);
-        if (index !== -1) {
-            component.onDestroy();
-            this.components.splice(index, 1);
-        }
+        removeComponent(this, component)
     }
 
     /**

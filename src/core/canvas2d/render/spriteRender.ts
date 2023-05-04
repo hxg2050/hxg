@@ -39,14 +39,14 @@ export default function spriteRender<T extends Sprite = Sprite>(ctx: CanvasRende
     if (!texture) {
         return;
     }
-    const mask = sprite.getComponent(Mask);
-    if (mask) {
-        if (!mask.texture) {
-            mask.value.active = false;
-            mask.texture = maskTexture(sprite.node, mask.value);
-        }
-        textureRender(ctx, sprite.node, matrix, mask.texture);
-    } else {
+    // const mask = sprite.node.getComponent(Mask);
+    // if (mask) {
+    //     if (!mask.texture) {
+    //         mask.value.active = false;
+    //         mask.texture = maskTexture(sprite.node, mask.value);
+    //     }
+    //     textureRender(ctx, sprite.node, matrix, mask.texture);
+    // } else {
         textureRender(ctx, sprite.node, matrix, texture);
-    }
+    // }
 }
