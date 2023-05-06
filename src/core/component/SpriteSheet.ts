@@ -94,7 +94,7 @@ export class SpriteSheet extends Component {
     sprite: Sprite;
 
     start(): void {
-        this.sprite = this.getComponent(Sprite);
+        this.sprite = this.node.getComponent(Sprite);
     }
 
     /**

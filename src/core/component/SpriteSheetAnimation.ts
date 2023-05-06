@@ -46,7 +46,7 @@ export class SpriteSheetAnimation extends Animation {
 
     start() {
         this.speed = this.fps / 60;
-        this.spriteSheet = this.getComponent(SpriteSheet)!;
+        this.spriteSheet = this.node.getComponent(SpriteSheet)!;
         // 默认动画
         const spriteSheet = this.spriteSheet;
         for (let name in spriteSheet.animations) {

@@ -34,7 +34,7 @@ export class Rect extends Component {
     private graphics?: Graphics;
 
     start() {
-        this.graphics = this.getComponent(Graphics);
+        this.graphics = this.node.getComponent(Graphics);
         this.node.size.emitter.on('change', this.draw, this);
         this.draw();
     }
