@@ -1,0 +1,1 @@
+import{_ as e,c as a,o as t,N as o}from"./chunks/framework.0799945b.js";const u=JSON.parse('{"title":"Class: Mask","description":"","frontmatter":{},"headers":[],"relativePath":"dist/classes/Mask.md"}'),r={name:"dist/classes/Mask.md"},n=o("",115),s=[n];function l(i,h,d,c,p,m){return t(),a("div",null,s)}const b=e(r,[["render",l]]);export{u as __pageData,b as default};
