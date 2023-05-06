@@ -6,7 +6,10 @@ import { Texture } from "../../texture";
 import { ticker } from "hxg/core/ticker";
 import { each } from "../bridge";
 
-function maskTexture(node: Transform, mask: Transform) {
+function maskTexture(maskComponent: Mask) {
+    const node = maskComponent.node;
+    const mask = maskComponent.value;
+    
     const ctx = canvasHelper.createContext(...node.size.toArray(), 1);
     ctx.save();
     const matrix = new Matrix().setTransform(mask).get();
@@ -18,8 +21,8 @@ function maskTexture(node: Transform, mask: Transform) {
     ctx.restore();
     ctx.globalCompositeOperation = 'source-in';
 
-    const sprite = <Sprite>node.container;
-    ctx.drawImage(sprite.texture.source, sprite.texture.x, sprite.texture.y);
+    const spriteTexture = maskComponent.texture;
+    ctx.drawImage(spriteTexture.source, spriteTexture.x, spriteTexture.y);
 
     const texture = new Texture(ctx.canvas);
     texture.init = true;
@@ -27,6 +30,6 @@ function maskTexture(node: Transform, mask: Transform) {
 }
 
 export function mask(component: Mask) {
-    (component.node.container as Sprite).texture = maskTexture(component.node, component.value);
+    (component.node.container as Sprite).texture = maskTexture(component);
     component.value.active = false;
 }

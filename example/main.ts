@@ -1,7 +1,7 @@
 import './style.scss';
-import { Animation, Application, Graphics, Rect, Resource, Sprite, SpriteSheet, SpriteSheetAnimation, Text, Texture, Ticker, Transform, canvas2d, ticker } from '../src';
-import { App } from './TsxTest';
-
+import { Application, canvas2d, LoadResListConfig, NinePanel, Resource, Sprite, Texture, Transform } from '../src';
+import { createSpriteByName } from '../example-game1/node/createSpriteByName';
+import { Mask } from '../src/core/component/Mask';
 /**
  * 创建应用
  */
@@ -13,78 +13,71 @@ const app = new Application({
 const canvas = document.querySelector('#canvas')! as HTMLCanvasElement;
 app.use(canvas2d(canvas));
 
-(async () => {
-	const rectNode = app.stage.addChild(new Transform(Graphics));
-	const rect = rectNode.addComponent(Rect);
-	rectNode.size.set(200);
-	rectNode.position.set(100, 100);
-	rect.fill = '#aaaa00'
-	rect.radius = 60;
-	// rectNode.rotation = 90;
+const image_path = '../example-game1/assets/image/';
+const res_list: LoadResListConfig = [
+    ['icon1.png', 'icon1'],
+    ['icon2.png', 'icon2'],
+    ['icon3.png', 'icon3'],
+    ['icon4.png', 'icon4'],
+    ['icon5.png', 'icon5'],
+    ['icon6.png', 'icon6'],
+    ['icon7.png', 'icon7'],
+    ['icon8.png', 'icon8'],
+    ['icon9.png', 'icon9'],
+    ['icon10.png', 'icon10'],
+    ['icon11.png', 'icon11'],
+    ['icon12.png', 'icon12'],
+    ['icon13.png', 'icon13'],
+    ['icon14.png', 'icon14'],
+    ['icon15.png', 'icon15'],
+    ['icon16.png', 'icon16'],
+    ['input.png', 'input'],
+    ['bg.jpg', 'bg'],
+    ['mask.png', 'mask'],
+    ['replay.png', 'replay'],
+    ['mask_black.png', 'mask_black'],
+    ['over_bg.png', 'over_bg'],
+    ['failed_text.png', 'failed_text'],
+    ['win_text.png', 'win_text'],
+];
 
-	// const textNode = app.stage.addChild(new Transform(Text));
-	// textNode.position.set(100);
-	// textNode.width = 200;
-	// textNode.height = 200;
-	// const text = textNode.getComponent(Text)!;
-	// text.value = 'ni好'
-	// console.log(text);
+const resList = (list: LoadResListConfig, root: string) => {
+    for (let i = 0; i < list.length; i ++) {
+        let item = list[i];
+        if (typeof item == 'string') {
+            list[i] = root + item;
+        } else {
+            item[0] = root + item[0];
+        }
+    }
+    return list;
+}
+let loadedCount = 0;
+const resCount = res_list.length;
 
-	let json = await Resource.load('./example/assets/animations/Samurai/Attack.json');
-	let img = await Resource.load('./example/assets/animations/Samurai/Attack.png');
-	console.log(json);
-	// 如果要控制动画大小可以使用父节点包裹的方式控制scale属性
-	const group = app.stage.addChild(new Transform);
-	group.scale.set(2);
+function resLoader(list: LoadResListConfig) {
+    const loader = Resource.loadGroup(list);
+    loader.on('loaded', () => {
+        loadedCount ++;
+        if (loadedCount == resCount) {
+            const bg = app.stage.addComponent(Sprite);
+            const res = Resource.get('bg')!;
+            bg.texture = new Texture(res.data);
+            console.log(bg);
+            run();
+        }
+    });
+}
+resLoader(resList(res_list, image_path));
 
-	const node = group.addChild(new Transform(Sprite));
-	// node.anchor.set(0.5);
-	const sprite = node.getComponent(Sprite)!;
-	const spriteSheet = node.addComponent(SpriteSheet);
-	const ssa = node.addComponent(SpriteSheetAnimation);
-	ssa.fps = 8;
-	ssa.loop = -1;
-	const func = () => {
-		console.log('播放到第', ssa.time, '帧');
-	};
-	ssa.addFrameAction(2, func, this);
-	ssa.emitter.on(Animation.Event.ENDED, () => {
-		console.log('单次动画播放完成');
-		ssa.removeFrameAction(2, func, this);
-	}, this);
-	spriteSheet.load(json.data, img);
-
-
-	ticker.once('update', () => {
-		ssa.play('Attack');
-	}, this);
-
-	// let json = await Resource.load('./example/assets/animations/Samurai/Attack.json');
-	// let img = await Resource.load('./example/assets/animations/Samurai/Attack.png');
-	// console.log(json);
-	// // 如果要控制动画大小可以使用父节点包裹的方式控制scale属性
-	// const group = app.stage.addChild(new Transform);
-	// group.scale.set(2);
-	
-	// const node = group.addChild(new Transform(Sprite));
-	// // node.anchor.set(0.5);
-	// const sprite = node.getComponent(Sprite)!;
-	// const spriteSheet = node.addComponent(SpriteSheet);
-	// spriteSheet.load(json.data, img);
-	
-	// ticker.once('update', () => {
-	// 	// ssa.play('Attack');
-	// 	spriteSheet.show('0.png');
-	// 	sprite.resize();
-	// }, this);
-	
-	// 动画播放只能在下一帧执行
-	// let img2 = await Resource.load('./example/assets/images/img.png');
-	// const spriteNode = app.stage.addChild(new Transform(Sprite));
-	// spriteNode.anchor.set(0.5);
-	// spriteNode.position.set(100);
-	// const sprite2 = spriteNode.getComponent(Sprite)!;
-	// sprite2.texture = new Texture(img2.data);
-	// sprite2.resize();
-
-})();
+function run() {
+    const img1 = createSpriteByName('input')!;
+    app.stage.addChild(img1.node);
+    const ninePanel = img1.node.addComponent(NinePanel);
+    ninePanel.left = 7;
+    ninePanel.right = 7;
+    ninePanel.top = 7;
+    ninePanel.bottom = 7;
+    img1.node.width = 400;
+    img1.node.height = 200;
+}

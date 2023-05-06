@@ -7,15 +7,6 @@ import { addComponent, removeComponent } from "./componentBridge";
 
 export type Constructor<T = unknown> = new (...args: any[]) => T;
 export type TransformEvent = ValueOf<typeof Transform.Event> | `${TouchEvent}`;
-/**
- * 目前无z-index设定
- */
-interface TEE {
-    node: Transform;
-    last: TEE;
-    next: TEE;
-}
-// 链表结构
 
 let id = 0;
 
@@ -54,6 +45,11 @@ export class Transform<T extends Container = Container> {
          * 尺寸发生变化时
          */
         RESIZE: 'RESIZE',
+        /**
+         * 位置发生变化
+         */
+        REPOSITION: 'REPOSITION',
+
         /**
          * 帧刷新前
          */
@@ -367,7 +363,7 @@ export class Transform<T extends Container = Container> {
     }
 
     update(time: number) {
-        this.components.forEach(val => val.update(time));
+        this.components.forEach(val => val.update && val.update(time));
     }
 
     /**
@@ -478,83 +474,5 @@ export class Transform<T extends Container = Container> {
 
         }
         return scale;
-    }
-
-    // matrix?: Matrix;
-
-    /**
-     * 获取尺寸，计算宽高，缩放,旋转之后在舞台中的尺寸实尺寸
-     * 获取？/测量？
-     * 有问题
-     */
-    getRectangle() {
-        const position = this.getWordPoisition();
-        // 获取4个顶点的坐标
-        const points = [
-            {
-                x: position.x,
-                y: position.y
-            },
-            {
-                x: position.x,
-                y: position.y + this.size.y
-            },
-            {
-                x: position.x + this.size.x,
-                y: position.y + this.size.y
-            },
-            {
-                x: position.x + this.size.x,
-                y: position.y
-            }
-        ];
-
-        if (this.children) {
-            this.children.forEach(val => {
-                const rect = val.getRectangle();
-                points.push({ x: rect.x1, y: rect.y1});
-                points.push({ x: rect.x2, y: rect.y2});
-            });
-        }
-
-        let minX = Math.min(...points.map(point => point.x));
-        let minY = Math.min(...points.map(point => point.y));
-        let maxX = Math.max(...points.map(point => point.x));
-        let maxY = Math.max(...points.map(point => point.y));
-
-        function rotatePoint(pivot, point, cos, sin) {
-            return {
-                x: (cos * (point.x - pivot.x)) - (sin * (point.y - pivot.y)) + pivot.x,
-                y: (sin * (point.x - pivot.x)) + (cos * (point.y - pivot.y)) + pivot.y
-            };
-        }
-        let anchor = this.getOffset();
-        let boundingBox = {
-            x1: Number.POSITIVE_INFINITY,
-            y1: Number.POSITIVE_INFINITY,
-            x2: Number.NEGATIVE_INFINITY,
-            y2: Number.NEGATIVE_INFINITY,
-            width: 0,
-            height: 0
-        };
-
-        let degrees = this.rotation;
-        let radians = degrees * (Math.PI / 180);
-        let cos = Math.cos(radians);
-        let sin = Math.sin(radians);
-        
-        points.forEach((point) => {
-            let rotatedPoint = rotatePoint(anchor, point, cos, sin);
-        
-            boundingBox.x1 = Math.min(boundingBox.x1, rotatedPoint.x);
-            boundingBox.y1 = Math.min(boundingBox.y1, rotatedPoint.y);
-            boundingBox.x2 = Math.max(boundingBox.x2, rotatedPoint.x);
-            boundingBox.y2 = Math.max(boundingBox.y2, rotatedPoint.y);
-        });
-
-        boundingBox.width = boundingBox.x2 - boundingBox.x1;
-        boundingBox.height = boundingBox.y2 - boundingBox.y1;
-        
-        return boundingBox;
     }
 }

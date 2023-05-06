@@ -25,7 +25,7 @@ export function addComponent<T extends Component>(transform: Transform, classCon
     const component = new classConstructor(transform);
     components.get(classConstructor).push(component);
     transform.components.push(component);
-    setTimeout(component.start.bind(component));
+    component.start && setTimeout(component.start.bind(component));
     return component;
 }
 
@@ -46,5 +46,5 @@ export function removeComponent(transform: Transform, component: Component) {
  * 获取某个组件
  */
 export function getComponents<T extends Component>(classConstructor: Constructor<T>) {
-    return components.get(classConstructor);
+    return components.get(classConstructor) || [];
 }

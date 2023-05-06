@@ -3,13 +3,15 @@ import { touchEventListener } from "../event";
 import { Renderer } from "./render";
 import { ticker } from "../ticker";
 import { hidpi } from "./hidpi";
-import { Mask } from "../component";
-import { mask } from "./component/Mask";
+import { Mask, NinePanel } from "../component";
+import { mask } from "./component/mask";
 import { each } from "./bridge";
+import { ninePanel } from "./component/ninePanel";
 
 const componentActions = {
     beforeUpdate: [
-        [Mask, mask]
+        [Mask, mask],
+        [NinePanel, ninePanel],
     ],
     update: [],
     afterUpdate: []
@@ -37,8 +39,8 @@ export function canvas2d(canvas: HTMLCanvasElement) {
         // const ticker = new Ticker();
         for (let p in componentActions) {
             ticker.on(p, () => {
-                const action = componentActions[p];
-                each(action[0], action[1]);
+                const actions = componentActions[p];
+                actions.forEach(val => each(val[0], val[1]));
             });
         }
         ticker.on('update', renderer.render, renderer);

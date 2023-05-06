@@ -14,3 +14,4 @@ export * from './Rect'
 export * from './SpriteSheet'
 export * from './Animation'
 export * from './SpriteSheetAnimation'
+export * from './NinePanel';
