@@ -230,7 +230,7 @@ export class Transform<T extends Container = Container> {
      * 添加一个组件
      * @param classConstructor - 要挂载的组件
      */
-    addComponent<T extends Component>(classConstructor: Constructor<T>): T {
+    addComponent<T extends Component>(classConstructor: Constructor<T> | T): T {
         return addComponent(this, classConstructor);
     }
 

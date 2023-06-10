@@ -16,13 +16,19 @@ function remove(arr: any[], item: any) {
  * 添加一个组件
  * @param classConstructor - 要挂载的组件
  */
-export function addComponent<T extends Component>(transform: Transform, classConstructor: Constructor<T>): T {
+export function addComponent<T extends Component>(transform: Transform, component: Constructor<T> | T): T {
+    let classConstructor;
+    if (typeof component == 'object') {
+        classConstructor = Object.getPrototypeOf(component);
+    } else {
+        classConstructor = component;
+        component = new classConstructor() as T;
+    }
     // 缓存
     if (!components.has(classConstructor)) {
         components.set(classConstructor, []);
     }
 
-    const component = new classConstructor(transform);
     components.get(classConstructor).push(component);
     transform.components.push(component);
     component.start && setTimeout(component.start.bind(component));

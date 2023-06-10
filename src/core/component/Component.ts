@@ -34,9 +34,8 @@ export class Component implements IComponent
      * ```
      * @param transform 
      */
-    constructor(transform: Transform) {
+    constructor() {
         this.id = ++idIndex;
-        this.node = transform;
     }
 
     /**

@@ -18,15 +18,6 @@ import { Texture } from "../texture";
  * ```
  */
 export class Sprite extends BaseContainer {
-
-    /**
-     * 显示图片
-     * @param transform 挂载的节点
-     */
-    constructor(transform: Transform) {
-        super(transform);
-    }
-
     /**
      * 图片纹理，储存图片的相关信息
      */
