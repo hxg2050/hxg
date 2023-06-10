@@ -67,7 +67,9 @@ export class Transform<T extends Container = Container> {
      */
     constructor(classConstructor?: Constructor<T>) {
         this.id = ++ id;
-        classConstructor && this.addComponent(classConstructor);
+        if (classConstructor) {
+            this.container = this.addComponent(classConstructor);
+        }
     }
 
     private _position: Vector2 = new Vector2();
@@ -186,7 +188,6 @@ export class Transform<T extends Container = Container> {
 
     // 要应用位置等信息的元素
     container!: T;
-
     /**
      * 所有组件
      * 默认包含一个容器组件，当添加了其他容器组件后自动替换，只能包含一个视觉组件
@@ -223,8 +224,6 @@ export class Transform<T extends Container = Container> {
      * 透明度
      */
     alpha = 1;
-
-    start?(): void;
 
     /**
      * 添加一个组件
