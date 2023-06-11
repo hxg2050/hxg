@@ -1,0 +1,1 @@
+import{_ as e,c as a,o,N as t}from"./chunks/framework.0799945b.js";const b=JSON.parse('{"title":"Class: Rect","description":"","frontmatter":{},"headers":[],"relativePath":"dist/classes/Rect.md"}'),n={name:"dist/classes/Rect.md"},r=t("",119),s=[r];function l(i,c,p,h,d,m){return o(),a("div",null,s)}const u=e(n,[["render",l]]);export{b as __pageData,u as default};
