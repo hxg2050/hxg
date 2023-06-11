@@ -1,5 +1,4 @@
-import { Transform } from "../transform";
-import { BaseContainer } from "./BaseContainer";
+import { DisplayObjects } from "./display/DisplayObject";
 
-export class Container extends BaseContainer {
+export class Container extends DisplayObjects {
 }

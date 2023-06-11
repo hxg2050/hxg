@@ -1,5 +1,5 @@
 import { Texture } from "../texture";
-import { BaseContainer } from "./BaseContainer";
+import { DisplayObjects } from "./display/DisplayObject";
 
 /**
  * 图形绘制
@@ -61,7 +61,7 @@ import { BaseContainer } from "./BaseContainer";
  * g.fill('#000000');
  * ```
  */
-export class Graphics extends BaseContainer { // extends Component
+export class Graphics extends DisplayObjects { // extends Component
 
     /**
      * 图片纹理，储存图片的相关信息

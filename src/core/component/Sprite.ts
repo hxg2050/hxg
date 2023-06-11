@@ -1,6 +1,5 @@
-import { Transform } from "../transform";
-import { BaseContainer } from "./BaseContainer";
 import { Texture } from "../texture";
+import { DisplayObjects } from "./display/DisplayObject";
 /**
  * 图片显示组件
  * ```ts
@@ -17,7 +16,7 @@ import { Texture } from "../texture";
  * });
  * ```
  */
-export class Sprite extends BaseContainer {
+export class Sprite extends DisplayObjects {
     /**
      * 图片纹理，储存图片的相关信息
      */
