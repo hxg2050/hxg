@@ -25,4 +25,5 @@ dist-example
 *.sln
 *.sw?
 
-.vitepress
+/docs/.vitepress/*
+!docs/.vitepress/config.js
