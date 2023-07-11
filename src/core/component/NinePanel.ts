@@ -6,6 +6,27 @@ import { Sprite } from "./Sprite";
 /**
  * 九宫格绘制
  * 将原图拆分9部分
+ * ```ts
+ * // 创建一个图片节点
+ * const node = new Transform(Sprite);
+ * // 获取图片组件
+ * const sprite = node.getComponent(Sprite);
+ * // 加载图片资源
+ * Resource.load('1.png').then((res: IRes) => {
+ *      // 设置纹理素材
+ *      sprite.texture = new ImageTexture(res.data);
+ *      // 根据纹理重新设置挂载节点的尺寸
+ *      sprite.resize();
+ * 
+ *      const ninePanel = node.addComponent(NinePanel);
+ *      ninePanel.left = 7;
+ *      ninePanel.right = 7;
+ *      ninePanel.top = 7;
+ *      ninePanel.bottom = 7;
+ *      node.width = 400;
+ *      node.height = 200;
+ * });
+ * ```
  */
 export class NinePanel extends Component {
     private _left = 0;

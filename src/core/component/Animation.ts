@@ -1,6 +1,7 @@
 import EE from "eventemitter3";
 import { Timeline } from "../modules";
 import { Component } from "./Component";
+
 /**
  * 动画组件
  * 插值，可插值属性才能进行插值[todo]
@@ -43,7 +44,7 @@ export class Animation extends Component {
      * 动画配置
      */
     animations: Record<string, Timeline[]> = {};
-    
+
     private cacheTime = 0;
 
     /**
@@ -117,7 +118,7 @@ export class Animation extends Component {
      * 播放速度100%
      */
     speed = 1;
-    
+
     /**
      * 指示是否被暂停
      */
@@ -126,24 +127,24 @@ export class Animation extends Component {
     play(): void;
     play(name: string): void;
     play(loop: number): void;
-    play(name:string, loop: number): void;
+    play(name: string, loop: number): void;
     /**
      * 播放
      * @param name 要播放的动画
      * @param loop 要循环的次数
      */
-    play(name?: string|number, loop?: number) {
+    play(name?: string | number, loop?: number) {
         let l = this.loop;
         let n = this.animation;
 
         if (typeof name == 'undefined') {
             name = -1;
-        } else if(typeof name === 'string') {
+        } else if (typeof name === 'string') {
             n = name;
             if (loop !== undefined) {
                 l = loop;
             }
-        } else if(typeof name === 'number') {
+        } else if (typeof name === 'number') {
             l = name;
         } else {
             return;
@@ -175,7 +176,7 @@ export class Animation extends Component {
         // 时间推进次数
         // const timeStep = Math.floor(this.total * time / this.timeMax);
         // for (let i = 0; i < timeStep; i++) {
-            this.next();
+        this.next();
         // }
     }
 
@@ -184,7 +185,7 @@ export class Animation extends Component {
      */
     private onEnded() {
         this.emitter.emit(Animation.Event.ENDED);
-        this.playCount ++;
+        this.playCount++;
         this.paused = true;
         if (this.loop == -1 || this.playCount <= this.loop) {
             this.play();
