@@ -1,0 +1,10 @@
+{
+    "name": "hot_prew",
+    "version": "0.4.2",
+    "private": true,
+    "license": "MIT",
+    "type": "module",
+    "peerDependencies": {
+        "hxg": "^0.4.2"
+    }
+}

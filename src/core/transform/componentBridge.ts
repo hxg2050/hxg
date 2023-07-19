@@ -1,4 +1,5 @@
 import { Component } from "../component";
+import { Props, setProps } from "../utils";
 import { Constructor, Transform } from "./Transform";
 
 const components: Map<Constructor<Component>, Component[]> = new Map();
@@ -16,7 +17,7 @@ function remove(arr: any[], item: any) {
  * 添加一个组件
  * @param classConstructor - 要挂载的组件
  */
-export function addComponent<T extends Component>(transform: Transform, component: Constructor<T> | T): T {
+export function addComponent<T extends Component>(transform: Transform, component: Constructor<T> | T, props?: Props<T>): T {
     let classConstructor;
     if (typeof component == 'object') {
         classConstructor = Object.getPrototypeOf(component);
@@ -28,9 +29,13 @@ export function addComponent<T extends Component>(transform: Transform, componen
     if (!components.has(classConstructor)) {
         components.set(classConstructor, []);
     }
-
+    
     components.get(classConstructor).push(component);
     transform.components.push(component);
+    component.node = transform;
+
+    props && setProps(component, props);
+
     component.start && setTimeout(component.start.bind(component));
     return component;
 }

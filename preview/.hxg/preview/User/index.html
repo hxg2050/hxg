@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + TS</title>
+</head>
+
+<body>
+  <style>
+    body,
+    html {
+      padding: 0;
+      margin: auto;
+      width: 100%;
+      height: 100%;
+    }
+
+    #app {
+      width: 100%;
+    }
+
+    canvas {
+      width: 100%;
+    }
+  </style>
+  <div id="app">
+    <canvas id="canvas" style="touch-action: none; cursor: inherit"></canvas>
+  </div>
+  <script type="module" lang="ts">
+    import { Application, canvas2d } from "hxg";
+    import StartTransfrom from '@/preview/User';
+
+    /**
+     * 创建应用
+     */
+    const app = new Application({
+      width: 1280,
+      height: 720
+    });
+
+    const canvas = document.querySelector('#canvas');
+    app.use(canvas2d(canvas));
+
+    app.stage.addChild(new StartTransfrom);
+  </script>
+</body>
+
+</html>

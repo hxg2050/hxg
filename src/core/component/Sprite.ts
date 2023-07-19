@@ -22,9 +22,9 @@ export class Sprite extends DisplayObjects {
      */
     public texture?: Texture;
 
-    start(): void {
-        super.start();
-    }
+    // start(): void {
+    //     super.start();
+    // }
 
     /**
      * 根据当前图片纹理，重置节点尺寸信息

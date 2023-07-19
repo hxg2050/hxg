@@ -5,7 +5,7 @@ export class FPS extends Component {
     text!: Text;
 
     start(): void {
-        this.text = this.getComponent(Text)!;
+        this.text = this.node.getComponent(Text)!;
     }
 
     update(time: number): void {

@@ -33,6 +33,7 @@ const autoWrapText = async (text: Text) => {
     texture.source.height = text.node.size.y;
     texture.source = texture.source;
 
+    ctx = (texture.source as HTMLCanvasElement).getContext('2d');
     ctx.fillStyle = text.color;
 
     const transform = text.node;
@@ -59,7 +60,7 @@ const autoWrapText = async (text: Text) => {
     // 先计算每个文字的宽度
     let widthText: ISizeText[] = [];
     for (let i = 0; i < text.value.length; i++) {
-        const label = text.value.at(i)!;
+        const label = text.value.charAt(i)!;
         const labelWidth = ctx.measureText(label).width;
         widthText.push({
             width: labelWidth,

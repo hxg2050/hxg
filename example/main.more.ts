@@ -5,7 +5,6 @@ import { Application, canvas2d, Sprite, Ticker, ticker, Transform } from '../src
 import { createText } from '../example-game1/node/createText';
 import { FPS } from '../example-game1/components/FPS';
 import { createSpriteByName } from '../example-game1/node/createSpriteByName';
-import { ImageTexture } from '../src/core/texture';
 // import { webgl } from '../src/core/webgl';
 
 /**
@@ -26,7 +25,7 @@ app.use(canvas2d(canvas));
 
 const fps = createText('');
 app.stage.addChild(fps.node);
-fps.addComponent(FPS);
+fps.node.addComponent(FPS);
 fps.node.size.x = 200;
 fps.node.size.y = 200;
 // const nodeP = new Transform();
@@ -40,25 +39,25 @@ fps.node.size.y = 200;
 // fps.node.size.x = 20 + i * 10;
 // fps.node.size.y = 20 + i * 10;
 
-Resource.load('../example-game1/assets/image/icon4.png').then((res) => {
-	const iTexture = new ImageTexture(res.data);
-	for (let i = 0; i < 500; i ++) {
+// Resource.load('../example-game1/assets/image/icon4.png').then((res) => {
+// 	const iTexture = new ImageTexture(res.data);
+// 	for (let i = 0; i < 500; i ++) {
 
-		const spriteNode = new Transform(Sprite);
-		const sprite = spriteNode.getComponent(Sprite)!;
-		sprite.texture = iTexture;
-		sprite.resize();
+// 		const spriteNode = new Transform(Sprite);
+// 		const sprite = spriteNode.getComponent(Sprite)!;
+// 		sprite.texture = iTexture;
+// 		sprite.resize();
 	
-		app.stage.addChild(spriteNode);
-		// spriteNode.size.set(200, 200);
-		// spriteNode.scale.set(1.5, 2);
-		spriteNode.anchor.set(0.5, 0.5);
-		spriteNode.rotation = i * 10;
+// 		app.stage.addChild(spriteNode);
+// 		// spriteNode.size.set(200, 200);
+// 		// spriteNode.scale.set(1.5, 2);
+// 		spriteNode.anchor.set(0.5, 0.5);
+// 		spriteNode.rotation = i * 10;
 	
-		spriteNode.position.x = 100 + i * 10;
-		spriteNode.position.y = 100 + i * 10;
-	}
-});
+// 		spriteNode.position.x = 100 + i * 10;
+// 		spriteNode.position.y = 100 + i * 10;
+// 	}
+// });
 ticker.on('update', () => {
 	// nodeP.position.x +=1;
 }, this);

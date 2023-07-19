@@ -1,5 +1,4 @@
-
-type Props<T> = {
+export type Props<T> = {
     [P in keyof T]?: Props<T[P]>;
 };
 /**

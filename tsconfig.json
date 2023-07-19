@@ -27,5 +27,8 @@
       "hxg/*": ["./src/*"],
     }
   },
-  "include": ["src", "jsx-runtime"]
+  "include": ["src", "jsx-runtime", "**/.hxg/*"],
+  "ts-node": {
+    "esm": true
+  },
 }

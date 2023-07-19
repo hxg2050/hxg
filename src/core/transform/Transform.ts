@@ -4,6 +4,7 @@ import { Matrix, Vector2 } from "../math";
 import { TouchEvent } from "../event";
 import { ValueOf } from "../types/ValueOf";
 import { addComponent, removeComponent } from "./componentBridge";
+import { Props, setProps } from "../utils";
 
 export type Constructor<T = unknown> = new (...args: any[]) => T;
 export type TransformEvent = ValueOf<typeof Transform.Event> | `${TouchEvent}`;
@@ -229,8 +230,8 @@ export class Transform<T extends Container = Container> {
      * 添加一个组件
      * @param classConstructor - 要挂载的组件
      */
-    addComponent<T extends Component>(classConstructor: Constructor<T> | T): T {
-        return addComponent(this, classConstructor);
+    addComponent<T extends Component>(classConstructor: Constructor<T> | T, props?: Props<T>): T {
+        return addComponent(this, classConstructor, props);
     }
 
     /**
@@ -305,12 +306,13 @@ export class Transform<T extends Container = Container> {
      * 插入一个子节点
      * @param transform - 待插入的节点
      */
-    addChild(transform: Transform) {
+    addChild<U extends Transform>(transform: U, props?: Props<U>) {
         if (transform.parent) {
             transform.parent.removeChild(transform);
         }
         this.children.push(transform);
         transform.parent = this;
+        props && setProps(transform, props)
         return transform;
     }
 
