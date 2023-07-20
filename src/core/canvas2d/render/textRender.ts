@@ -29,8 +29,8 @@ const autoWrapText = async (text: Text) => {
 
     const texture = text.texture;
 
-    texture.source.width = text.node.size.x;
-    texture.source.height = text.node.size.y;
+    // texture.source.width = text.node.size.x;
+    // texture.source.height = text.node.size.y;
     texture.source = texture.source;
 
     ctx = (texture.source as HTMLCanvasElement).getContext('2d');

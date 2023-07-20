@@ -23,7 +23,8 @@ export function hidpi(context: CanvasRenderingContext2D, dpi = window.devicePixe
         getImageData,
         moveTo,
         lineTo,
-        arc
+        arc,
+        measureText
     } = context;
     //    clearRect(x: number, y: number, w: number, h: number): void;
     context.clearRect = (x: number, y: number, w: number, h: number) => {
@@ -122,6 +123,20 @@ export function hidpi(context: CanvasRenderingContext2D, dpi = window.devicePixe
         radius *= dpi;
         return arc.bind(context)(x, y, radius, startAngle, endAngle, counterclockwise);
     }
+
+    // context.measureText = (text: string) => {
+    //     const font = context.font;
+    //     context.font = font.replace(
+    //         /(\d+)(px|em|rem|pt)/g,
+    //         function (w, m, u) {
+    //             w;
+    //             return (m * dpi) + u;
+    //         }
+    //     );
+    //     const res = measureText.bind(context)(text);
+    //     context.font = font;
+    //     return res;
+    // }
 
     const { getContext } = context.canvas;
 
