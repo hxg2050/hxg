@@ -1,1 +1,0 @@
-import{_ as e,c as a,o,N as n}from"./chunks/framework.2075e729.js";const f=JSON.parse('{"title":"Class: Audio","description":"","frontmatter":{},"headers":[],"relativePath":"dist/classes/Audio.md"}'),t={name:"dist/classes/Audio.md"},s=n("",216),r=[s];function l(i,p,c,d,h,u){return o(),a("div",null,r)}const b=e(t,[["render",l]]);export{f as __pageData,b as default};
