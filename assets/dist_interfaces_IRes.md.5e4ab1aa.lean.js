@@ -1,1 +1,0 @@
-import{_ as e,c as a,o as r,N as t}from"./chunks/framework.2075e729.js";const b=JSON.parse('{"title":"Interface: IRes","description":"","frontmatter":{},"headers":[],"relativePath":"dist/interfaces/IRes.md"}'),o={name:"dist/interfaces/IRes.md"},i=t("",19),s=[i];function n(c,l,h,d,f,u){return r(),a("div",null,s)}const _=e(o,[["render",n]]);export{b as __pageData,_ as default};
