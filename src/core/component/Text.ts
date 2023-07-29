@@ -40,6 +40,19 @@ export enum TextAlgin {
  * ```
  */
 export class Text extends Container {
+
+	start(): void {
+		this.node.size.emitter.on('change', this.setRedraw, this);
+	}
+
+	onDestroy(): void {
+		this.node.size.emitter.off('change', this.setRedraw, this);
+	}
+
+	private setRedraw() {
+		this.redraw = true;
+	}
+
 	private _letterPacing = 0;
 	/**
 	 * 字间距

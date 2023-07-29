@@ -14,14 +14,22 @@ const canvas = document.querySelector('#canvas')! as HTMLCanvasElement;
 app.use(canvas2d(canvas));
 
 class GameApp extends Node {
-	fps = this.addComponent(Text);
+	fps: Text;
+
+	constructor() {
+		super();
+		this.fps = this.addComponent(Text);
+
+	}
 	start() {
-		this.size.set(200, 50);
 		this.fps.fontSize = 40;
+		this.size.set(200, 50);
+		console.log('start');
 	}
 	update(time: number): void {
-        this.fps.value = (1000 / time).toFixed(2) + ' fps';
+        this.fps.value = (1000 / time).toFixed(2) + ' fps(帧)';
 	}
 }
 
 app.stage.addChild(new GameApp());
+console.log(app);

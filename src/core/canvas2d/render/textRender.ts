@@ -22,18 +22,20 @@ const autoWrapText = async (text: Text) => {
     }
     let ctx: CanvasRenderingContext2D;
     if (!text.texture) {
-        ctx = canvasHelper.createContext(...text.node.size.toArray());
+        ctx = canvasHelper.createContext(...text.node.size.toArray(), 1);
         text.texture = new Texture(ctx.canvas);
         text.texture.init = true;
     }
 
     const texture = text.texture;
 
-    // texture.source.width = text.node.size.x;
-    // texture.source.height = text.node.size.y;
+    texture.source.width = text.node.size.x;
+    texture.source.height = text.node.size.y;
     texture.source = texture.source;
 
     ctx = (texture.source as HTMLCanvasElement).getContext('2d');
+    ctx.canvas.width = text.node.size.x;
+    ctx.canvas.height = text.node.size.y;
     ctx.clearRect(0, 0, ...text.node.size.toArray());
     ctx.fillStyle = text.color;
 
