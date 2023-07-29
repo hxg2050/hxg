@@ -1,10 +1,7 @@
 import { canvasHelper } from "../canvasHelper";
-import { Transform } from "../../transform";
 import { Matrix } from "../../math";
 import { Mask, Sprite } from "../../component";
 import { Texture } from "../../texture";
-import { ticker } from "hxg/core/ticker";
-import { each } from "../bridge";
 
 function maskTexture(maskComponent: Mask) {
     const node = maskComponent.node;
