@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a,N as r}from"./chunks/framework.2075e729.js";const p=JSON.parse('{"title":"Class: Ticker","description":"","frontmatter":{},"headers":[],"relativePath":"dist/classes/Ticker.md"}'),d={name:"dist/classes/Ticker.md"},o=r("",243),i=[o];function n(l,s,h,c,f,m){return a(),t("div",null,i)}const u=e(d,[["render",n]]);export{p as __pageData,u as default};
