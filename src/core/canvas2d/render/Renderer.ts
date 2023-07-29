@@ -53,7 +53,7 @@ export class Renderer {
             matrix.prepend(parentMatrix);
         }
 
-        if (this.app !== transform) { //transform.alone && 
+        if (transform.alone && this.app !== transform) {
             const texture = new Texture(this.renderAlone(transform).canvas);
             textureRender(this.context, transform, matrix, texture);
             return;

@@ -1,62 +1,91 @@
 import './style.scss';
-import { Resource } from '../src/core/resource';
-import { LoadResListConfig } from '../src/core/resource/GroupLoader';
-import { Application, canvas2d, Graphics, Node, Rect, Sprite, Text, TextAlgin, Ticker, ticker, Transform } from '../src';
-import { createText } from '../example-game1/node/createText';
-import { FPS } from '../example-game1/components/FPS';
-import { createSpriteByName } from '../example-game1/node/createSpriteByName';
-// import { webgl } from '../src/core/webgl';
+import { Animation, Application, Graphics, Rect, Resource, Sprite, SpriteSheet, SpriteSheetAnimation, Text, Texture, Ticker, Transform, canvas2d, ticker } from '../src';
+import { App } from './TsxTest';
 
 /**
  * 创建应用
  */
- const app = new Application({
-	width: 720,
-	height: 1280
+const app = new Application({
+	width: 1280,
+	height: 720
 });
 
-/**
- * 获取canvas
- */
 const canvas = document.querySelector('#canvas')! as HTMLCanvasElement;
-// 此处自定义和视图渲染相关的，默认实现了canvas2d相关的逻辑，理论上支持任何渲染模式，包括使用webgl和html以及其它的，例如pixi
 app.use(canvas2d(canvas));
-class Title extends Node {
 
-    text = this.addComponent(Text);
+(async () => {
+	const rectNode = app.stage.addChild(new Transform(Graphics));
+	const rect = rectNode.addComponent(Rect);
+	rectNode.size.set(200);
+	rectNode.position.set(100, 100);
+	rect.fill = '#aaaa00'
+	rect.radius = 60;
+	// rectNode.rotation = 90;
 
-    constructor() {
-        super();
-    }
-}
+	// const textNode = app.stage.addChild(new Transform(Text));
+	// textNode.position.set(100);
+	// textNode.width = 200;
+	// textNode.height = 200;
+	// const text = textNode.getComponent(Text)!;
+	// text.value = 'ni好'
+	// console.log(text);
 
-class Grid extends Node {
+	let json = await Resource.load('./example/assets/animations/Samurai/Attack.json');
+	let img = await Resource.load('./example/assets/animations/Samurai/Attack.png');
+	console.log(json);
+	// 如果要控制动画大小可以使用父节点包裹的方式控制scale属性
+	const group = app.stage.addChild(new Transform);
+	group.scale.set(5);
 
-    background: Rect;
+	const node = group.addChild(new Transform(Sprite));
+	// node.anchor.set(0.5);
+	const sprite = node.getComponent(Sprite)!;
+	const spriteSheet = node.addComponent(SpriteSheet);
+	const ssa = node.addComponent(SpriteSheetAnimation);
+	ssa.fps = 8;
+	ssa.loop = -1;
+	const func = () => {
+		console.log('播放到第', ssa.time, '帧');
+	};
+	ssa.addFrameAction(2, func, this);
+	ssa.emitter.on(Animation.Event.ENDED, () => {
+		console.log('单次动画播放完成');
+		ssa.removeFrameAction(2, func, this);
+	}, this);
+	spriteSheet.load(json.data, img);
 
-    title = this.addChild(new Title(), {
-        width: 200,
-        height: 100,
-        text: {
-            value: '地AD是的的',
-            color: '#FFFFFF',
-            algin: TextAlgin.CENTER,
-            lineSpace: 35
-        }
-    });
 
-    constructor() {
-        super();
-        this.size.set(200, 100);
-        this.addComponent(Graphics);
-        this.background = this.addComponent(Rect, {
-            radius: 10
-        });
-        console.log(this);
-    }
+	ticker.once('update', () => {
+		ssa.play('Attack');
+	}, this);
 
-    update() {
-        // this.title.redraw = true;
-    }
-}
-app.stage.addChild(new Grid);
+    console.log(app);
+	// let json = await Resource.load('./example/assets/animations/Samurai/Attack.json');
+	// let img = await Resource.load('./example/assets/animations/Samurai/Attack.png');
+	// console.log(json);
+	// // 如果要控制动画大小可以使用父节点包裹的方式控制scale属性
+	// const group = app.stage.addChild(new Transform);
+	// group.scale.set(2);
+	
+	// const node = group.addChild(new Transform(Sprite));
+	// // node.anchor.set(0.5);
+	// const sprite = node.getComponent(Sprite)!;
+	// const spriteSheet = node.addComponent(SpriteSheet);
+	// spriteSheet.load(json.data, img);
+	
+	// ticker.once('update', () => {
+	// 	// ssa.play('Attack');
+	// 	spriteSheet.show('0.png');
+	// 	sprite.resize();
+	// }, this);
+	
+	// 动画播放只能在下一帧执行
+	// let img2 = await Resource.load('./example/assets/images/img.png');
+	// const spriteNode = app.stage.addChild(new Transform(Sprite));
+	// spriteNode.anchor.set(0.5);
+	// spriteNode.position.set(100);
+	// const sprite2 = spriteNode.getComponent(Sprite)!;
+	// sprite2.texture = new Texture(img2.data);
+	// sprite2.resize();
+
+})();
