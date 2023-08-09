@@ -13,7 +13,7 @@ tweenTicker.on('update', () => {
 tweenTicker.start();
 export function game(stage: Transform) {
     stage.touch = true;
-    stage.emitter.once(TouchEvent.TOUCH_TAP, () => {
+    stage.emitter.once(TouchEvent.TOUCH_BEGIN, () => {
         AudioManager.ins().playBgm();
         stage.touch = false;
     }, stage);
@@ -22,7 +22,7 @@ export function game(stage: Transform) {
     const title = createText('每日一关');
     title.node.anchor.set(0.5, 0);
     stage.addChild(title.node);
-    const cl = title.addComponent(Layout);
+    const cl = title.node.addComponent(Layout);
     cl.vertical = 0;
     title.fontSize = 30;
     // title.color = '#FFFFFF';
@@ -33,13 +33,13 @@ export function game(stage: Transform) {
     Map.ins().box = input.node;
     const group = new Transform();
     group.position.set(36 * 9 / 2, 10* 36 / 2);
-    Map.ins().init(10, 10, 200, group);
+    Map.ins().init(10, 10, 10, group);
     stage.addChild(group);
 
     input.node.size.set(72*7, 72);
     input.node.anchor.set(0.5, 0);
     stage.addChild(input.node);
-    const il = input.addComponent(Layout);
+    const il = input.node.addComponent(Layout);
     il.vertical = 0;
     il.bottom = 300;
 }

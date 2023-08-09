@@ -1,6 +1,6 @@
-import { Application, canvas2d, Resource, Sprite } from '../src';
+import { Application, canvas2d, Resource, Sprite, webgl } from '../src';
 import { LoadResListConfig } from '../src/core/resource/GroupLoader';
-import { ImageTexture } from '../src/core/texture';
+import { Texture } from '../src/core/texture';
 import { FPS } from './components/FPS';
 import { createText } from './node/createText';
 import { game } from './prefabs/game';
@@ -20,12 +20,8 @@ const app = new Application({
  */
 const canvas = document.querySelector('#canvas')! as HTMLCanvasElement;
 // 此处自定义和视图渲染相关的，默认实现了canvas2d相关的逻辑，理论上支持任何渲染模式，包括使用webgl和html以及其它的，例如pixi
-app.use(canvas2d(canvas));
-// app.use(webgl(canvas));
-
-const fps = createText('');
-app.stage.addChild(fps.node);
-fps.addComponent(FPS);
+// app.use(canvas2d(canvas));
+app.use(webgl(canvas));
 
 const loadText = load();
 app.stage.addChild(loadText.node);
@@ -87,8 +83,14 @@ function resLoader(list: LoadResListConfig) {
             loadText.node.destroy();
             const bg = app.stage.addComponent(Sprite);
             const res = Resource.get('bg')!;
-            bg.texture = new ImageTexture(res.data);
+            bg.texture = new Texture(res.data);
             game(app.stage);
+
+            const fps = createText('');
+            fps.node.size.set(100, 100);
+            app.stage.addChild(fps.node);
+            fps.node.addComponent(FPS);
+
         }
     });
 }

@@ -10,7 +10,7 @@ export class Replay extends Component {
 
     addEvents() {
         this.playButton.touch = true;
-        this.playButton.emitter.once(TouchEvent.TOUCH_TAP, this.play, this);
+        this.playButton.emitter.once(TouchEvent.TOUCH_BEGIN, this.play, this);
     }
 
     /**

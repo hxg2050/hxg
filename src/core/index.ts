@@ -13,3 +13,4 @@ export * from './thing';
 export * from './Application'
 
 export * from './canvas2d'
+export * from './webgl'

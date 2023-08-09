@@ -78,7 +78,7 @@ export class Card extends Component {
         const { x, y } = this;
         map[y][x] = 0;
         Map.ins().addCard(this);
-        this.node.emitter.off(TouchEvent.TOUCH_TAP, this.onClick, this);
+        this.node.emitter.off(TouchEvent.TOUCH_BEGIN, this.onClick, this);
         this.inMap = false;
     }
 }

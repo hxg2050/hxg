@@ -10,7 +10,7 @@ const createCard = (x: number, y: number, z: number) => {
     // return new Card();
     const i = Math.ceil(Math.random() * 16);
     const sprite = createSpriteByName('icon' + i);
-    const card = sprite.addComponent(Card);
+    const card = sprite.node.addComponent(Card);
     card.set(x, y, z, 'icon' + i);
     return card;
 }
@@ -25,6 +25,13 @@ export class Map extends Component {
     ];
 
     static _ins: Map;
+
+    // constructor() {
+    //     super();
+    //     if (!Map._ins) {
+    //         Map._ins = this;
+    //     }
+    // }
 
     start() {
         if (!Map._ins) {

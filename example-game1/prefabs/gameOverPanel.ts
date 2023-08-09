@@ -7,7 +7,7 @@ import { createSpriteByName } from "../node/createSpriteByName";
  */
 export function gameOverPanel(isWin = true) {
     const mask = createSpriteByName('mask_black');
-    const rep = mask.addComponent(Replay);
+    const rep = mask.node.addComponent(Replay);
     mask.node.anchor.set(0.5, 0.5);
     mask.node.touch = true;
     mask.node.deliver = false;
@@ -20,24 +20,24 @@ export function gameOverPanel(isWin = true) {
     rep.playButton = replay.node;
     rep.addEvents();
     
-    const mask_layuot = mask.addComponent(Layout);
+    const mask_layuot = mask.node.addComponent(Layout);
     mask_layuot.left = 0;
     mask_layuot.top = 0;
     mask_layuot.right = 0;
     mask_layuot.bottom = 0;
     bg.node.anchor.set(0.5, 0.5);
-    const bg_layout = bg.addComponent(Layout);
+    const bg_layout = bg.node.addComponent(Layout);
     bg_layout.vertical = 0;
     bg_layout.horizontal = -100;
     img_text.node.anchor.set(0.5, 0.5);
     img_text.node.position.y = 130;
-    const text_layout = img_text.addComponent(Layout);
+    const text_layout = img_text.node.addComponent(Layout);
     text_layout.vertical = 0;
     mask.node.scale.set(0, 0);
 
     replay.node.position.y = 230;
     replay.node.anchor.set(0.5, 0);
-    const replay_layout = replay.addComponent(Layout);
+    const replay_layout = replay.node.addComponent(Layout);
     replay_layout.vertical = 0;
     return mask.node;
 }

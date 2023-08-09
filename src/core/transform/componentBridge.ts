@@ -36,7 +36,7 @@ export function addComponent<T extends Component>(transform: Transform, componen
 
     props && setProps(component, props);
 
-    component.start && setTimeout(component.start.bind(component));
+    component.start && component.start() ;//process.nextTick(component.start.bind(component));// setTimeout();
     return component;
 }
 
@@ -45,11 +45,11 @@ export function addComponent<T extends Component>(transform: Transform, componen
  * @param component - 将要移除的组件
  */
 export function removeComponent(transform: Transform, component: Component) {
-    const list = Object.getPrototypeOf(component).constructor;
-    remove(list, component);
+    // const list = Object.getPrototypeOf(component).constructor;
+    // remove(list, component);
 
     if (remove(transform.components, component)) {
-        component.onDestroy();
+        component.onDestroy && component.onDestroy();
     }
 }
 
