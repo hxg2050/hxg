@@ -464,7 +464,7 @@ function drawAfter(gl: WebGLRenderingContext, data: IDraw, maxSize: number) {
       ext.vertexAttribDivisorANGLE(loc, 1);
     }
     // console.log(matrixData);
-    // ext.drawArraysInstancedANGLE(gl.TRIANGLE_STRIP, 0, 4, data.matrixs.length);
+    ext.drawArraysInstancedANGLE(gl.TRIANGLE_STRIP, 0, 4, data.matrixs.length);
     // for (let i = 0; i < data.matrixs.length; i ++) {
     
     
