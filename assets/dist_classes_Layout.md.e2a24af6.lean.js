@@ -1,0 +1,1 @@
+import{_ as e,c as a,o as t,N as o}from"./chunks/framework.2075e729.js";const m=JSON.parse('{"title":"Class: Layout","description":"","frontmatter":{},"headers":[],"relativePath":"dist/classes/Layout.md"}'),n={name:"dist/classes/Layout.md"},r=o("",217),s=[r];function l(i,c,d,h,p,u){return t(),a("div",null,s)}const b=e(n,[["render",l]]);export{m as __pageData,b as default};
