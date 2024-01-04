@@ -23,11 +23,17 @@ class GameApp extends Node {
 	}
 	start() {
 		this.fps.fontSize = 40;
-		this.size.set(200, 50);
+		this.size.set(300, 50);
 		console.log('start');
 	}
+
+	lastTime = 0;
 	update(time: number): void {
-        this.fps.value = (1000 / time).toFixed(2) + ' fps(帧)';
+		this.lastTime += time;
+		if (this.lastTime >= 100) {
+			this.fps.value = (1000 / time).toFixed(2) + '';
+			this.lastTime -= 100;
+		}
 	}
 }
 
