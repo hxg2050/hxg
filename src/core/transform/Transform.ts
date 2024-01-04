@@ -39,6 +39,16 @@ export class Transform<T extends Container = Container> {
          */
         ADDED: 'ADDED',
         /**
+         * 当被移除于舞台时
+         */
+        REMOVED: 'REMOVED',
+
+        /**
+         * 可见元素发生变化时（需要渲染的元素）
+         */
+        CHANGE_DISPLY: 'CHANGE_DISPLY',
+
+        /**
          * 当添加新的字节点时
          */
         CHILD_ADDED: 'CHILD_ADDED',
@@ -67,7 +77,7 @@ export class Transform<T extends Container = Container> {
      * @param classConstructor 
      */
     constructor(classConstructor?: Constructor<T>) {
-        this.id = ++ id;
+        this.id = ++id;
         if (classConstructor) {
             this.container = this.addComponent(classConstructor);
         }
@@ -123,7 +133,7 @@ export class Transform<T extends Container = Container> {
     set height(val: number) {
         this.size.y = val;
     }
-    
+
 
 
     private _scale: Vector2 = new Vector2(1, 1);
@@ -143,14 +153,14 @@ export class Transform<T extends Container = Container> {
     set scaleX(val: number) {
         this.scale.x = val;
     }
-    
+
     get scaleY() {
         return this.scale.y;
     }
     set scaleY(val: number) {
         this.scale.y = val;
     }
-    
+
     _rotation: number = 0;//Vector2 = new Vector2(0, 1);
     /**
      * 旋转
@@ -172,7 +182,7 @@ export class Transform<T extends Container = Container> {
     set anchor(value: Vector2) {
         this._anchor = value;
     }
-    
+
     get anchorX() {
         return this.anchor.x;
     }
@@ -296,7 +306,7 @@ export class Transform<T extends Container = Container> {
 
         return list;
     }
-    
+
     /**
      * 子节点
      */
