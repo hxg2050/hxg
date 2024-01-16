@@ -18,7 +18,14 @@ export class Rect extends Component {
     /**
      * 圆角大小
      */
-    radius: number = 0;
+    private _radius = 0;
+    get radius() {
+        return this._radius;
+    }
+    set radius(val: number) {
+        this._radius = val;
+        this._redraw = true;
+    }
     /**
      * 填充颜色
      */
@@ -39,7 +46,9 @@ export class Rect extends Component {
         this.draw();
     }
 
-    private draw() {
+    private _redraw = false;
+
+    public draw() {
         if (!this.graphics) {
             console.warn('只能挂在`Graphics`节点上');
             return;
@@ -55,9 +64,15 @@ export class Rect extends Component {
         g.drawRect(this.radius / 2, this.radius / 2, this.node.size.x - this.radius, this.node.size.y - this.radius, this.radius);
         this.fill && g.fill(this.fill);
         this.storkeWidth > 0 && g.stroke(this.storke, this.storkeWidth);
+
+        this._redraw = false;
     }
 
     update(time: number): void {
+        if (!this._redraw) {
+            return;
+        }
+        this.draw();
         // this.node.size.x ++;
         // this.draw();
         // this.graphics.redraw = true;

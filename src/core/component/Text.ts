@@ -1,7 +1,5 @@
-import { canvasHelper } from "../canvas2d/canvasHelper";
 import { Texture } from "../texture";
-import { Transform } from "../transform";
-import { Container } from "./Container";
+import { DisplayObject } from "./display/DisplayObject";
 export enum TextAlgin {
 	LEFT = 'left',
 	CENTER = 'center',
@@ -39,7 +37,7 @@ export enum TextAlgin {
  * text.color = '#FF0000';
  * ```
  */
-export class Text extends Container {
+export class Text extends DisplayObject {
 
 	start(): void {
 		this.node.size.emitter.on('change', this.setRedraw, this);
@@ -127,7 +125,7 @@ export class Text extends Container {
 		this._fontFamily = val;
 		this.redraw = true;
 	}
-	
+
 	private _fontSize: number = 14;
 	/**
 	 * 字体大小
@@ -142,7 +140,7 @@ export class Text extends Container {
 		this._fontSize = val;
 		this.redraw = true;
 	}
-	
+
 	private _italic: boolean = false;
 	/**
 	 * 斜体
@@ -175,9 +173,9 @@ export class Text extends Container {
 
 	private _autoWarp: boolean = false;
 	/**
-     * 是否自动换行
-     * 前提条件，设置了宽度，如果没设置宽度自动换行将不生效
-     */
+	 * 是否自动换行
+	 * 前提条件，设置了宽度，如果没设置宽度自动换行将不生效
+	 */
 	get autoWarp() {
 		return this._autoWarp;
 	}
@@ -189,7 +187,7 @@ export class Text extends Container {
 		this.redraw = true;
 	}
 
-    private _color: string = '#000000';
+	private _color: string = '#000000';
 	/**
 	 * 文字颜色
 	 */

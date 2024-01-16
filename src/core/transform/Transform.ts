@@ -1,14 +1,30 @@
 import { Component, Container } from "../component";
 import EE from 'eventemitter3'
 import { Matrix, Vector2 } from "../math";
-import { TouchEvent } from "../event";
+import { Event, TouchEvent, createEventHelper } from "../event";
 import { ValueOf } from "../types/ValueOf";
 import { addComponent, removeComponent } from "./componentBridge";
 import { Props, setProps } from "../utils";
 
-export type Constructor<T = unknown> = new (...args: any[]) => T;
-export type TransformEvent = ValueOf<typeof Transform.Event> | `${TouchEvent}`;
 
+export type Constructor<T = unknown> = new (...args: any[]) => T;
+export type TransformEventType = ValueOf<typeof Transform.Event> | `${TouchEvent}`;
+
+export class TransformEvent extends Event<TransformEventType, Transform, Transform | undefined> {
+}
+
+export class TransformComponentEvent extends Event<TransformEventType, Transform, Component> {
+}
+
+/**
+ * 创建一个事件
+ * @param type 事件名称
+ * @param target 触发元素
+ * @param data 发射数据
+ * @returns 
+ */
+export const createTransformEvent = createEventHelper(TransformEvent);
+export const createTransformComponentEvent = createEventHelper(TransformComponentEvent);
 let id = 0;
 
 /**
@@ -21,13 +37,18 @@ export class Transform<T extends Container = Container> {
 
     id: number = 0;
 
+    /**
+     * 提供给任意位置调用的元数据
+     */
+    meta: Record<string, any> = {};
+
     alone = false;
 
     // 是否激活
     active: boolean = true;
 
     name: string = 'node';
-    emitter = new EE<TransformEvent>();
+    emitter = new EE<TransformEventType>();
 
     redraw = false;
     /**
@@ -35,11 +56,11 @@ export class Transform<T extends Container = Container> {
      */
     static Event = {
         /**
-         * 当添加到显示舞台时
+         * 当添加到显示舞台时 1
          */
         ADDED: 'ADDED',
         /**
-         * 当被移除于舞台时
+         * 当被移除于舞台时 1
          */
         REMOVED: 'REMOVED',
 
@@ -49,9 +70,13 @@ export class Transform<T extends Container = Container> {
         CHANGE_DISPLY: 'CHANGE_DISPLY',
 
         /**
-         * 当添加新的字节点时
+         * 当添加新的字节点时 1
          */
         CHILD_ADDED: 'CHILD_ADDED',
+        /**
+         * 当移除节点时 1
+         */
+        CHILD_REMOVED: 'CHILD_REMOVED',
         /**
          * 尺寸发生变化时
          */
@@ -69,14 +94,24 @@ export class Transform<T extends Container = Container> {
         /**
          * 帧刷新后
          */
-        TICKER_AFTER: 'TICKER_AFTER'
+        TICKER_AFTER: 'TICKER_AFTER',
+
+        /**
+         *  添加一个组件
+         */
+        COMPONENT_ADDED: 'COMPONENT_ADDED',
+
+        /**
+         *  移除一个组件
+         */
+        COMPONENT_REMOVED: 'COMPONENT_REMOVED',
     } as const;
     /**
      * 
      * 一个节点只能挂载一个视觉组件
      * @param classConstructor 
      */
-    constructor(classConstructor?: Constructor<T>) {
+    constructor(classConstructor?: Constructor<T> | T) {
         this.id = ++id;
         if (classConstructor) {
             this.container = this.addComponent(classConstructor);
@@ -126,12 +161,14 @@ export class Transform<T extends Container = Container> {
     }
     set width(val: number) {
         this.size.x = val;
+        this.emitter.emit(Transform.Event.RESIZE);
     }
     get height() {
         return this.size.y;
     }
     set height(val: number) {
         this.size.y = val;
+        this.emitter.emit(Transform.Event.RESIZE);
     }
 
 
@@ -323,6 +360,7 @@ export class Transform<T extends Container = Container> {
         this.children.push(transform);
         transform.parent = this;
         props && setProps(transform, props)
+        this._addChildEmit(transform);
         return transform;
     }
 
@@ -337,6 +375,26 @@ export class Transform<T extends Container = Container> {
         }
         this.children.splice(index, 0, child);
         child.parent = this;
+        // 添加到舞台
+        this._addChildEmit(child);
+    }
+
+    /**
+     * 发送添加子元素事件
+     * @param child 
+     */
+    private _addChildEmit(child: Transform) {
+        // 添加到舞台
+        this.dispatchEvent(createTransformEvent(Transform.Event.CHILD_ADDED, this, child));
+        this.dispatchEvent(createTransformEvent(Transform.Event.ADDED, child, this));
+    }
+
+    /**
+     * 事件调度
+     * @param event 
+     */
+    dispatchEvent(event: TransformEvent | TransformComponentEvent) {
+        this.emitter.emit(event.type, event);
     }
 
     /**
@@ -359,6 +417,9 @@ export class Transform<T extends Container = Container> {
     removeChildAt(index: number) {
         const node = this.children.splice(index, 1)[0];
         node.parent = undefined;
+        // 被移除于舞台
+        this.dispatchEvent(createTransformEvent(Transform.Event.CHILD_REMOVED, this, node));
+        this.dispatchEvent(createTransformEvent(Transform.Event.REMOVED, node, this));
         return node;
     }
 

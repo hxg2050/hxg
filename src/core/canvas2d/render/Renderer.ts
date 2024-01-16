@@ -20,6 +20,8 @@ type RenderAction<T extends Container = any> = [
 ];
 /**
  * 渲染器
+ * 1、收集渲染任务
+ * 2、处理渲染任务，注意处理顺序
  */
 export class Renderer {
 
@@ -43,7 +45,7 @@ export class Renderer {
         if (!transform.active) {
             return;
         }
-        
+
         const matrix = new Matrix();
         if (this.app !== transform) {
             matrix.setTransform(transform);

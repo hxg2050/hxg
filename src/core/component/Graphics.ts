@@ -1,5 +1,5 @@
 import { Texture } from "../texture";
-import { DisplayObjects } from "./display/DisplayObject";
+import { DisplayObject } from "./display/DisplayObject";
 
 /**
  * 图形绘制
@@ -61,12 +61,17 @@ import { DisplayObjects } from "./display/DisplayObject";
  * g.fill('#000000');
  * ```
  */
-export class Graphics extends DisplayObjects { // extends Component
+export class Graphics extends DisplayObject { // extends Component
+
+    static Event = {
+        PUSH_TASK: 'PUSH_TASK'
+    }
 
     /**
      * 图片纹理，储存图片的相关信息
      */
     public texture?: Texture;
+
     /**
      * 记录要执行的操作记录
      */
@@ -78,7 +83,7 @@ export class Graphics extends DisplayObjects { // extends Component
     redraw = true;
 
     start() {
-        this.node.size.emitter.on('change', this.toRedraw, this);
+        // this.node.size.emitter.on('change', this.toRedraw, this);
         // console.log(this);
     }
 
@@ -92,10 +97,12 @@ export class Graphics extends DisplayObjects { // extends Component
      * @param args 指令参数
      */
     pushTask(name: string, ...args: (string | number)[]) {
-        this.tasks.push({
+        const task = {
             action: name,
             args
-        });
+        }
+        this.tasks.push(task);
+        this.emitter.emit(Graphics.Event.PUSH_TASK, task);
         this.redraw = true;
     }
 
@@ -201,7 +208,7 @@ export class Graphics extends DisplayObjects { // extends Component
      * @param radians 半径
      */
     drawCircle(x: number, y: number, radians: number) {
-        this.arc(x , y, radians, 0, 2 * Math.PI);
+        this.arc(x, y, radians, 0, 2 * Math.PI);
     }
 
     /**
@@ -244,7 +251,7 @@ export class Graphics extends DisplayObjects { // extends Component
             points.length -= 1;
         }
 
-        for (let i = 0; i < points.length; i +=2) {
+        for (let i = 0; i < points.length; i += 2) {
             const x = points[i];
             const y = points[i + 1];
             // console.log(x, y);
@@ -257,7 +264,7 @@ export class Graphics extends DisplayObjects { // extends Component
         this.closePath();
     }
 
-    onDestroy(): void {
-        this.node.size.emitter.off('change', this.toRedraw, this);
-    }
+    // onDestroy(): void {
+    //     this.node.size.emitter.off('change', this.toRedraw, this);
+    // }
 }

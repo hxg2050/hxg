@@ -20,8 +20,13 @@ const componentActions = {
 /**
  * canvas2d相关工作
  */
-export function canvas2d(canvas: HTMLCanvasElement) {
-    return function(app: Application) {
+export function canvas2d(canvas: HTMLCanvasElement, config: {
+    dpi?: number
+} = {}) {
+    config = Object.assign({
+        dpi: window.devicePixelRatio
+    }, config);
+    return function (app: Application) {
         /**
          * 设置canvas大小
          */
@@ -31,7 +36,10 @@ export function canvas2d(canvas: HTMLCanvasElement) {
         /**
          * 自定义渲染器
          */
-        const ctx = hidpi(canvas.getContext('2d')!);
+        const ctx = hidpi(canvas.getContext('2d')!, config.dpi);
+        ctx.canvas.width *= config.dpi;
+        ctx.canvas.height *= config.dpi;
+
         const renderer = new Renderer(ctx, app.stage);
         /**
          * 创建一个刷新器

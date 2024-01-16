@@ -3,5 +3,6 @@ import { Component } from "../Component";
 /**
  * 显示对象组件
  */
-export abstract class DisplayObjects extends Component {
+export abstract class DisplayObject extends Component {
+    dirty: boolean = true;
 }

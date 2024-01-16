@@ -11,7 +11,7 @@ yarn add hxg
 一个简单`hello word!`栗子
 ```ts
 import { Application, canvas2d, Transform, Text } from 'hxg';
-const app = new Applaction({
+const app = new Application({
 	width: 720,
 	height: 1280
 });

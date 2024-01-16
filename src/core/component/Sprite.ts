@@ -1,5 +1,5 @@
 import { Texture } from "../texture";
-import { DisplayObjects } from "./display/DisplayObject";
+import { DisplayObject } from "./display/DisplayObject";
 /**
  * 图片显示组件
  * ```ts
@@ -16,7 +16,7 @@ import { DisplayObjects } from "./display/DisplayObject";
  * });
  * ```
  */
-export class Sprite extends DisplayObjects {
+export class Sprite extends DisplayObject {
     /**
      * 图片纹理，储存图片的相关信息
      */

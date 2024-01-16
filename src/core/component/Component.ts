@@ -4,12 +4,16 @@ import { Transform, Constructor } from "../transform";
 
 let idIndex = 0;
 
-export class Component implements IComponent
- {
+export class Component implements IComponent {
     /**
      * 用于表示组件的唯一标识
      */
     id: number;
+
+    /**
+     * 提供给任意位置调用的元数据
+     */
+    meta: Record<string, any> = {};
 
     /**
      * 组件名

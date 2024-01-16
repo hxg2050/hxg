@@ -39,7 +39,7 @@ function textureSource(texture: Texture) {
 /**
  * 纹理渲染
  */
-export default function textureRender(ctx: CanvasRenderingContext2D, node: Transform, matrix: Matrix, texture: Texture) {
+export default function textureRender(ctx: CanvasRenderingContext2D, node: { width: number, height: number }, matrix: Matrix, texture: Texture) {
     if (texture.width == 0 || texture.height == 0) {
         return;
     }

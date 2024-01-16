@@ -1,9 +1,14 @@
 import EE from "eventemitter3";
 
+export interface IVector2 {
+    x: number;
+    y: number;
+}
+
 /**
  * 二维向量
  */
-export class Vector2 {
+export class Vector2 implements IVector2 {
 
     emitter = new EE();
 
@@ -31,7 +36,7 @@ export class Vector2 {
     public get y() {
         return this._y;
     }
-    public set(num: number) : Vector2;
+    public set(num: number): Vector2;
     public set(x: number, y: number): Vector2;
     public set(vector2: Vector2): Vector2;
     // public set(x: number | Vector2, y?: number): Vector2;
@@ -70,7 +75,7 @@ export class Vector2 {
             this.x += x;
             this.y += y;
             return this;
-        } 
+        }
         return this.add(x.x, x.y);
     }
 

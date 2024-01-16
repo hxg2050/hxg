@@ -8,8 +8,6 @@ export function hidpi(context: CanvasRenderingContext2D, dpi = window.devicePixe
     if (dpi == 1) {
         return context;
     }
-    context.canvas.width *= dpi;
-    context.canvas.height *= dpi;
     // context.scale(dpi, dpi);
 
     const {
@@ -74,6 +72,7 @@ export function hidpi(context: CanvasRenderingContext2D, dpi = window.devicePixe
             if (dx != undefined && dy != undefined && dw != undefined && dh != undefined) {
                 dw *= dpi;
                 dh *= dpi;
+                // console.log(image, image.width, image.height);
                 drawImage.bind(context)(image, sx, sy, sw, sh, dx, dy, dw, dh);
             } else {
                 drawImage.bind(context)(image, sx, sy, sw, sh);
