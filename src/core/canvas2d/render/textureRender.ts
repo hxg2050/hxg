@@ -44,7 +44,6 @@ export default function textureRender(ctx: CanvasRenderingContext2D, node: { wid
         return;
     }
     ctx.save();
-
     // if (texture.left != 0 || texture.top != 0) {
     //     const t = new Transform();
     //     t.position.set(texture.left, texture.top);

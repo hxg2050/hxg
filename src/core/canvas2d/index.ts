@@ -44,15 +44,12 @@ export function canvas2d(canvas: HTMLCanvasElement, config: {
         renderer.context = ctx;
         renderer.link(app.stage);
 
+        let index = 0;
+
         ticker.on('update', () => {
             if (app.stage.meta.renderer) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 app.stage.meta.renderer();
-                // ctx.drawImage(
-                //     app.stage.meta.layerCanvas.canvas,
-                //     0,
-                //     0
-                // );
             }
         });
         ticker.start();

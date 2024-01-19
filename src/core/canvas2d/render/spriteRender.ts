@@ -1,3 +1,4 @@
+import { Node } from "../../transform";
 import { Sprite } from "../../component";
 import { Matrix } from "../../math/Matrix";
 import textureRender from "./textureRender";
@@ -9,8 +10,8 @@ import textureRender from "./textureRender";
  * @param node 
  * @returns 
  */
-export default function spriteRender<T extends Sprite = Sprite>(ctx: CanvasRenderingContext2D, matrix: Matrix, sprite: T) {
-    const texture = sprite.texture;
+export default function spriteRender(ctx: CanvasRenderingContext2D, node: Node<Sprite>) {
+    const texture = node.display.texture;
     if (!texture) {
         return;
     }
@@ -22,6 +23,6 @@ export default function spriteRender<T extends Sprite = Sprite>(ctx: CanvasRende
     //     }
     //     textureRender(ctx, sprite.node, matrix, mask.texture);
     // } else {
-    textureRender(ctx, sprite.node, matrix, texture);
+    textureRender(ctx, node, node.getWorldMatrix(), texture);
     // }
 }

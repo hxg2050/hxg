@@ -2,6 +2,7 @@ import { Application } from "../Application";
 import { Container, DisplayObject, Graphics, Sprite } from "../component";
 import { Node, NodeComponentEvent, NodeEvent } from "../transform";
 import { gr } from "./render/graphicsRender";
+import spriteRender from "./render/spriteRender";
 
 /**
  * 创建一个渲染器
@@ -90,7 +91,7 @@ export class LinkRenderer {
             if (component instanceof Graphics) {
                 component.node.meta.renderer = createRenderer(this.context, component.node, gr);
             } else if (component instanceof Sprite) {
-
+                component.node.meta.renderer = createRenderer(this.context, component.node, spriteRender);
             } else if (component instanceof Container) {
                 component.node.meta.renderer = createRenderer(this.context, component.node);
             }

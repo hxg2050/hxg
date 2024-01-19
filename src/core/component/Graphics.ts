@@ -77,18 +77,13 @@ export class Graphics extends DisplayObject { // extends Component
      */
     tasks: any[] = [];
 
-    /**
-     * 是否需要重绘
-     */
-    redraw = true;
-
     start() {
         // this.node.size.emitter.on('change', this.toRedraw, this);
         // console.log(this);
     }
 
     private toRedraw() {
-        this.redraw = true;
+        this.dirty = true;
     }
 
     /**
@@ -103,7 +98,7 @@ export class Graphics extends DisplayObject { // extends Component
         }
         this.tasks.push(task);
         this.emitter.emit(Graphics.Event.PUSH_TASK, task);
-        this.redraw = true;
+        this.dirty = true;
     }
 
     /**
