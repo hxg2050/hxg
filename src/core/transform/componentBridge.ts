@@ -1,6 +1,7 @@
 import { Component } from "../component";
 import { Props, setProps } from "../utils";
-import { Constructor, Transform, createTransformComponentEvent } from "./Transform";
+import { Node } from "./Node";
+import { Constructor, createTransformComponentEvent } from "./Node";
 
 const components: Map<Constructor<Component>, Component[]> = new Map();
 
@@ -17,7 +18,7 @@ function remove(arr: any[], item: any) {
  * 添加一个组件
  * @param classConstructor - 要挂载的组件
  */
-export function addComponent<T extends Component>(transform: Transform, component: Constructor<T> | T, props?: Props<T>): T {
+export function addComponent<T extends Component>(node: Node, component: Constructor<T> | T, props?: Props<T>): T {
     let classConstructor;
     if (typeof component == 'object') {
         classConstructor = Object.getPrototypeOf(component);
@@ -31,14 +32,14 @@ export function addComponent<T extends Component>(transform: Transform, componen
     }
 
     components.get(classConstructor).push(component);
-    transform.components.push(component);
-    component.node = transform;
+    node.components.push(component);
+    component.node = node;
 
     props && setProps(component, props);
 
     component.start && setTimeout(component.start.bind(component));
     // 派发事件
-    transform.dispatchEvent(createTransformComponentEvent(Transform.Event.COMPONENT_ADDED, transform, component));
+    node.dispatchEvent(createTransformComponentEvent(Node.Event.COMPONENT_ADDED, node, component));
     return component;
 }
 
@@ -46,15 +47,15 @@ export function addComponent<T extends Component>(transform: Transform, componen
  * 移除一个组件
  * @param component - 将要移除的组件
  */
-export function removeComponent(transform: Transform, component: Component) {
+export function removeComponent(node: Node, component: Component) {
     const list = Object.getPrototypeOf(component).constructor;
     remove(list, component);
 
-    if (remove(transform.components, component)) {
+    if (remove(node.components, component)) {
         component.onDestroy();
     }
     // 派发事件
-    transform.dispatchEvent(createTransformComponentEvent(Transform.Event.COMPONENT_REMOVED, transform, component));
+    node.dispatchEvent(createTransformComponentEvent(Node.Event.COMPONENT_REMOVED, node, component));
 }
 
 /**

@@ -18,7 +18,7 @@ function textureSource(texture: Texture) {
     let sh = texture.height;
 
     let ctx: CanvasRenderingContext2D;
-    if (texture.rotation != 0) {
+    if (texture.angle != 0) {
         sw = texture.height;
         sh = texture.width;
         ctx = canvasHelper.createContext(sh, sw, 1);
@@ -45,17 +45,18 @@ export default function textureRender(ctx: CanvasRenderingContext2D, node: { wid
     }
     ctx.save();
 
-    if (texture.left != 0 || texture.top != 0) {
-        const t = new Transform();
-        t.position.set(texture.left, texture.top);
-        const mat = new Matrix();
-        mat.setTransform(t);
-        matrix = mat.prepend(matrix);
-    }
+    // if (texture.left != 0 || texture.top != 0) {
+    //     const t = new Transform();
+    //     t.position.set(texture.left, texture.top);
+    //     const mat = new Matrix();
+    //     mat.setTransform(t);
+    //     matrix = mat.prepend(matrix);
+    // }
 
-    const _matrix = matrix.get();
-    const source = textureSource(texture);
-    ctx.transform(_matrix[0], _matrix[3], _matrix[1], _matrix[4], _matrix[6], _matrix[7]);
+    // const _matrix = matrix.get();
+    // const source = textureSource(texture);
+    const source = texture.source;
+    ctx.transform(...matrix.toArray());
     ctx.drawImage(source, 0, 0, texture.width, texture.height, 0, 0, node.width, node.height);
     ctx.restore();
 }

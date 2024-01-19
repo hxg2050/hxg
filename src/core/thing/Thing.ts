@@ -1,8 +1,8 @@
 import { Container } from "../component";
-import { Constructor, Transform } from "../transform";
+import { Constructor, Node } from "../transform";
 
-export class Thing<T extends Container = Container> extends Transform<T> {
-    
+export class Thing<T extends Container = Container> extends Node<T> {
+
     constructor(classConstructor?: Constructor<T>) {
         super(classConstructor);
         this.start && setTimeout(this.start.bind(this));

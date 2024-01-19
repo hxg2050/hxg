@@ -13,7 +13,17 @@ export class Texture<T extends TextureResource = TextureResource> extends BaseTe
     /**
      * 旋转
      */
-    rotation = 0;
+    angle = 0;
+
+    // /**
+    //  * x轴偏移量
+    //  */
+    // offsetX = 0;
+    // /**
+    //  * y轴偏移量
+    //  */
+    // offsetY = 0;
+
     left = 0;
     top = 0;
     anchor: Vector2 = new Vector2();

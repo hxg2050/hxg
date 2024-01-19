@@ -1,5 +1,6 @@
+import { Vector2 } from "../math";
 import { Texture } from "../texture";
-import { Transform } from "../transform";
+import { Node } from "../transform";
 import { Component } from "./Component";
 import { Sprite } from "./Sprite";
 
@@ -46,7 +47,7 @@ export class NinePanel extends Component {
         this._top = val;
         this.toRedraw();
     }
-    
+
     private _right = 0;
     get right() {
         return this._right;
@@ -72,7 +73,7 @@ export class NinePanel extends Component {
             this.texture = (<Sprite>this.node.container).texture;
         }
 
-        this.node.emitter.on(Transform.Event.RESIZE, this.toRedraw, this);
+        this.node.size.emitter.on(Vector2.Event.CHANGE, this.toRedraw, this);
     }
 
     /**

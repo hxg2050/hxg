@@ -1,6 +1,7 @@
-import { Transform } from './transform';
+import { Node } from './transform';
 import { Vector2 } from './math';
 import { EventSystem } from './system';
+import { Container } from './component';
 
 export type Options = Partial<{
     width: number;
@@ -33,7 +34,7 @@ export class Application {
     /**
      * 舞台，根节点
      */
-    stage: Transform;
+    stage: Node;
 
     /**
      * 全局事件处理器
@@ -42,7 +43,7 @@ export class Application {
 
     constructor(config: Options = {}) {
         this.config = Object.assign({}, this.config, config);
-        this.stage = new Transform();
+        this.stage = new Node(Container);
         this.stage.size = new Vector2(this.config.width, this.config.height);
         this.eventSystem = new EventSystem(this.stage);
     }

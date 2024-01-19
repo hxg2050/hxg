@@ -1,4 +1,5 @@
 import EE from "eventemitter3";
+import { ValueOf } from "../types/ValueOf";
 
 export interface IVector2 {
     x: number;
@@ -9,8 +10,11 @@ export interface IVector2 {
  * 二维向量
  */
 export class Vector2 implements IVector2 {
+    static Event = {
+        CHANGE: 'CHANGE'
+    } as const;
 
-    emitter = new EE();
+    emitter = new EE<ValueOf<typeof Vector2.Event>>();
 
     constructor(num?: number);
     constructor(vector2: Vector2);
@@ -22,7 +26,7 @@ export class Vector2 implements IVector2 {
     private _x: number = 0;
     public set x(val: number) {
         this._x = val;
-        this.emitter.emit('change', this);
+        this.emitter.emit(Vector2.Event.CHANGE, this);
     }
     public get x() {
         return this._x;
@@ -31,7 +35,7 @@ export class Vector2 implements IVector2 {
     private _y: number = 0;
     public set y(val: number) {
         this._y = val;
-        this.emitter.emit('change', this);
+        this.emitter.emit(Vector2.Event.CHANGE, this);
     }
     public get y() {
         return this._y;
@@ -45,8 +49,9 @@ export class Vector2 implements IVector2 {
             if (y == undefined) {
                 y = x;
             }
-            this.x = x;
-            this.y = y;
+            this._x = x;
+            this._y = y;
+            this.emitter.emit(Vector2.Event.CHANGE, this);
             return this;
         }
         return this.set(x.x, x.y);
@@ -72,8 +77,7 @@ export class Vector2 implements IVector2 {
             if (y === undefined) {
                 y = x;
             }
-            this.x += x;
-            this.y += y;
+            this.set(this.x + x, this.y + y);
             return this;
         }
         return this.add(x.x, x.y);
@@ -93,9 +97,7 @@ export class Vector2 implements IVector2 {
             if (y === undefined) {
                 y = x;
             }
-
-            this.x *= x;
-            this.y *= y;
+            this.set(this.x * x, this.y * y);
             return this;
         }
         return this.mul(x.x, x.y);

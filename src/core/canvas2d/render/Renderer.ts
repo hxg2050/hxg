@@ -3,7 +3,7 @@ import { ticker } from "../../ticker";
 import { Container, Graphics, Sprite } from "../../component";
 import { Text } from "../../component/Text";
 import { Matrix } from "../../math/Matrix";
-import { Transform, Constructor } from "../../transform";
+import { Node, Constructor } from "../../transform";
 import spriteRender from "./spriteRender";
 import textRender from "./textRender";
 import graphicsRender from "./graphicsRender";
@@ -31,7 +31,7 @@ export class Renderer {
         [Graphics, graphicsRender],
     ];
 
-    constructor(public context: CanvasRenderingContext2D, public app: Transform) {
+    constructor(public context: CanvasRenderingContext2D, public app: Node) {
     }
 
     render() {
@@ -40,7 +40,7 @@ export class Renderer {
         return this.context;
     }
 
-    private _render(transform: Transform, parentMatrix?: Matrix) {
+    private _render(transform: Node, parentMatrix?: Matrix) {
         // 当前节点帧开始
         if (!transform.active) {
             return;
@@ -48,7 +48,7 @@ export class Renderer {
 
         const matrix = new Matrix();
         if (this.app !== transform) {
-            matrix.setTransform(transform);
+            // matrix.setTransform(transform);
         }
 
         if (parentMatrix) {
@@ -61,7 +61,7 @@ export class Renderer {
             return;
         }
 
-        transform.emitter.emit(Transform.Event.TICKER_BEFORE);
+        transform.emitter.emit(Node.Event.TICKER_BEFORE);
         transform.update(ticker.deltaTime);
 
         for (let j = 0; j < this.renderActions.length; j++) {
@@ -70,7 +70,7 @@ export class Renderer {
             }
         }
         // 当前节点帧结束
-        transform.emitter.emit(Transform.Event.TICKER_AFTER);
+        transform.emitter.emit(Node.Event.TICKER_AFTER);
         if (transform.children.length == 0) {
             return;
         }
@@ -83,7 +83,7 @@ export class Renderer {
     /**
      * 独立绘制
      */
-    private renderAlone(transform: Transform) {
+    private renderAlone(transform: Node) {
         const ctx = canvasHelper.createContext(...transform.size.toArray());
         const renderer = new Renderer(ctx, transform);
         return renderer.render();
@@ -96,7 +96,7 @@ export class Renderer {
      * @param callback 
      * @returns 
      */
-    private _renderElement<T extends Container>(transform: Transform, constructor: Constructor<T>, matrix: Matrix, callback: Function) {
+    private _renderElement<T extends Container>(transform: Node, constructor: Constructor<T>, matrix: Matrix, callback: Function) {
         const element = transform.getComponent(constructor);
         if (!element) {
             return false;

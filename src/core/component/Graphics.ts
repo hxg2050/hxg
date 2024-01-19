@@ -70,7 +70,7 @@ export class Graphics extends DisplayObject { // extends Component
     /**
      * 图片纹理，储存图片的相关信息
      */
-    public texture?: Texture;
+    public texture: Texture = new Texture();
 
     /**
      * 记录要执行的操作记录

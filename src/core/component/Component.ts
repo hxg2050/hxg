@@ -1,6 +1,6 @@
 import EE from 'eventemitter3'
 import { IComponent } from "./IComponent";
-import { Transform, Constructor } from "../transform";
+import { Node } from "../transform";
 
 let idIndex = 0;
 
@@ -23,7 +23,7 @@ export class Component implements IComponent {
     /**
      * 组件挂载节点
      */
-    node!: Transform;
+    node!: Node;
 
     /**
      * 事件处理器

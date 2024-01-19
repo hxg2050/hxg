@@ -1,6 +1,6 @@
 import { hidpi } from "./hidpi";
 
-interface ICanvasContext extends CanvasRenderingContext2D {
+export interface ICanvasContext extends CanvasRenderingContext2D {
     canvas: HTMLCanvasElement & {
         computedWidth: number;
         computedHeight: number;

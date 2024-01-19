@@ -6,7 +6,7 @@ import { Texture } from "../../texture";
 function maskTexture(maskComponent: Mask) {
     const node = maskComponent.node;
     const mask = maskComponent.value;
-    
+
     const ctx = canvasHelper.createContext(...node.size.toArray(), 1);
     ctx.save();
     const matrix = new Matrix().setTransform(mask).get();
@@ -27,6 +27,6 @@ function maskTexture(maskComponent: Mask) {
 }
 
 export function mask(component: Mask) {
-    (component.node.container as Sprite).texture = maskTexture(component);
+    (component.node.display as Sprite).texture = maskTexture(component);
     component.value.active = false;
 }

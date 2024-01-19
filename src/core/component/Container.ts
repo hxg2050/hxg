@@ -1,4 +1,4 @@
-import { DisplayObjects } from "./display/DisplayObject";
+import { DisplayObject } from "./display/DisplayObject";
 
-export class Container extends DisplayObjects {
+export class Container extends DisplayObject {
 }
