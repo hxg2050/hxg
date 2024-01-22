@@ -1,5 +1,5 @@
 import { Texture } from "../texture";
-import { Transform } from "../transform";
+import { Node } from "../transform";
 import { Component } from "./Component";
 import { Sprite } from "./Sprite";
 
@@ -25,7 +25,7 @@ export class Mask extends Component {
     /**
      * 遮罩蒙版
      */
-    value?: Transform;
+    value?: Node;
     /**
      * 最终效果的纹理，这样设计不影响原节点和蒙版节点
      */
@@ -33,7 +33,7 @@ export class Mask extends Component {
 
     start(): void {
         if (!this.texture) {
-            this.texture = (<Sprite>this.node.container).texture;
+            this.texture = (<Sprite>this.node.display).texture;
         }
     }
 }

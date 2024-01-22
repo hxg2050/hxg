@@ -143,6 +143,10 @@ export class Node<T extends Container = Container> {
         }
     }
 
+    getLocalMatrix() {
+        this.updateMatrix(true);
+        return this.localMatrix;
+    }
     getWorldMatrix() {
         this.updateMatrix(true);
         return this.worldMatrix;

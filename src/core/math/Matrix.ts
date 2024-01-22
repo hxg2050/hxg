@@ -49,17 +49,17 @@ export class Matrix {
     //     this.angle += angle;
     // }
 
-    append(matrix: Matrix) {
-        const ma = this;
-        const mb = matrix;
-        this.a = ma.a * mb.a + ma.c * mb.b;
-        this.b = ma.b * mb.a + ma.d * mb.b;
-        this.c = ma.a * mb.c + ma.c * mb.d;
-        this.d = ma.b * mb.c + ma.d * mb.d;
-        this.tx = ma.a * mb.tx + ma.c * mb.ty + ma.tx;
-        this.ty = ma.b * mb.tx + ma.d * mb.ty + ma.ty;
-        return this;
-    }
+    // append(matrix: Matrix) {
+    //     const ma = this;
+    //     const mb = matrix;
+    //     this.a = ma.a * mb.a + ma.c * mb.b;
+    //     this.b = ma.b * mb.a + ma.d * mb.b;
+    //     this.c = ma.a * mb.c + ma.c * mb.d;
+    //     this.d = ma.b * mb.c + ma.d * mb.d;
+    //     this.tx = ma.a * mb.tx + ma.c * mb.ty + ma.tx;
+    //     this.ty = ma.b * mb.tx + ma.d * mb.ty + ma.ty;
+    //     return this;
+    // }
 
     prepend(matrix: Matrix) {
         const ma = matrix;

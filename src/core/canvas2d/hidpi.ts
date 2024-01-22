@@ -1,3 +1,5 @@
+
+
 /**
  * 解决canvas模糊问题
  * 重写部分用到的api
@@ -22,8 +24,13 @@ export function hidpi(context: CanvasRenderingContext2D, dpi = window.devicePixe
         moveTo,
         lineTo,
         arc,
+        roundRect,
+        rect,
+        fillRect,
+        strokeRect,
         measureText
     } = context;
+
     //    clearRect(x: number, y: number, w: number, h: number): void;
     context.clearRect = (x: number, y: number, w: number, h: number) => {
         x *= dpi;
@@ -121,6 +128,54 @@ export function hidpi(context: CanvasRenderingContext2D, dpi = window.devicePixe
         y *= dpi;
         radius *= dpi;
         return arc.bind(context)(x, y, radius, startAngle, endAngle, counterclockwise);
+    }
+
+    const parseRadii = (radii: number | DOMPointInit | (number | DOMPointInit)[]) => {
+        if (typeof radii === 'number') {
+            return radii * dpi;
+        }
+
+        if (Array.isArray(radii)) {
+            return radii.map(val => parseRadii(val));
+        }
+
+        if (typeof radii === 'object') {
+            radii.x *= dpi;
+            radii.y *= dpi;
+            radii.z *= dpi;
+            return radii;
+        }
+    }
+
+    context.roundRect = (x: number, y: number, w: number, h: number, radii?: number | DOMPointInit | (number | DOMPointInit)[]) => {
+        x *= dpi;
+        y *= dpi;
+        w *= dpi;
+        h *= dpi;
+        return roundRect.bind(context)(x, y, w, h, parseRadii(radii));
+    }
+    context.rect = (x: number, y: number, w: number, h: number) => {
+        x *= dpi;
+        y *= dpi;
+        w *= dpi;
+        h *= dpi;
+        return rect.bind(context)(x, y, w, h);
+    }
+    context.fillRect = (x: number, y: number, w: number, h: number) => {
+        x *= dpi;
+        y *= dpi;
+        w *= dpi;
+        h *= dpi;
+        return fillRect.bind(context)(x, y, w, h);
+    }
+    context.strokeRect = (x: number, y: number, w: number, h: number) => {
+        x *= dpi;
+        y *= dpi;
+        w *= dpi;
+        h *= dpi;
+        context.lineWidth *= dpi;
+        strokeRect.bind(context)(x, y, w, h);
+        context.lineWidth /= dpi;
     }
 
     // context.measureText = (text: string) => {

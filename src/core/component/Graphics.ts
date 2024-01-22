@@ -4,61 +4,73 @@ import { DisplayObject } from "./display/DisplayObject";
 /**
  * 图形绘制
  * ```ts
- * const node = app.stage.addChild(new Transform(Graphics));
- * node.size.set(1280, 720);
- * const g = node.getComponent(Graphics)!;
- * // 绘制多边形
- * g.begin();
- * g.drawPolygon([0, 0,  100, 0,  100, 100, 50, 50, 0, 100]);
- * g.fill('#00ffff');
- * g.stroke('#00ff00');
- * // 绘制线条
- * g.begin();
- * g.moveTo(120, 20)
- * g.lineTo(220, 20);
- * g.lineTo(220, 100);
- * // 闭合路径
- * g.closePath();
- * g.stroke('#00ff00', 5);
- * // 绘制线条
- * g.begin();
- * g.moveTo(120, 20)
- * g.lineTo(220, 20);
- * g.stroke('#00ff00', 5);
- * // 绘制圆弧
- * g.begin();
- * g.arc(340, 60, 50, 0, Math.PI);
- * g.stroke('#0000FF', 5);
- * // 绘制圆
- * g.begin();
- * g.drawCircle(460, 60, 50);
- * g.stroke('#0000FF', 5);
- * // 绘制圆角矩形
- * g.begin();
- * g.drawRect(560, 10, 100, 100, 8);
- * g.fill('#FF00FF');
- * g.stroke('#0000FF', 5);
- * // 绘制椭圆路径
- * g.begin();
- * g.ellipse(120, 200, 100, 80, 0, 0, Math.PI);
- * g.fill('#FF0000');
- * g.stroke('#00FF00', 5);
- * 
- * g.begin();
- * g.drawCircle(50, 210, 5);
- * g.fill('#000000');
- * 
- * g.begin();
- * g.drawCircle(80, 210, 5);
- * g.fill('#000000');
- * 
- * g.begin();
- * g.drawCircle(110, 210, 5);
- * g.fill('#000000');
- * // 绘制椭圆
- * g.begin();
- * g.drawEllipse(140, 210, 10, 5);
- * g.fill('#000000');
+ * const node = app.stage.addChild(new Node(Graphics));
+    node.x = 20
+    node.y = 20
+    // node.size.set(1280, 720);
+    const g = node.getComponent(Graphics)!;
+    // 绘制多边形
+    g.begin();
+    g.fill('#00ff67');
+    g.stroke('#000000', 10);
+    g.drawPolygon([20, 20, 70, 20, 70, 70, 45, 45, 20, 70]);
+    g.end();
+
+    // 绘制线条
+    g.begin();
+    g.stroke('#00ff00', 5);
+    g.moveTo(90, 20)
+    g.lineTo(140, 20);
+    g.lineTo(140, 70);
+    // 闭合路径
+    g.closePath();
+    g.end();
+
+    // 绘制圆弧
+    g.begin();
+    g.stroke('#0000FF', 5);
+    g.arc(210, 70, 50, 0, Math.PI);
+    g.end()
+
+    // 绘制圆
+    g.begin();
+    g.stroke('#0000FF', 5);
+    g.drawCircle(460, 60, 50);
+    g.end();
+    // 绘制圆角矩形
+    g.begin();
+    g.fill('#FF00FF');
+    g.stroke('#0000FF', 5);
+    g.drawRect(560, 10, 100, 100, 8);
+    g.end();
+
+    // 绘制椭圆路径
+    g.begin();
+    g.fill('#FF0000');
+    g.stroke('#00FF00', 5);
+    g.ellipse(120, 200, 100, 80, 0, 0, Math.PI);
+    g.end()
+
+    g.begin();
+    g.drawCircle(50, 210, 5);
+    g.fill('#000000');
+    g.end()
+
+    g.begin();
+    g.drawCircle(80, 210, 5);
+    g.fill('#000000');
+    g.end();
+
+    g.begin();
+    g.drawCircle(110, 210, 5);
+    g.fill('#000000');
+    g.end();
+
+    // 绘制椭圆
+    g.begin();
+    g.drawEllipse(140, 210, 10, 5);
+    g.fill('#000000');
+    g.end();
  * ```
  */
 export class Graphics extends DisplayObject { // extends Component
@@ -114,6 +126,10 @@ export class Graphics extends DisplayObject { // extends Component
         this.pushTask('begin');
     }
 
+    end() {
+        this.pushTask('end');
+    }
+
     /**
      * 闭合路径，会将起始点与结束点用直线连接
      */
@@ -128,12 +144,21 @@ export class Graphics extends DisplayObject { // extends Component
     fill(color: string) {
         this.pushTask('fill', ...arguments);
     }
+
+    /**
+     * 设置边框偏移
+     * @param val 
+     */
+    strokeAlignment(val = 0) {
+        this.pushTask('strokeAlignment', ...arguments);
+    }
+
     /**
      * 设置边框或线条
      * @param color 颜色
      */
-    stroke(color: string, width: number = 1) {
-        this.pushTask('stroke', ...arguments);
+    stroke(color: string, width: number = 1/** , alignment = 0 */) {
+        this.pushTask('stroke', ...[color, width]);
     }
 
     /**
@@ -166,22 +191,24 @@ export class Graphics extends DisplayObject { // extends Component
          * 未设置圆角，直接使用多边形绘制
          */
         if (radius <= 0) {
-            this.drawPolygon([x, y, x + width, y, x + width, y + height, x, y + height]);
+            this.pushTask('rect', ...arguments);
+            // this.drawPolygon([x, y, x + width, y, x + width, y + height, x, y + height]);
             return;
         }
+        this.pushTask('roundedRect', ...arguments);
 
         /**
          * 矫正圆角范围
          */
-        radius = Math.max(0, Math.min(radius, Math.min(width, height) / 2));
-        this.arc(x + radius, y + radius, radius, -Math.PI, -Math.PI / 2);
-        this.lineTo(x + width - radius, y);
-        this.arc(x + width - radius, y + radius, radius, -Math.PI / 2, 0);
-        this.lineTo(x + width, y + height - radius);
-        this.arc(x + width - radius, y + height - radius, radius, 0, Math.PI / 2);
-        this.lineTo(x + radius, y + height);
-        this.arc(x + radius, y + height - radius, radius, Math.PI / 2, -Math.PI);
-        this.closePath();
+        // radius = Math.max(0, Math.min(radius, Math.min(width, height) / 2));
+        // this.arc(x + radius, y + radius, radius, -Math.PI, -Math.PI / 2);
+        // this.lineTo(x + width - radius, y);
+        // this.arc(x + width - radius, y + radius, radius, -Math.PI / 2, 0);
+        // this.lineTo(x + width, y + height - radius);
+        // this.arc(x + width - radius, y + height - radius, radius, 0, Math.PI / 2);
+        // this.lineTo(x + radius, y + height);
+        // this.arc(x + radius, y + height - radius, radius, Math.PI / 2, -Math.PI);
+        // this.closePath();
     }
 
     /**

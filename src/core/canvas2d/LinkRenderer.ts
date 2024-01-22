@@ -1,7 +1,7 @@
 import { Application } from "../Application";
 import { Container, DisplayObject, Graphics, Sprite } from "../component";
 import { Node, NodeComponentEvent, NodeEvent } from "../transform";
-import { gr } from "./render/graphicsRender";
+import { graphicsRender } from "./render/graphicsRender";
 import spriteRender from "./render/spriteRender";
 
 /**
@@ -9,6 +9,9 @@ import spriteRender from "./render/spriteRender";
  */
 const createRenderer = <T extends DisplayObject>(context: CanvasRenderingContext2D, node: Node<T>, renderer?: (context: CanvasRenderingContext2D, node: Node<T>) => void) => {
     return () => {
+        if (!node.active) {
+            return;
+        }
         renderer && renderer(context, node);
         // if (texture.left != 0 || texture.top != 0) {
         //     const t = new Transform();
@@ -89,7 +92,7 @@ export class LinkRenderer {
         if (component instanceof DisplayObject) {
             // 注册渲染器
             if (component instanceof Graphics) {
-                component.node.meta.renderer = createRenderer(this.context, component.node, gr);
+                component.node.meta.renderer = createRenderer(this.context, component.node, graphicsRender);
             } else if (component instanceof Sprite) {
                 component.node.meta.renderer = createRenderer(this.context, component.node, spriteRender);
             } else if (component instanceof Container) {

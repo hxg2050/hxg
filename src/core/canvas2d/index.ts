@@ -7,6 +7,7 @@ import { ninePanel } from "./component/ninePanel";
 import { linkTransform } from "./listener";
 import { ticker } from "../ticker";
 import { LinkRenderer } from "./LinkRenderer";
+import { each } from "./bridge";
 
 const componentActions = {
     beforeUpdate: [
@@ -46,6 +47,13 @@ export function canvas2d(canvas: HTMLCanvasElement, config: {
 
         let index = 0;
 
+        for (let p in componentActions) {
+            ticker.on(p, () => {
+                const actions = componentActions[p];
+                actions.forEach(val => each(val[0], val[1]));
+            });
+        }
+
         ticker.on('update', () => {
             if (app.stage.meta.renderer) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -57,13 +65,7 @@ export function canvas2d(canvas: HTMLCanvasElement, config: {
         // /**
         //  * 创建一个刷新器
         //  */
-        // // const ticker = new Ticker();
-        // for (let p in componentActions) {
-        //     ticker.on(p, () => {
-        //         const actions = componentActions[p];
-        //         actions.forEach(val => each(val[0], val[1]));
-        //     });
-        // }
+        // const ticker = new Ticker();
         // ticker.on('update', renderer.render, renderer);
         // ticker.start();
         app.use(touchEventListener(canvas));

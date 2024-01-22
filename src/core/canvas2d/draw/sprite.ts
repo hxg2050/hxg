@@ -1,6 +1,6 @@
 import { Mask } from "../../component";
-import { Transform } from "../../transform";
+import { Node } from "../../transform";
 
-export function draw(node: Transform) {
+export function draw(node: Node) {
     const mask = node.getComponent(Mask);
 }

@@ -6,7 +6,7 @@ import { Matrix } from "../../math/Matrix";
 import { Node, Constructor } from "../../transform";
 import spriteRender from "./spriteRender";
 import textRender from "./textRender";
-import graphicsRender from "./graphicsRender";
+import { graphicsRender } from "./graphicsRender";
 import { canvasHelper } from "../canvasHelper";
 import textureRender from "./textureRender";
 import { Texture } from "../..";

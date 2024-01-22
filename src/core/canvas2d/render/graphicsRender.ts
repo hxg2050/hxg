@@ -1,10 +1,185 @@
 import { Graphics } from "../../component"
 import { Node } from "../../transform"
-import { IVector2, Matrix } from "../../math";
+import { IVector2, Matrix, Vector2 } from "../../math";
 import { BaseTexture, Texture } from "../../texture";
 import { ICanvasContext, canvasHelper } from "../canvasHelper";
 import textureRender from "./textureRender";
 import spriteRender from "./spriteRender";
+
+/**
+ * 绘制任务
+ */
+class DrawTask {
+    borderWidth = 0;
+    borderStyle: string = null;
+    borderAlignment = 0;
+
+    fillStyle: string = null;
+    constructor(public ctx: CanvasRenderingContext2D) {
+        console.log(ctx.canvas);
+    }
+
+    drawRect(
+        x: number = 0,
+        y: number = 0,
+        width: number = 0,
+        height: number = 0,
+        radius: number = 0
+    ) {
+        const ctx = this.ctx;
+
+        // if (this.fillStyle !== null) {
+        //     ctx.fillStyle = this.fillStyle;
+        // }
+
+        // 如果没有圆角
+        const offset = (0.5 - this.borderAlignment) * this.borderWidth;
+        const _x = x + offset;
+        const _y = y + offset;
+        const _w = width - offset * 2;
+        const _h = height - offset * 2;
+        if (radius == 0) {
+            ctx.rect(_x, _y, _w, _h);
+        } else {
+            ctx.roundRect(_x, _y, _w, _h, radius);
+        }
+
+        // ctx.fill();
+
+        // if (this.borderWidth > 0) {
+        //     this.ctx.lineWidth = this.borderWidth;
+        //     if (this.borderStyle !== null) {
+        //         ctx.strokeStyle = this.borderStyle;
+        //     }
+        //     ctx.stroke();
+        // }
+        // return;
+
+        // 圆角手动计算
+        // const offset = (0.5 - this.borderAlignment) * this.borderWidth;
+        // const _radius = Math.max(0, Math.min(radius, Math.min(width, height) / 2));
+        // x += offset;
+        // y += offset;
+        // width -= 2 * offset;
+        // height -= 2 * offset;
+
+
+        // ctx.arc(x + _radius, y + _radius, _radius, -Math.PI, -Math.PI / 2);
+        // ctx.lineTo(x + width - _radius, y);
+        // ctx.arc(x + width - _radius, y + _radius, _radius, -Math.PI / 2, 0);
+        // ctx.lineTo(x + width, y + height - _radius);
+        // ctx.arc(x + width - _radius, y + height - _radius, _radius, 0, Math.PI / 2);
+        // ctx.lineTo(x + _radius, y + height);
+        // ctx.arc(x + _radius, y + height - _radius, _radius, Math.PI / 2, -Math.PI);
+        // ctx.closePath();
+        // ctx.fill();
+
+        // if (this.borderWidth > 0) {
+        //     this.ctx.lineWidth = this.borderWidth;
+        //     if (this.borderStyle !== null) {
+        //         ctx.strokeStyle = this.borderStyle;
+        //     }
+        //     ctx.stroke();
+        // }
+    }
+
+    // texCtx.arc(args[0] - rectangle.points[0], args[1] - rectangle.points[1], args[2], args[3], args[4]);
+    drawArc(x: number, y: number, radius: number, startAngle: number, endAngle: number) {
+
+        const ctx = this.ctx;
+
+        // if (this.fillStyle !== null) {
+        //     ctx.fillStyle = this.fillStyle;
+        // }
+
+
+        const offset = (0.5 - this.borderAlignment) * this.borderWidth;
+        const _radius = radius - offset;
+        // x += offset;
+        // y += offset;
+
+        ctx.arc(x, y, _radius, startAngle, endAngle);
+        // ctx.fill();
+
+        // if (this.borderWidth > 0) {
+        //     this.ctx.lineWidth = this.borderWidth;
+        //     if (this.borderStyle !== null) {
+        //         ctx.strokeStyle = this.borderStyle;
+        //     }
+        //     ctx.stroke();
+        // }
+    }
+    drawEllipse(
+        x: number,
+        y: number,
+        radiusX: number,
+        radiusY: number,
+        rotation: number,
+        startAngle: number,
+        endAngle: number,
+        anticlockwise: boolean = false
+    ) {
+
+        const ctx = this.ctx;
+
+        // if (this.fillStyle !== null) {
+        //     ctx.fillStyle = this.fillStyle;
+        // }
+
+
+        const offset = (0.5 - this.borderAlignment) * this.borderWidth;
+        x += offset;
+        y += offset;
+        radiusX -= offset;
+        radiusY -= offset;
+
+        ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle, anticlockwise);
+        // ctx.fill();
+
+        // if (this.borderWidth > 0) {
+        //     this.ctx.lineWidth = this.borderWidth;
+        //     if (this.borderStyle !== null) {
+        //         ctx.strokeStyle = this.borderStyle;
+        //     }
+        //     ctx.stroke();
+        // }
+    }
+
+    moveTo(x: number, y: number) {
+        this.ctx.moveTo(x, y);
+    }
+
+    lineTo(x: number, y: number) {
+        this.ctx.lineTo(x, y);
+    }
+
+    closePath() {
+        this.ctx.closePath();
+    }
+
+    end() {
+
+        if (this.fillStyle !== null) {
+            this.ctx.fillStyle = this.fillStyle;
+            this.ctx.fill();
+        }
+
+        if (this.borderWidth > 0) {
+            this.ctx.lineWidth = this.borderWidth;
+            if (this.borderStyle !== null) {
+                this.ctx.strokeStyle = this.borderStyle;
+            }
+            this.ctx.stroke();
+        }
+    }
+
+    reset() {
+        this.borderWidth = 0;
+        this.borderStyle = null;
+        this.borderAlignment = 0;
+        this.fillStyle = null;
+    }
+}
 
 const createBound = () => {
     const points = [Infinity, Infinity, -Infinity, -Infinity];
@@ -27,20 +202,20 @@ const createBound = () => {
 }
 
 
-export const gr = (ctx: ICanvasContext, node: Node<Graphics>) => {
+export const graphicsRender = (ctx: ICanvasContext, node: Node<Graphics>) => {
     // const ctx = node.meta.ctx;
 
     // 记录偏移量
-
-
 
     const display = node.display;
     if (display.dirty) {
         if (!node.meta.offset) {
             node.meta.offset = new Matrix();
         }
+        if (!node.meta.size) {
+            node.meta.size = new Vector2();
+        }
         const tempMatrix = node.meta.offset;
-        console.log('gr');
 
         if (!display.texture) {
             display.texture = new Texture(canvasHelper.createContext().canvas);
@@ -54,28 +229,36 @@ export const gr = (ctx: ICanvasContext, node: Node<Graphics>) => {
 
         const rectangle = createBound();
 
+        let lineWidth = 0;
+        let borderAlignment = 0;
 
         for (let i = 0; i < display.tasks.length; i++) {
             const { action, args } = display.tasks[i];
+            const offset = (0.5 - borderAlignment) * lineWidth;
+
             switch (action) {
                 case 'begin':
+                    lineWidth = 0;
                     break;
                 case 'moveTo':
                     rectangle.push({
-                        x: args[0],
-                        y: args[1]
+                        x: args[0] - offset,
+                        y: args[1] - offset
                     });
                     break;
                 case 'closePath':
                     break;
                 case 'lineTo':
                     rectangle.push({
-                        x: args[0],
-                        y: args[1]
+                        x: args[0] + offset,
+                        y: args[1] + offset
                     });
                     break;
                 case 'stroke':
-                    // 边框，有几种模式，1、外边框，2、居中，3、内边狂
+                    // 边框，有几种模式，1、外边框(默认?)，2、居中(纯线条情况)，3、内边狂
+                    const width = args[0];
+                    const alignment = args[2];
+                    lineWidth = args[1];
                     break;
                 case 'arc':
                     // 先记录全部
@@ -102,47 +285,72 @@ export const gr = (ctx: ICanvasContext, node: Node<Graphics>) => {
                         y: args[1] + args[3]
                     });
                     break;
+                case 'rect':
+                case 'roundedRect':
+                    rectangle.push({
+                        x: args[0],
+                        y: args[1]
+                    });
+
+                    rectangle.push({
+                        x: args[0] + args[2],
+                        y: args[1] + args[3]
+                    });
+                    break;
             }
         }
         const textureSize = [rectangle.points[2] - rectangle.points[0], rectangle.points[3] - rectangle.points[1]] as const;
 
         texCtx.canvas.computedWidth = textureSize[0];
         texCtx.canvas.computedHeight = textureSize[1];
-        display.texture.width = textureSize[0];
-        display.texture.height = textureSize[1];
-        console.log(rectangle);
+        display.texture.width = texCtx.canvas.width;
+        display.texture.height = texCtx.canvas.height;
+        node.meta.size.set(textureSize[0], textureSize[1]);
+        console.log(rectangle, textureSize);
 
         texCtx.clearRect(0, 0, ...textureSize);
+
+        const drawTask = new DrawTask(texCtx);
 
         for (let i = 0; i < display.tasks.length; i++) {
             const { action, args } = display.tasks[i];
             switch (action) {
                 case 'begin':
                     texCtx.beginPath();
+                    drawTask.reset();
+                    break;
+                case 'end':
+                    drawTask.end();
                     break;
                 case 'moveTo':
-                    texCtx.moveTo(args[0] - rectangle.points[0], args[1] - rectangle.points[1]);
+                    drawTask.moveTo(args[0] - rectangle.points[0], args[1] - rectangle.points[1]);
                     break;
                 case 'closePath':
-                    texCtx.closePath();
+                    drawTask.closePath();
                     break;
                 case 'lineTo':
-                    texCtx.lineTo(args[0] - rectangle.points[0], args[1] - rectangle.points[1]);
+                    drawTask.lineTo(args[0] - rectangle.points[0], args[1] - rectangle.points[1]);
                     break;
                 case 'stroke':
-                    texCtx.strokeStyle = args[0];
-                    texCtx.lineWidth = args[1];
-                    texCtx.stroke();
+                    drawTask.borderStyle = args[0];
+                    drawTask.borderWidth = args[1];
                     break;
                 case 'arc':
-                    texCtx.arc(args[0] - rectangle.points[0], args[1] - rectangle.points[1], args[2], args[3], args[4]);
+                    drawTask.drawArc(args[0] - rectangle.points[0], args[1] - rectangle.points[1], args[2], args[3], args[4]);
                     break;
                 case 'fill':
-                    texCtx.fillStyle = args[0];
-                    texCtx.fill();
+                    // texCtx.fillStyle = args[0];
+                    // texCtx.fill();
+                    drawTask.fillStyle = args[0];
                     break;
                 case 'ellipse':
-                    texCtx.ellipse(args[0] - rectangle.points[0], args[1] - rectangle.points[1], args[2], args[3], args[4], args[5], args[6], args[7]);
+                    drawTask.drawEllipse(args[0] - rectangle.points[0], args[1] - rectangle.points[1], args[2], args[3], args[4], args[5], args[6], args[7]);
+                    break;
+                case 'rect':
+                    drawTask.drawRect(args[0] - rectangle.points[0], args[1] - rectangle.points[1], args[2], args[3], args[4]);
+                    break;
+                case 'roundedRect':
+                    drawTask.drawRect(args[0] - rectangle.points[0], args[1] - rectangle.points[1], args[2], args[3], args[4]);
                     break;
             }
 
@@ -156,142 +364,6 @@ export const gr = (ctx: ICanvasContext, node: Node<Graphics>) => {
     tempMatrix.copyFrom(node.meta.offset);
     tempMatrix.prepend(node.getWorldMatrix());
 
-    textureRender(ctx, display.texture, tempMatrix, display.texture);
-}
-
-
-export default async function graphicsRender<T extends Graphics = Graphics>(ctx: CanvasRenderingContext2D, matrix: Matrix, sprite: T) {
-
-    const component = sprite;
-    component.meta.link = true;
-
-    const tempMatrix = new Matrix();
-    if (!sprite.texture || sprite.redraw) {
-        const g = sprite;
-        // 记录一个矩形范围
-        const rectangle = createBound();
-
-        const point = {
-            x: 0,
-            y: 0
-        }
-
-        for (let i = 0; i < g.tasks.length; i++) {
-            const { action, args } = g.tasks[i];
-            switch (action) {
-                case 'begin':
-                    break;
-                case 'moveTo':
-                    point.x = args[0];
-                    point.y = args[1];
-                    rectangle.push(point);
-                    break;
-                case 'closePath':
-                    break;
-                case 'lineTo':
-                    point.x = args[0];
-                    point.y = args[1];
-                    rectangle.push(point);
-                    break;
-                case 'stroke':
-                    // 边框，有几种模式，1、外边框，2、居中，3、内边狂
-                    break;
-                case 'arc':
-                    // 先记录全部
-                    rectangle.push({
-                        x: args[0] - args[2],
-                        y: args[1] - args[2]
-                    });
-
-                    rectangle.push({
-                        x: args[0] + args[2],
-                        y: args[1] + args[2]
-                    });
-                    break;
-                case 'fill':
-                    break;
-                case 'ellipse':
-
-                    rectangle.push({
-                        x: args[0] - args[2],
-                        y: args[1] - args[3]
-                    });
-                    rectangle.push({
-                        x: args[0] + args[2],
-                        y: args[1] + args[3]
-                    });
-                    // rectangle.x = Math.min(args[0] - args[2], rectangle.x);
-                    // rectangle.y = Math.min(args[1] - args[3], rectangle.y);
-                    // rectangle.width = Math.max(args[2], rectangle.width);
-                    // rectangle.height = Math.max(args[3], rectangle.height);
-                    break;
-            }
-        }
-        const textureSize = [rectangle.points[2] - rectangle.points[0], rectangle.points[3] - rectangle.points[1]] as const;
-
-        // if (!sprite.texture) {
-        // console.log(rectangle.points, textureSize);
-        const canvas = canvasHelper.createContext(...textureSize).canvas;
-        sprite.texture = new Texture(canvas);
-        // sprite.texture.width = textureSize[0];
-        // sprite.texture.height = textureSize[1];
-        sprite.texture.init = true;
-        // }
-
-
-        const texture = sprite.texture;
-        // texture.source.width = textureSize[0];
-        // texture.source.height = textureSize[1];
-        const _ctx = (texture.source as HTMLCanvasElement).getContext('2d')!;
-        _ctx.clearRect(0, 0, ...textureSize);
-
-        // console.log(sprite.texture.source.width, sprite.texture.source.height);
-
-        for (let i = 0; i < g.tasks.length; i++) {
-            const { action, args } = g.tasks[i];
-            switch (action) {
-                case 'begin':
-                    _ctx.beginPath();
-                    break;
-                case 'moveTo':
-                    _ctx.moveTo(args[0] - rectangle.points[0], args[1] - rectangle.points[1]);
-                    break;
-                case 'closePath':
-                    _ctx.closePath();
-                    break;
-                case 'lineTo':
-                    _ctx.lineTo(args[0] - rectangle.points[0], args[1] - rectangle.points[1]);
-                    break;
-                case 'stroke':
-                    _ctx.strokeStyle = args[0];
-                    _ctx.lineWidth = args[1];
-                    _ctx.stroke();
-                    break;
-                case 'arc':
-                    _ctx.arc(args[0] - rectangle.points[0], args[1] - rectangle.points[1], args[2], args[3], args[4]);
-                    break;
-                case 'fill':
-                    _ctx.fillStyle = args[0];
-                    _ctx.fill();
-                    break;
-                case 'ellipse':
-                    _ctx.ellipse(args[0] - rectangle.points[0], args[1] - rectangle.points[1], args[2], args[3], args[4], args[5], args[6], args[7]);
-                    break;
-            }
-
-        }
-
-        tempMatrix.value[6] = rectangle.points[0];
-        tempMatrix.value[7] = rectangle.points[1]
-        sprite.redraw = false;
-
-        // console.log(texture.width, texture.height);
-    }
-    if (sprite.texture) {
-        matrix.prepend(tempMatrix);
-        textureRender(ctx, sprite.node, matrix, sprite.texture);
-        tempMatrix.value[6] *= -1;
-        tempMatrix.value[7] *= -1;
-        matrix.prepend(tempMatrix);
-    }
+    textureRender(ctx, node.meta.size, tempMatrix, display.texture);
+    console.log(1121213);
 }
