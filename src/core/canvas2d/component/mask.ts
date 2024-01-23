@@ -14,7 +14,7 @@ function maskTexture(maskComponent: Mask) {
     const matrix = new Matrix().copyFrom(mask.getLocalMatrix());
     ctx.transform(...matrix.toArray());
     const mSprite = <Sprite>mask.display;
-    if (!mSprite || !mSprite.texture.source) {
+    if (!mSprite || !mSprite.texture.source || mSprite.texture.width === 0 || mSprite.texture.height === 0) {
         return;
     }
 

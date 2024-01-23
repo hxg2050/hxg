@@ -24,8 +24,8 @@ function make(component: NinePanel) {
     let yline = [0, top, bottom, height];
     const rects = [];
 
-    for (let i = 0; i < xline.length - 1; i ++) {
-        for (let j = 0; j < yline.length - 1; j ++) {
+    for (let i = 0; i < xline.length - 1; i++) {
+        for (let j = 0; j < yline.length - 1; j++) {
             const x = xline[i];
             const y = yline[j];
             const width = xline[i + 1] - x;
@@ -43,7 +43,7 @@ function make(component: NinePanel) {
 
     const source = component.texture.source;
 
-    for (let i = 0; i < 9; i ++) {
+    for (let i = 0; i < 9; i++) {
         let x = rects[i * 4];
         let y = rects[i * 4 + 1];
         let w = rects[i * 4 + 2];
@@ -68,7 +68,7 @@ function make(component: NinePanel) {
         if (i == 4) {
             ctx.drawImage(source, x, y, w, h, x, y, cw, ch);
         }
-        
+
         if (i == 5) {
             ctx.drawImage(source, x, y, w, h, x, node.height - h, cw, h);
         }
@@ -114,5 +114,5 @@ export function ninePanel(component: NinePanel) {
     if (!component.redraw) {
         return;
     }
-    (component.node.container as Sprite).texture = make(component);
+    (component.node.display as Sprite).texture = make(component);
 }
